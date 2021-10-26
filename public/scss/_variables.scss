@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aladin&display=swap");
+
+// Fonts
+$font-zilla: "Zilla Slab",
+serif;
+$font-abril: "Abril Fatface",
+cursive;
+$font-lobster: "Lobster",
+cursive;
+$font-aladin: "Aladin",
+cursive;
+
+//Size
+$size-content: 22px;
+
+// Color
+$color-black: #030314;
+$color-grey: #333333;
+$color-white: #f2f2f2;
+
+$primary-epc: #c5d8ab;
+$secondary-epc: #9ab270;
+$darker-epc: #839b4e;
+
+$primary-snow: #dd949b;
+$secondary-snow: #a32c38;
+$darker-snow: #75282c;
+
+$primary-event: #fde7b6;
+$secondary-event: #df7833;
+$darker-event: #9e5f19;
+
+$primary-blue: #979fba;
+$secondary-blue: #65659b;
+$darker-blue: #424a63;
+
+$color-lightblue: #89d2cb;
+$color-snowblue: #33b3b2;
+$color-tosca: #6fc0a3;
+$color-brown: #e56848;
+$color-pink: #c6384d;
+$color-purple: #6b6bc1;

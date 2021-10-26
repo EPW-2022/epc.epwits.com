@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aladin&display=swap");
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Zilla Slab", serif;
+}
+
+@media screen and (max-width: 576px) {
+  * {
+    font-size: 12px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.3rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #424a63;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fde7b6;
+}
+
+.epw-logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 100px;
+}
+
+#comingsoon {
+  background-color: #c5d8ab;
+  position: relative;
+}
+
+#comingsoon .comingsoon {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+#comingsoon .comingsoon-title {
+  font-family: "Abril Fatface", cursive;
+  font-size: 4rem;
+  color: #424a63;
+  text-transform: uppercase;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#comingsoon .comingsoon-img {
+  width: 300px;
+  max-width: 100%;
+  filter: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+#notfound {
+  background-color: #c5d8ab;
+  position: relative;
+}
+
+#notfound .notfound {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+#notfound .notfound-title {
+  font-family: "Abril Fatface", cursive;
+  color: #424a63;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#notfound .notfound-404 {
+  display: block;
+  font-size: 4rem;
+}
+
+#notfound .notfound-desc {
+  display: block;
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 576px) {
+  .epw-logo {
+    width: 70px;
+  }
+}
+
+nav.navbar {
+  background-color: #424a63;
+  color: #fde7b6;
+  height: 85px;
+  z-index: 5;
+}
+
+nav.navbar .navbar-rainbow {
+  display: flex;
+  height: 85px;
+  content: "";
+  margin-right: 2rem;
+}
+
+nav.navbar .navbar-rainbow .rainbow {
+  width: 30px;
+  height: inherit;
+  transform: skewX(-30deg);
+}
+
+nav.navbar .navbar-rainbow .rainbow:nth-of-type(1) {
+  background-color: #839b4e;
+}
+
+nav.navbar .navbar-rainbow .rainbow:nth-of-type(2) {
+  background-color: #fde7b6;
+}
+
+nav.navbar .navbar-rainbow .rainbow:nth-of-type(3) {
+  background-color: #e56848;
+}
+
+nav.navbar .navbar-rainbow .rainbow:nth-of-type(4) {
+  background-color: #a32c38;
+}
+
+nav.navbar button.navbar-toggler .fas {
+  color: #fde7b6;
+}
+
+nav.navbar .navbar-nav {
+  background-color: #424a63;
+}
+
+nav.navbar .navbar-nav a.nav-link {
+  display: inline-block;
+  height: fit-content;
+  padding: 0 1.25rem;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: inherit;
+  margin: auto 0;
+}
+
+nav.navbar .navbar-nav .dropdown .dropdown-menu {
+  background-color: #65659b;
+  border-color: #424a63;
+}
+
+nav.navbar .navbar-nav .dropdown .dropdown-menu a.dropdown-item {
+  color: #fde7b6;
+}
+
+#loginForm {
+  background: linear-gradient(115deg, #c5d8ab 50%, #e56848 50%);
+}
+
+#loginForm .container {
+  min-height: calc(100vh - 85px);
+}
+
+#loginForm .container .login-logo {
+  width: 300px;
+  max-width: 100%;
+}
+
+#loginForm .container .login-epw-2022 {
+  width: 350px;
+  max-width: 100%;
+}
+
+#loginForm .container .login-form {
+  width: 320px;
+  max-width: 100%;
+}
+
+#loginForm .container .login-form .form-label {
+  font-family: "Zilla Slab", serif;
+  color: #f2f2f2;
+}
+
+#loginForm .container .login-form .login-button {
+  background-color: #424a63;
+  color: #f2f2f2;
+  font-family: "Zilla Slab", serif;
+  font-weight: bold;
+}
+
+#loginForm .container .login-form .login-register {
+  font-family: "Zilla Slab", serif;
+  color: #f2f2f2;
+  letter-spacing: 1px;
+}
+
+#loginForm .container .login-form .login-register a {
+  color: inherit;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  #loginForm {
+    background: linear-gradient(185deg, #c5d8ab 60%, #e56848 60%);
+  }
+}
+/*# sourceMappingURL=style.css.map */
