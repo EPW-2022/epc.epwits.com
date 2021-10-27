@@ -343,4 +343,81 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu a.dropdown-item {
     background: linear-gradient(185deg, #c5d8ab 60%, #e56848 60%);
   }
 }
+
+#registerForm {
+  background-color: #c5d8ab;
+}
+
+#registerForm .register {
+  width: 675px;
+  max-width: 100%;
+}
+
+#registerForm .register .register-epw-2022 {
+  width: 315px;
+  max-width: 100%;
+}
+
+#registerForm .register .register-section {
+  position: relative;
+}
+
+#registerForm .register .register-section-label {
+  background-color: #c5d8ab;
+  position: relative;
+  z-index: 2;
+  padding-right: 1rem;
+  font-family: "Zilla Slab", serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  color: #424a63;
+}
+
+#registerForm .register .register-section::after {
+  position: absolute;
+  z-index: 0;
+  content: "";
+  height: 1px;
+  width: 100%;
+  bottom: 0.75rem;
+  left: 0;
+  background-color: #424a63;
+}
+
+#registerForm .register .register-role {
+  background-color: #424a63;
+  font-family: "Zilla Slab", serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #f2f2f2;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+#registerForm .register .form-label,
+#registerForm .register .form-check-label {
+  font-family: "Zilla Slab", serif;
+  color: #424a63;
+  font-weight: 500;
+}
+
+#registerForm .register .form-control {
+  background-color: #f2f2f2;
+}
+
+#registerForm .register .register-button {
+  background-color: #424a63;
+  color: #f2f2f2;
+  font-family: "Zilla Slab", serif;
+  font-weight: bold;
+  width: 175px;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+  #registerForm .register {
+    width: 350px;
+  }
+}
 /*# sourceMappingURL=style.css.map */

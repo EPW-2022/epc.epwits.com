@@ -20,7 +20,7 @@
               <input class="form-control" type="text" id="password" name="password" placeholder="Password">
             </div>
             <button type="submit" class="btn login-button w-100">Log In</button>
-            <p class="login-register text-center mt-3">Belum mendaftar? <a href="">Daftar sekarang!</a></p>
+            <p class="login-register text-center mt-3">Belum mendaftar? <a href="/registrasi">Daftar sekarang!</a></p>
           </form>
         </div>
       </div>

@@ -1,0 +1,68 @@
+#registerForm {
+    background-color: $primary-epc;
+    .register {
+        width: 675px;
+        max-width: 100%;
+        .register-epw-2022 {
+            width: 315px;
+            max-width: 100%;
+        }
+        .register-section {
+            position: relative;
+            &-label {
+                background-color: $primary-epc;
+                position: relative;
+                z-index: 2;
+                padding-right: 1rem;
+                font-family: $font-zilla;
+                font-weight: 600;
+                font-size: 1.25rem;
+                line-height: 1.5rem;
+                color: $darker-blue;
+            }
+            &::after {
+                position: absolute;
+                z-index: 0;
+                content: "";
+                height: 1px;
+                width: 100%;
+                bottom: 0.75rem;
+                left: 0;
+                background-color: $darker-blue;
+            }
+        }
+        .register-role {
+            background-color: $darker-blue;
+            font-family: $font-zilla;
+            font-weight: bold;
+            font-size: 1rem;
+            color: $color-white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .form-label,
+        .form-check-label {
+            font-family: $font-zilla;
+            color: $darker-blue;
+            font-weight: 500;
+        }
+        .form-control {
+            background-color: $color-white;
+        }
+        .register-button {
+            background-color: $darker-blue;
+            color: $color-white;
+            font-family: $font-zilla;
+            font-weight: bold;
+            width: 175px;
+            max-width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 576px) {
+    #registerForm {
+        .register {
+            width: 350px;
+        }
+    }
+}
