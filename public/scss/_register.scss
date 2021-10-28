@@ -7,6 +7,10 @@
             width: 315px;
             max-width: 100%;
         }
+        .register-alert {
+            background-color: $primary-snow;
+            border: 2px solid $secondary-snow;
+        }
         .register-section {
             position: relative;
             &-label {
@@ -56,6 +60,12 @@
             font-weight: bold;
             width: 175px;
             max-width: 100%;
+        }
+        .register-payment {
+            background-color: $primary-event;
+            width: 100%;
+            min-height: 230px;
+            border-radius: 0.5rem;
         }
     }
 }

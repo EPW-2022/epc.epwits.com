@@ -272,7 +272,7 @@ nav.navbar .navbar-nav {
   background-color: #424a63;
 }
 
-nav.navbar .navbar-nav a.nav-link {
+nav.navbar .navbar-nav .nav-link {
   display: inline-block;
   height: fit-content;
   padding: 0 1.25rem;
@@ -293,7 +293,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu a.dropdown-item {
 }
 
 #loginForm {
-  background: linear-gradient(115deg, #c5d8ab 50%, #e56848 50%);
+  background: linear-gradient(120deg, #c5d8ab 48%, #e56848 48%);
 }
 
 #loginForm .container {
@@ -340,7 +340,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu a.dropdown-item {
 
 @media screen and (max-width: 768px) {
   #loginForm {
-    background: linear-gradient(185deg, #c5d8ab 60%, #e56848 60%);
+    background: linear-gradient(185deg, #c5d8ab 65%, #e56848 65%);
   }
 }
 
@@ -356,6 +356,11 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu a.dropdown-item {
 #registerForm .register .register-epw-2022 {
   width: 315px;
   max-width: 100%;
+}
+
+#registerForm .register .register-alert {
+  background-color: #dd949b;
+  border: 2px solid #a32c38;
 }
 
 #registerForm .register .register-section {
@@ -413,6 +418,13 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu a.dropdown-item {
   font-weight: bold;
   width: 175px;
   max-width: 100%;
+}
+
+#registerForm .register .register-payment {
+  background-color: #fde7b6;
+  width: 100%;
+  min-height: 230px;
+  border-radius: 0.5rem;
 }
 
 @media screen and (max-width: 576px) {

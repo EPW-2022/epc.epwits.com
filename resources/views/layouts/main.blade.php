@@ -37,19 +37,36 @@
         <div class="collapse navbar-collapse flex-md-grow-0" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item text-center">
-              <a class="nav-link my-3" href="/">Kembali ke Main Website</a>
+              <a class="nav-link my-3" href="/">Main Website</a>
             </li>
             <li class="nav-item text-center dropdown">
               <a class="nav-link dropdown-toggle my-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Event Lain
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item text-center" href="/">EPC</a></li>
                 <li><a class="dropdown-item text-center" href="/">SNOW</a></li>
                 <li><a class="dropdown-item text-center" href="/">Grand Roadshow</a></li>
                 <li><a class="dropdown-item text-center" href="/">Big Event</a></li>
               </ul>
             </li>
+            @auth
+              <li class="nav-item text-center">
+                <form action="/logout" method="POST">
+                  @csrf
+                  <button type="submit" class="nav-link border-0 bg-transparent my-3">Logout</button>
+                </form>
+              </li>
+            @else
+              @if (Request::is('login'))
+                <li class="nav-item text-center">
+                  <a class="nav-link my-3" href="/daftar">Daftar</a>
+                </li>
+              @else
+                <li class="nav-item text-center">
+                  <a class="nav-link my-3" href="/login">Login</a>
+                </li>
+              @endif
+            @endauth
           </ul>
         </div>
       </div>

@@ -10,7 +10,8 @@
           <img src="/img/epc-2022.png" class="login-epw-2022 d-block mx-auto" alt="">
         </div>
         <div class="col-md-6 px-4">
-          <form action="" method="POST" class="login-form mx-auto mt-5 mt-md-0">
+          <form action="/login" method="POST" class="login-form mx-auto mt-5 mt-md-0">
+            @csrf
             <div class="mb-4">
               <label for="username" class="form-label">Username</label>
               <input class="form-control" type="text" id="username" name="username" placeholder="Username">
@@ -20,7 +21,7 @@
               <input class="form-control" type="text" id="password" name="password" placeholder="Password">
             </div>
             <button type="submit" class="btn login-button w-100">Log In</button>
-            <p class="login-register text-center mt-3">Belum mendaftar? <a href="/registrasi">Daftar sekarang!</a></p>
+            <p class="login-register text-center mt-3">Belum mendaftar? <a href="/daftar">Daftar sekarang!</a></p>
           </form>
         </div>
       </div>

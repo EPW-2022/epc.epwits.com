@@ -1,5 +1,5 @@
 #loginForm {
-    background: linear-gradient(115deg, $primary-epc 50%, $color-brown 50%);
+    background: linear-gradient(120deg, $primary-epc 48%, $color-brown 48%);
     .container {
         min-height: calc(100vh - 85px);
         .login-logo {
@@ -38,6 +38,6 @@
 
 @media screen and (max-width: 768px) {
     #loginForm {
-        background: linear-gradient(185deg, $primary-epc 60%, $color-brown 60%);
+        background: linear-gradient(185deg, $primary-epc 65%, $color-brown 65%);
     }
 }
