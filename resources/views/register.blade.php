@@ -2,6 +2,10 @@
 
 @section('content')
     
+  @if (session()->has('message'))
+    <div id="flash-data" data-flashdata="{{ session('message') }}"></div>
+  @endif
+
   <section id="registerForm">
     <div class="container register py-5">
       <img src="/img/epc-2022.png" class="register-epw-2022 d-block mx-auto mb-5" alt="">
@@ -22,7 +26,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="name" class="form-label">Nama Tim<span class="text-danger">*</span></label>
-              <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name" placeholder="name" autofocus tabindex="1" value="{{ old('name') }}">
+              <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name" placeholder="Nama Tim" autofocus tabindex="1" value="{{ old('name') }}">
               @error('name')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -31,7 +35,7 @@
             </div>
             <div class="mb-3">
               <label for="username" class="form-label">Username Tim<span class="text-danger">*</span></label>
-              <input class="form-control @error('username') is-invalid @enderror" type="text" id="username" name="username" placeholder="username" tabindex="2" value="{{ old('username') }}">
+              <input class="form-control @error('username') is-invalid @enderror" type="text" id="username" name="username" placeholder="Username Tim" tabindex="2" value="{{ old('username') }}">
               @error('username')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -42,7 +46,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
-              <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="password" tabindex="3">
+              <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password Akun Tim" tabindex="3">
               @error('password')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -51,7 +55,7 @@
             </div>
             <div class="mb-3">
               <label for="confirm" class="form-label">Konfirmasi Password<span class="text-danger">*</span></label>
-              <input class="form-control @error('confirm') is-invalid @enderror" type="password" id="confirm" name="confirm" placeholder="confirm" tabindex="4">
+              <input class="form-control @error('confirm') is-invalid @enderror" type="password" id="confirm" name="confirm" placeholder="Ulangi Password" tabindex="4">
               @error('confirm')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -69,7 +73,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="school" class="form-label">Asal Sekolah<span class="text-danger">*</span></label>
-              <input class="form-control @error('school') is-invalid @enderror" type="text" id="school" name="school" placeholder="school" tabindex="5" value="{{ old('school') }}">
+              <input class="form-control @error('school') is-invalid @enderror" type="text" id="school" name="school" placeholder="Asal Sekolah" tabindex="5" value="{{ old('school') }}">
               @error('school')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -80,7 +84,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="city" class="form-label">Kota<span class="text-danger">*</span></label>
-              <input class="form-control @error('city') is-invalid @enderror" type="text" id="city" name="city" placeholder="city" tabindex="6" value="{{ old('city') }}">
+              <input class="form-control @error('city') is-invalid @enderror" type="text" id="city" name="city" placeholder="Asal Kota" tabindex="6" value="{{ old('city') }}">
               @error('city')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -96,7 +100,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="leader_name" class="form-label">Nama Ketua<span class="text-danger">*</span></label>
-              <input class="form-control @error('leader_name') is-invalid @enderror" type="text" id="leader_name" name="leader_name" placeholder="leader_name" tabindex="7" value="{{ old('leader_name') }}">
+              <input class="form-control @error('leader_name') is-invalid @enderror" type="text" id="leader_name" name="leader_name" placeholder="Nama Lengkap Ketua" tabindex="7" value="{{ old('leader_name') }}">
               @error('leader_name')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -107,7 +111,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="leader_number" class="form-label">NISN<span class="text-danger">*</span></label>
-              <input class="form-control @error('leader_number') is-invalid @enderror" type="text" id="leader_number" name="leader_number" placeholder="leader_number" tabindex="8" value="{{ old('leader_number') }}">
+              <input class="form-control @error('leader_number') is-invalid @enderror" type="text" id="leader_number" name="leader_number" placeholder="NISN Ketua" tabindex="8" value="{{ old('leader_number') }}">
               @error('leader_number')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -118,7 +122,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="leader_place" class="form-label">Tempat Lahir<span class="text-danger">*</span></label>
-              <input class="form-control @error('leader_place') is-invalid @enderror" type="text" id="leader_place" name="leader_place" placeholder="leader_place" tabindex="9" value="{{ old('leader_place') }}">
+              <input class="form-control @error('leader_place') is-invalid @enderror" type="text" id="leader_place" name="leader_place" placeholder="Tempat Lahir Ketua" tabindex="9" value="{{ old('leader_place') }}">
               @error('leader_place')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -129,7 +133,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="leader_date" class="form-label">Tanggal Lahir<span class="text-danger">*</span></label>
-              <input class="form-control @error('leader_date') is-invalid @enderror" type="date" id="leader_date" name="leader_date" placeholder="leader_date" tabindex="10" value="{{ old('leader_date') }}">
+              <input class="form-control @error('leader_date') is-invalid @enderror" type="date" id="leader_date" name="leader_date" tabindex="10" value="{{ old('leader_date') }}">
               @error('leader_date')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -139,10 +143,10 @@
           </div>
           <div class="col-sm-6">
             <div class="mb-3">
-              <label for="leader_phone" class="form-label">No Handphone<span class="text-danger">*</span></label>
+              <label for="leader_phone" class="form-label">No Telepon<span class="text-danger">*</span></label>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">+62</span>
-                <input class="form-control @error('leader_phone') is-invalid @enderror" type="text" id="leader_phone" name="leader_phone" placeholder="leader_phone" tabindex="11" value="{{ old('leader_phone') }}">
+                <input class="form-control @error('leader_phone') is-invalid @enderror" type="text" id="leader_phone" name="leader_phone" placeholder="No Telepon Ketua" tabindex="11" value="{{ old('leader_phone') }}">
                 @error('leader_phone')
                   <div class="invalid-feedback ps-1 pt-1">
                     {{ $message }}
@@ -152,7 +156,7 @@
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
-              <input class="form-control @error('email') is-invalid @enderror" type="email" id="email" name="email" placeholder="email" tabindex="12" value="{{ old('email') }}">
+              <input class="form-control @error('email') is-invalid @enderror" type="email" id="email" name="email" placeholder="Email Ketua" tabindex="12" value="{{ old('email') }}">
               @error('email')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -163,7 +167,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="leader_address" class="form-label">Alamat Rumah<span class="text-danger">*</span></label>
-              <textarea class="form-control @error('leader_address') is-invalid @enderror" id="leader_address" name="leader_address" rows="4" style="min-height: 115px" tabindex="13">{{ old('leader_address') }}</textarea>
+              <textarea class="form-control @error('leader_address') is-invalid @enderror" id="leader_address" placeholder="Alamat Rumah Ketua" name="leader_address" rows="4" style="min-height: 115px" tabindex="13">{{ old('leader_address') }}</textarea>
               @error('leader_address')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -179,7 +183,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="member_name" class="form-label">Nama Anggota</label>
-              <input class="form-control @error('member_name') is-invalid @enderror" type="text" id="member_name" name="member_name" placeholder="member_name" tabindex="14" value="{{ old('member_name') }}">
+              <input class="form-control @error('member_name') is-invalid @enderror" type="text" id="member_name" name="member_name" placeholder="Nama Lengkap Anggota" tabindex="14" value="{{ old('member_name') }}">
               @error('member_name')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -190,7 +194,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="member_number" class="form-label">NISN</label>
-              <input class="form-control @error('member_number') is-invalid @enderror" type="text" id="member_number" name="member_number" placeholder="member_number" tabindex="15" value="{{ old('member_number') }}">
+              <input class="form-control @error('member_number') is-invalid @enderror" type="text" id="member_number" name="member_number" placeholder="NISN Anggota" tabindex="15" value="{{ old('member_number') }}">
               @error('member_number')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -201,7 +205,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="member_place" class="form-label">Tempat Lahir</label>
-              <input class="form-control @error('member_place') is-invalid @enderror" type="text" id="member_place" name="member_place" placeholder="member_place" tabindex="16" value="{{ old('member_place') }}">
+              <input class="form-control @error('member_place') is-invalid @enderror" type="text" id="member_place" name="member_place" placeholder="Tempat Lahir Anggota" tabindex="16" value="{{ old('member_place') }}">
               @error('member_place')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -212,7 +216,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="member_date" class="form-label">Tanggal Lahir</label>
-              <input class="form-control @error('member_date') is-invalid @enderror" type="date" id="member_date" name="member_date" placeholder="member_date" tabindex="17" value="{{ old('member_date') }}">
+              <input class="form-control @error('member_date') is-invalid @enderror" type="date" id="member_date" name="member_date" tabindex="17" value="{{ old('member_date') }}">
               @error('member_date')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -263,7 +267,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="payment_name" class="form-label">Nama Pemilik Rekening<span class="text-danger">*</span></label>
-              <input class="form-control @error('payment_name') is-invalid @enderror" type="text" id="payment_name" name="payment_name" placeholder="payment_name" tabindex="20" value="{{ old('payment_name') }}">
+              <input class="form-control @error('payment_name') is-invalid @enderror" type="text" id="payment_name" name="payment_name" placeholder="Nama Pemilik Rekening" tabindex="20" value="{{ old('payment_name') }}">
               @error('payment_name')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -286,14 +290,14 @@
         </div>
           
         <div class="form-check mt-4">
-          <input class="form-check-input" type="checkbox" value="checked" id="confirmcheck" tabindex="22">
+          <input class="form-check-input" type="checkbox" name="confirmcheck" value="checked" id="confirmcheck" tabindex="22">
           <label class="form-check-label" for="confirmcheck">
             Saya menyatakan bahwa data/informasi/berkas yang saya sampaikan pada formulir ini adalah benar.
             <span class="text-danger">*</span>
           </label>
         </div>
         <p class="text-danger fw-bold mt-3"><span>*) </span>Wajib diisi!</p>
-        <button type="submit" class="btn register-button d-block mt-4 mx-auto" tabindex="23">Daftar!</button>
+        <button type="submit" id="registerSubmit" class="btn register-button d-block mt-4 mx-auto disabled" tabindex="23">Daftar!</button>
       </form>
     </div>
   </section>

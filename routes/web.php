@@ -21,6 +21,10 @@ Route::post('/daftar', [AuthController::class, 'registration']);
 Route::post('/login', [AuthController::class, 'authentication']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
+Route::get('/verifying', function () {
+    return view('verifying');
+})->middleware('auth');
+
 Route::get('/', function () {
     return view('dashboard.index');
 })->middleware('auth');
