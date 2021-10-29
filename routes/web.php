@@ -27,4 +27,4 @@ Route::get('/verifying', function () {
 
 Route::get('/', function () {
     return view('dashboard.index');
-})->middleware('auth');
+})->middleware('auth', 'registered');
