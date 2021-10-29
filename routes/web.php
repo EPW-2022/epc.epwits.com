@@ -21,6 +21,14 @@ Route::post('/daftar', [AuthController::class, 'registration']);
 Route::post('/login', [AuthController::class, 'authentication']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
+Route::get('/registrasi', [PagesController::class, 'registrasi']);
+Route::get('/prapenyisihan', [PagesController::class, 'prapenyisihan']);
+Route::get('/loginepc',function(){
+  return view ('main.loginepc',[
+    'title'=>'loginepc'
+  ]);
+});
+
 Route::get('/', function () {
     return view('dashboard.index');
 })->middleware('auth');
