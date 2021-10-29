@@ -235,7 +235,8 @@
             <div class="mb-3">
               <label class="form-label">Upload Pas Foto<span class="text-danger">*</span></label>
               <input class="form-control mb-2 @error('person_photo') is-invalid @enderror" type="file" name="person_photo[]" multiple accept=".jpg,.jpeg,.JPG,.png" tabindex="18">
-              <label class="form-label text-danger">Format: .jpg/.png max. size 1MB<span class="text-danger">*</span></label>
+              <label class="form-label text-danger d-block ps-1">Format: .jpg/.png max. size 1MB</label>
+              <label class="form-label text-danger d-block ps-1">Maximum 2 files</label>
               @error('person_photo')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -247,7 +248,8 @@
             <div class="mb-3">
               <label class="form-label">Upload Scan Kartu Pelajar<span class="text-danger">*</span></label>
               <input class="form-control mb-2 @error('person_scan') is-invalid @enderror" type="file" name="person_scan[]" multiple accept=".jpg,.jpeg,.JPG,.png" tabindex="19">
-              <label class="form-label text-danger">Format: .jpg/.png max. size 1MB<span class="text-danger">*</span></label>
+              <label class="form-label text-danger d-block ps-1">Format: .jpg/.png max. size 1MB</label>
+              <label class="form-label text-danger d-block ps-1">Maximum 2 files</label>
               @error('person_scan')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -279,7 +281,8 @@
             <div class="mb-3">
               <label for="payment_slip" class="form-label">Upload Bukti Pembayaran<span class="text-danger">*</span></label>
               <input class="form-control mb-2 @error('payment_slip') is-invalid @enderror" type="file" name="payment_slip" id="payment_slip" accept=".jpg,.jpeg,.JPG,.png" tabindex="21">
-              <label class="form-label text-danger">Format: .jpg/.png max. size 1MB<span class="text-danger">*</span></label>
+              <label class="form-label text-danger d-block ps-1">Format: .jpg/.png max. size 1MB</label>
+              <label class="form-label text-danger d-block ps-1">Maximum 1 file</label>
               @error('payment_slip')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}

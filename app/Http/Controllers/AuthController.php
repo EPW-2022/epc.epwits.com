@@ -56,7 +56,6 @@ class AuthController extends Controller
     public function registration(Request $request)
     {
         if ($request->confirmcheck) {
-            return 'checked';
             // Validating Data
             $validatedData = $request->validate([
                 // Users
