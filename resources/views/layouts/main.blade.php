@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand-lg py-0">
       <div class="container">
         <div class="navbar-brand flex-lg-grow-1">
-          <a href="#">
+          <a href="/">
             <img src="/img/epw-logo/logo-white.png" alt="EPW Logo" width="60">
           </a>
         </div>
@@ -37,16 +37,16 @@
         <div class="collapse navbar-collapse flex-lg-grow-0" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item text-center">
-              <a class="nav-link my-3" href="/">Main Website</a>
+              <a class="nav-link my-3" href="https://epwits.com">Main Website</a>
             </li>
             <li class="nav-item text-center dropdown">
               <a class="nav-link dropdown-toggle my-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Event Lain
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item text-center" href="/">SNOW</a></li>
-                <li><a class="dropdown-item text-center" href="/">Grand Roadshow</a></li>
-                <li><a class="dropdown-item text-center" href="/">Big Event</a></li>
+                <li><a class="dropdown-item text-center" href="https://epwits.com/snow">SNOW</a></li>
+                <li><a class="dropdown-item text-center" href="https://epwits.com/coming-soon">Grand Roadshow</a></li>
+                <li><a class="dropdown-item text-center" href="https://epwits.com/coming-soon">Big Event</a></li>
               </ul>
             </li>
             @auth
