@@ -21,6 +21,7 @@ Route::post('/daftar', [AuthController::class, 'registration']);
 Route::post('/login', [AuthController::class, 'authentication']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
+HEAD
 Route::get('/registrasi', [PagesController::class, 'registrasi']);
 Route::get('/prapenyisihan', [PagesController::class, 'prapenyisihan']);
 Route::get('/loginepc',function(){
@@ -28,6 +29,10 @@ Route::get('/loginepc',function(){
     'title'=>'loginepc'
   ]);
 });
+
+Route::get('/verifying', function () {
+    return view('verifying');
+})->middleware('auth');3bd5df49bcabcc054abe9b286b5262fbcb5bd791
 
 Route::get('/', function () {
     return view('dashboard.index');

@@ -432,4 +432,26 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu a.dropdown-item {
     width: 350px;
   }
 }
+
+#verifying {
+  background-color: #c5d8ab;
+}
+
+#verifying .container {
+  min-height: calc(100vh - 85px);
+}
+
+#verifying .container .verifying-logo {
+  width: 200px;
+  max-width: 100%;
+}
+
+#verifying .container .verifying-text {
+  font-family: "Abril Fatface", cursive;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #424a63;
+}
 /*# sourceMappingURL=style.css.map */
