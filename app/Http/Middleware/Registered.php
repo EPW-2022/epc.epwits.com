@@ -19,7 +19,7 @@ class Registered
     if (auth()->user()->verified_at == null) {
       return redirect('/verifying');
     } else {
-      return redirect('/');
+      return $next($request);
     }
   }
 }

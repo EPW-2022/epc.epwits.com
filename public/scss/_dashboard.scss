@@ -1,0 +1,98 @@
+article#dashboard {
+    background-color: $color-white;
+    min-height: calc(100vh - 85px);
+    padding-top: 5.5rem;
+    .container {
+        background-color: $primary-epc;
+        border-radius: 2.5rem;
+        padding: 0 2rem 2rem 2rem;
+        #profile {
+            .profile-avatar {
+                width: 145px;
+                max-width: 100%;
+                transform: translateY(-50%);
+                margin-bottom: -4rem;
+            }
+            .profile-name {
+                font-family: $font-zilla;
+                font-weight: bold;
+                font-size: 2rem;
+                line-height: 2.5rem;
+                letter-spacing: 0.03em;
+                color: $darker-blue;
+            }
+            .profile-school,
+            .profile-team {
+                font-family: Zilla Slab;
+                font-size: 1.25rem;
+                line-height: 1.5rem;
+                letter-spacing: 0.03em;
+                color: $color-black;
+            }
+            .profile-card {
+                width: 312px;
+                max-width: 100%;
+                background-color: $darker-blue;
+                border-radius: 0.5rem;
+                display: block;
+                padding: 0.75rem 0;
+                text-decoration: none;
+                color: $color-white;
+            }
+        }
+        #score {
+            width: 850px;
+            max-width: 100%;
+            .score-box {
+                background-color: $primary-event;
+                border-radius: 1rem;
+                min-height: 91px;
+                position: relative;
+                overflow: hidden;
+                .score-icon {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 4.85rem;
+                    background-color: $darker-blue;
+                }
+                .score-content {
+                    margin-left: 5.5rem;
+                    .score-name {
+                        font-family: $font-zilla;
+                        font-weight: 600;
+                        font-size: 1rem;
+                        line-height: 1.35rem;
+                        color: $darker-blue;
+                    }
+                    .score-value {
+                        font-family: $font-zilla;
+                        font-weight: bold;
+                        font-size: 1.25rem;
+                        color: $darker-blue;
+                    }
+                }
+            }
+        }
+        #video {
+            margin: 2rem auto;
+            width: 850px;
+            max-width: 100%;
+            height: 425px;
+            background-color: $primary-event;
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+            &::after {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 1.5rem;
+                background-color: $darker-blue;
+            }
+        }
+    }
+}
