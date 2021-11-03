@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +37,5 @@ Route::get('/verifying', function () {
 Route::get('/', function () {
   return view('dashboard.index');
 })->middleware('auth', 'registered');
+
+Route::get('/admin', [AdminController::class, 'index']);
