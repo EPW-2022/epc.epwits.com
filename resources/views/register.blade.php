@@ -258,18 +258,53 @@
             </div>
           </div>
         </div>
+        <label class="form-label">Link Post Twibbon</label>
+        <div class="row mb-3">
+          <div class="col-sm-6">
+            <input class="form-control @error('leader_twibbon') is-invalid @enderror" type="text" id="leader_twibbon" name="leader_twibbon" tabindex="20" placeholder="Link Twibbon Ketua" value="{{ old('leader_twibbon') }}">
+            @error('leader_twibbon')
+              <div class="invalid-feedback ps-1 pt-1">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control @error('member_twibbon') is-invalid @enderror" type="text" id="member_twibbon" name="member_twibbon" tabindex="21" placeholder="Link Twibbon Anggota" value="{{ old('member_twibbon') }}">
+            @error('member_twibbon')
+              <div class="invalid-feedback ps-1 pt-1">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label text-danger ps-1">Akun Instagram tidak di-<em>private</em> sampai akun EPC terverifikasi.</label>
+        </div>
         
         {{-- Pembayaran --}}
         <h1 class="register-section mb-2 mt-4">
           <span class="register-section-label d-inline-block">4. Pembayaran</span>
         </h1>
-        <div class="register-payment py-4 px-2 mb-3">
+        <div class="register-payment py-4 px-5 mb-3">
+          <p class="mb-3">Peserta membayar uang pendaftaran sebesar Rp 75.001 per tim melalui:</p>
+          <ul>
+            <li class="mb-2">
+              <strong>Mandiri</strong> : 1480016242961 a.n Nelva Citra Saini
+            </li>
+            <li class="mb-2">
+              <strong>BRI</strong> : 0212-01-052658-50-1 a.n Nelva Citra Saini
+            </li>
+            <li class="mb-2">
+              <strong>OVO</strong> : 082157156299 a.n Nelva Citra Saini
+            </li>
+          </ul>
+          <p class="text-danger">Jangan lupa untuk menambahkan <strong>angka 1</strong> di akhir nominal pembayaran agar memudahkan proses verifikasi.</p>
         </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="payment_name" class="form-label">Nama Pemilik Rekening<span class="text-danger">*</span></label>
-              <input class="form-control @error('payment_name') is-invalid @enderror" type="text" id="payment_name" name="payment_name" placeholder="Nama Pemilik Rekening" tabindex="20" value="{{ old('payment_name') }}">
+              <input class="form-control @error('payment_name') is-invalid @enderror" type="text" id="payment_name" name="payment_name" placeholder="Nama Pemilik Rekening" tabindex="22" value="{{ old('payment_name') }}">
               @error('payment_name')
                 <div class="invalid-feedback ps-1 pt-1">
                   {{ $message }}
@@ -280,7 +315,7 @@
           <div class="col-sm-6">
             <div class="mb-3">
               <label for="payment_slip" class="form-label">Upload Bukti Pembayaran<span class="text-danger">*</span></label>
-              <input class="form-control mb-2 @error('payment_slip') is-invalid @enderror" type="file" name="payment_slip" id="payment_slip" accept=".jpg,.jpeg,.JPG,.png" tabindex="21">
+              <input class="form-control mb-2 @error('payment_slip') is-invalid @enderror" type="file" name="payment_slip" id="payment_slip" accept=".jpg,.jpeg,.JPG,.png" tabindex="23">
               <label class="form-label text-danger d-block ps-1">Format: .jpg/.png max. size 1MB</label>
               <label class="form-label text-danger d-block ps-1">Maximum 1 file</label>
               @error('payment_slip')
@@ -293,14 +328,14 @@
         </div>
           
         <div class="form-check mt-4">
-          <input class="form-check-input" type="checkbox" name="confirmcheck" value="checked" id="confirmcheck" tabindex="22">
+          <input class="form-check-input" type="checkbox" name="confirmcheck" value="checked" id="confirmcheck" tabindex="24">
           <label class="form-check-label" for="confirmcheck">
             Saya menyatakan bahwa data/informasi/berkas yang saya sampaikan pada formulir ini adalah benar.
             <span class="text-danger">*</span>
           </label>
         </div>
         <p class="text-danger fw-bold mt-3"><span>*) </span>Wajib diisi!</p>
-        <button type="submit" id="registerSubmit" class="btn register-button d-block mt-4 mx-auto disabled" tabindex="23">Daftar!</button>
+        <button type="submit" id="registerSubmit" class="btn register-button d-block mt-4 mx-auto disabled" tabindex="25">Daftar!</button>
       </form>
     </div>
   </section>

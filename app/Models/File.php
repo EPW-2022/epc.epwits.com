@@ -16,6 +16,8 @@ class File extends Model
         'person_scan',
         'payment_name',
         'payment_slip',
+        'leader_twibbon',
+        'member_twibbon',
         'deleted_at'
     ];
 

@@ -421,9 +421,10 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu a.dropdown-item {
 }
 
 #registerForm .register .register-payment {
+  font-family: "Zilla Slab", serif;
+  color: #424a63;
   background-color: #fde7b6;
   width: 100%;
-  min-height: 230px;
   border-radius: 0.5rem;
 }
 

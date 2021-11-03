@@ -122,7 +122,7 @@ return [
     'timezone' => 'The :attribute must be a valid timezone.',
     'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',
-    'url' => 'The :attribute must be a valid URL.',
+    'url' => ':attribute harus berupa link url.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
     /*
@@ -179,7 +179,9 @@ return [
         'person_photo'      => 'Pas foto',
         'person_scan'       => 'Kartu pelajar',
         'payment_name'      => 'Pemilik rekening',
-        'payment_slip'      => 'Bukti pembayaran'
+        'payment_slip'      => 'Bukti pembayaran',
+        'leader_twibbon'    => 'Twibbon Ketua',
+        'member_twibbon'    => 'Twibbon Anggota',
     ],
 
 ];

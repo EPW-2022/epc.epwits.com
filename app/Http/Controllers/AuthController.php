@@ -89,7 +89,9 @@ class AuthController extends Controller
                 'person_scan'       => 'required',
                 'person_scan.*'     => 'mimes:jpg,png,jpeg|max:2048',
                 'payment_name'      => 'required|max:191',
-                'payment_slip'      => 'required|mimes:JPG,jpg,png,jpeg|max:2048'
+                'payment_slip'      => 'required|mimes:JPG,jpg,png,jpeg|max:2048',
+                'leader_twibbon'    => 'nullable|url',
+                'member_twibbon'    => 'nullable|url',
             ]);
 
             // Phone Number Format
@@ -153,7 +155,9 @@ class AuthController extends Controller
                     'person_photo'      => implode(';', $photoData),
                     'person_scan'       => implode(';', $scanData),
                     'payment_name'      => $validatedData['payment_name'],
-                    'payment_slip'      => $paymentFile
+                    'payment_slip'      => $paymentFile,
+                    'leader_twibbon'    => $validatedData['leader_twibbon'],
+                    'member_twibbon'    => $validatedData['member_twibbon'],
                 ]);
 
                 // INSERT DATA TO LEADERS TABLE
