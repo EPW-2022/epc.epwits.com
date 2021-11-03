@@ -27,10 +27,14 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            if (auth()->user()->verified_at == null) {
-                return redirect('/verifying');
+            if (auth()->user()->roles == 'Admin' || auth()->user()->roles == 'Superadmin') {
+                return redirect('/admin');
             } else {
-                return redirect('/');
+                if (auth()->user()->verified_at == null) {
+                    return redirect('/verifying');
+                } else {
+                    return redirect('/');
+                }
             }
         }
 

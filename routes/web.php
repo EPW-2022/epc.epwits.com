@@ -36,6 +36,8 @@ Route::get('/verifying', function () {
 
 Route::get('/', function () {
   return view('dashboard.index');
-})->middleware('auth', 'registered');
+})->middleware('auth', 'registered', 'participant');
 
-Route::get('/admin', [AdminController::class, 'index']);
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+  Route::get('/', [AdminController::class, 'index']);
+});
