@@ -27,7 +27,7 @@
   <div class="card">
     <div class="card-body">
       <div class="table-responsive">
-        <table id="example2" class="table table-striped table-bordered">
+        <table id="example2" class="table table-striped table-bordered py-3">
           <thead>
             <tr>
               <th>No</th>

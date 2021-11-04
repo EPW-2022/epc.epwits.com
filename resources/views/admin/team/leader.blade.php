@@ -45,8 +45,8 @@
               <td>{{ $user->leader->student_number }}</td>
               <td>{{ $user->leader->place_birth }}, {{ $user->leader->date_birth }}</td>
               <td>{{ $user->leader->phone }}</td>
-              <td>{{ $user->leader->address }}</td>
-              <td>
+              <td class="text-wrap">{{ $user->leader->address }}</td>
+              <td class="text-nowrap">
                 <div class="table-actions d-flex align-items-center gap-3 fs-6">
                   <a href="/admin/tim/{{ $user->team->team_number }}" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detail Data"><i class="bi bi-eye-fill"></i> Detail</a>
                   {{-- <a href="" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><i class="bi bi-pencil-fill"></i></a>

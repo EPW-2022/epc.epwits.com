@@ -24,12 +24,14 @@
       <div class="card shadow-sm border-0">
         <div class="card-body">
           <h5 class="mb-2">Data Tim {{ $team->team_number }} : {{ $team->name }}</h5>
-          <p class="mb-0">
-            Terdaftar pada : <span class="fw-bold">{{ $team->user->created_at }}</span>
+          <div class="mb-0 d-flex justify-content-between flex-md-row flex-column">
+            <div class="pb-2">
+              Terdaftar pada : <span class="fw-bold">{{ $team->user->created_at }}</span>
+            </div>
             @if ($team->user->verified_at)
-              <span class="text-success d-inline-block ps-3"><i class="bi bi-patch-check"></i> Telah diverifikasi</span>
+              <div class="text-success text-end"><i class="bi bi-patch-check"></i> Telah diverifikasi</div>
             @endif
-          </p>
+          </div>
           <hr>
 
           <div class="row">
@@ -277,10 +279,10 @@
                 </a>
               </div>
               <div class="text-center mt-4">
-                <h4 class="mb-1">{{ $team->name }}</h4>
+                <h4 class="mb-1">{{ $team->user->leader->fullname }}</h4>
+                <p class="mb-0 text-secondary">Ketua <span class="fw-bolder">{{ $team->name }}</span></p>
                 <p class="mb-0 text-secondary">{{ $team->school }}</p>
                 <div class="mt-4"></div>
-                <h6 class="mb-1">Ketua : {{ $team->user->leader->fullname }}</h6>
                 <a href="/files/scan/{{ $scans[$loop->index] }}" target="_blank" class="mb-0 text-secondary d-block">Lihat Kartu Pelajar</a>
                 @if ($team->user->file->leader_twibbon)
                   <a href="{{ $team->user->file->leader_twibbon }}" target="_blank" class="mb-0 text-secondary d-block">Lihat Twibbon</a>
@@ -297,10 +299,10 @@
                 </a>
               </div>
               <div class="text-center mt-4">
-                <h4 class="mb-1">{{ $team->name }}</h4>
+                <h4 class="mb-1">{{ $team->user->member->fullname }}</h4>
+                <p class="mb-0 text-secondary">Anggota <span class="fw-bolder">{{ $team->name }}</span></p>
                 <p class="mb-0 text-secondary">{{ $team->school }}</p>
                 <div class="mt-4"></div>
-                <h6 class="mb-1">Anggota : {{ $team->user->member->fullname }}</h6>
                 <a href="/files/scan/{{ $scans[$loop->index] }}" target="_blank" class="mb-0 text-secondary d-block">Lihat Kartu Pelajar</a>
                 @if ($team->user->file->member_twibbon)
                   <a href="{{ $team->user->file->member_twibbon }}" target="_blank" class="mb-0 text-secondary d-block">Lihat Twibbon</a>

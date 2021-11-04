@@ -19,8 +19,43 @@
         <div class="menu-title">Dashboard</div>
       </a>
     </li>
+    {{-- Database Menu --}}
     <li class="menu-label mt-0">Database</li>
-    <li class="{{ Request::is('admin/tim**') ? 'mm-active' : '' }}">
+    <li class="{{ Request::is('admin/tim') ? 'mm-active' : '' }}">
+      <a href="/admin/tim">
+        <div class="parent-icon">
+          <i class="bi bi-people-fill"></i>
+        </div>
+        <div class="menu-title">Akun Tim Peserta</div>
+      </a>
+    </li>
+    <li class="{{ Request::is('admin/tim/verifikasi') ? 'mm-active' : '' }}">
+      <a href="/admin/tim/verifikasi">
+        <div class="parent-icon">
+          <i class="bi bi-patch-check"></i>
+        </div>
+        <div class="menu-title">Perlu Verifikasi</div>
+      </a>
+    </li>
+    <li class="{{ Request::is('admin/tim/ketua') ? 'mm-active' : '' }}">
+      <a href="/admin/tim/ketua">
+        <div class="parent-icon">
+          <i class="bi bi-person-fill"></i>
+        </div>
+        <div class="menu-title">Data Ketua</div>
+      </a>
+    </li>
+    <li class="{{ Request::is('admin/tim/anggota') ? 'mm-active' : '' }}">
+      <a href="/admin/tim/anggota">
+        <div class="parent-icon">
+          <i class="bi bi-person-fill"></i>
+        </div>
+        <div class="menu-title">Data Anggota</div>
+      </a>
+    </li>
+    
+
+    {{-- <li class="{{ Request::is('admin/tim**') ? 'mm-active' : 'mm-active' }}">
       <a href="javascript:;" class="has-arrow">
         <div class="parent-icon"><i class="bi bi-grid"></i>
         </div>
@@ -36,7 +71,7 @@
         <li class="{{ Request::is('admin/tim/anggota') ? 'mm-active' : '' }}"> <a href="/admin/tim/anggota"><i class="bi bi-arrow-right-short"></i>Data Anggota</a>
         </li>
       </ul>
-    </li>
+    </li> --}}
   </ul>
   <!--end navigation-->
 </aside>

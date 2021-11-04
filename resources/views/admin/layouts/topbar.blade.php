@@ -5,9 +5,9 @@
         <div class="mobile-toggle-icon d-xl-none">
           <i class="bi bi-list"></i>
         </div>
-        <div class="top-navbar d-none d-xl-block">
+        <div class="top-navbar">
           <ul class="navbar-nav align-items-center">
-            <li class="nav-item">
+            <li class="nav-item d-none d-md-block">
               <a class="nav-link" href="https://epwits.com">Main Website</a>
             </li>
             <li class="nav-item">
@@ -40,7 +40,7 @@
                     </div>
                   </a>
                 </li>
-                <li>
+                {{-- <li>
                   <hr class="dropdown-divider">
                 </li>
                 <li>
@@ -82,7 +82,7 @@
                       <div class="setting-text ms-3"><span>Downloads</span></div>
                     </div>
                   </a>
-                </li>
+                </li> --}}
                 <li>
                   <hr class="dropdown-divider">
                 </li>

@@ -104,12 +104,13 @@ class AuthController extends Controller
 
             // Uploading Files
             if ($request->hasFile('person_photo') && $request->hasFile('person_scan') && $request->hasFile('payment_slip')) {
+                $teamNumber = 'EPC-' . Team::all()->count() + 1;
                 // Uploading Photos
                 $photos = $request->file('person_photo');
                 $photoData = [];
                 $photoIndex = 1;
                 foreach ($photos as $image) {
-                    $newImageName = $validatedData['username'] . $photoIndex . '.' . $image->extension();
+                    $newImageName = $teamNumber . '_' . $validatedData['name'] . '_Pas Foto_' . $photoIndex . '.' . $image->extension();
                     $photoIndex++;
                     $image->move(public_path('files/photos'), $newImageName);
                     $photoData[] = $newImageName;
@@ -120,14 +121,14 @@ class AuthController extends Controller
                 $scanData = [];
                 $scanIndex = 1;
                 foreach ($scans as $image) {
-                    $newImageName = $validatedData['username'] . $scanIndex . '.' . $image->extension();
+                    $newImageName = $teamNumber . '_' . $validatedData['name'] . '_Kartu Pelajar_' . $scanIndex . '.' . $image->extension();
                     $scanIndex++;
                     $image->move(public_path('files/scan'), $newImageName);
                     $scanData[] = $newImageName;
                 }
 
                 // Uploading Slip
-                $paymentFile = $validatedData['payment_name'] . '-payment.' . $request->payment_slip->extension();
+                $paymentFile = $teamNumber . '_' . $validatedData['name'] . '_Bukti Bayar.' . $request->payment_slip->extension();
                 $request->payment_slip->move(public_path('files/payment'), $paymentFile);
 
                 // INSERT DATA TO USERS TABLE

@@ -14,7 +14,7 @@ class AdminTeamController extends Controller
     public function index()
     {
         return view('admin.team.index', [
-            'title'         => 'Akun Tim',
+            'title'         => 'Akun Tim Peserta',
             'users'         => User::where('roles', 'Participant')->get()
         ]);
     }
@@ -46,7 +46,7 @@ class AdminTeamController extends Controller
     public function member()
     {
         return view('admin.team.member', [
-            'title'         => 'Daftar Ketua Tim',
+            'title'         => 'Daftar Ketua Anggota',
             'users'         => User::where('roles', 'Participant')->get()
         ]);
     }
