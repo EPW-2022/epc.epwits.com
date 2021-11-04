@@ -8,19 +8,13 @@
         <div class="top-navbar d-none d-xl-block">
           <ul class="navbar-nav align-items-center">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Dashboard</a>
+              <a class="nav-link" href="https://epwits.com">Main Website</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="app-emailbox.html">Email</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:;">Projects</a>
-            </li>
-            <li class="nav-item d-none d-xxl-block">
-              <a class="nav-link" href="javascript:;">Events</a>
-            </li>
-            <li class="nav-item d-none d-xxl-block">
-              <a class="nav-link" href="app-to-do.html">Todo</a>
+              <form action="/logout" method="POST">
+                @csrf
+                <button type="submit" class="nav-link border-0 bg-transparent">Logout</button>
+              </form>
             </li>
           </ul>
         </div>
@@ -30,7 +24,7 @@
               <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">
                 <div class="user-setting d-flex align-items-center gap-1">
                   <img src="/img/profile.svg" class="user-img" alt="">
-                  <div class="user-name d-none d-sm-block">Jhon Deo</div>
+                  <div class="user-name d-none d-sm-block">{{ auth()->user()->name }}</div>
                 </div>
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
@@ -40,8 +34,8 @@
                       <img src="/img/profile.svg" alt="" class="rounded-circle" width="60"
                         height="60">
                       <div class="ms-3">
-                        <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                        <small class="mb-0 dropdown-user-designation text-secondary">HR Manager</small>
+                        <h6 class="mb-0 dropdown-user-name">{{ auth()->user()->name }}</h6>
+                        <small class="mb-0 dropdown-user-designation text-secondary">{{ auth()->user()->roles }}</small>
                       </div>
                     </div>
                   </a>

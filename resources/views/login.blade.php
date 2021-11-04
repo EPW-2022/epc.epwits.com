@@ -26,6 +26,7 @@
             </div>
             <button type="submit" class="btn login-button w-100" tabindex="3">Log In</button>
             <p class="login-register text-center mt-3" tabindex="4">Belum mendaftar? <a href="/daftar">Daftar sekarang!</a></p>
+            <p class="login-register text-center mt-3" tabindex="4">Lupa password? <a href="https://api.whatsapp.com/send/?phone=6282247544818&text=Reset+Password_Asal+Sekolah_Nama+Tim_Nama+Ketua&app_absent=0" target="_blank">Klik disini!</a></p>
           </form>
         </div>
       </div>

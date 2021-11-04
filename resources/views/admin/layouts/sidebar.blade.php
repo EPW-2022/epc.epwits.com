@@ -12,41 +12,30 @@
   </div>
   <!--navigation-->
   <ul class="metismenu" id="menu">
-    <li>
+    <li class="{{ Request::is('admin') ? 'mm-active' : '' }}">
+      <a href="/admin">
+        <div class="parent-icon"><i class="bi bi-house-door"></i>
+        </div>
+        <div class="menu-title">Dashboard</div>
+      </a>
+    </li>
+    <li class="menu-label mt-0">Database</li>
+    <li class="{{ Request::is('admin/tim**') ? 'mm-active' : '' }}">
       <a href="javascript:;" class="has-arrow">
         <div class="parent-icon"><i class="bi bi-grid"></i>
         </div>
-        <div class="menu-title">Application</div>
+        <div class="menu-title">Peserta</div>
       </a>
       <ul class="mm-collapse">
-        <li> <a href=""><i class="bi bi-arrow-right-short"></i>Email</a>
+        <li class="{{ Request::is('admin/tim') ? 'mm-active' : '' }}"> <a href="/admin/tim"><i class="bi bi-arrow-right-short"></i>Akun Tim</a>
         </li>
-        <li> <a href=""><i class="bi bi-arrow-right-short"></i>Chat Box</a>
+        <li class="{{ Request::is('admin/tim/verifikasi') ? 'mm-active' : '' }}"> <a href="/admin/tim/verifikasi"><i class="bi bi-arrow-right-short"></i>Perlu Verifikasi</a>
         </li>
-        <li> <a href=""><i class="bi bi-arrow-right-short"></i>File Manager</a>
+        <li class="{{ Request::is('admin/tim/ketua') ? 'mm-active' : '' }}"> <a href="/admin/tim/ketua"><i class="bi bi-arrow-right-short"></i>Data Ketua</a>
         </li>
-        <li> <a href=""><i class="bi bi-arrow-right-short"></i>Todo List</a>
-        </li>
-        <li> <a href=""><i class="bi bi-arrow-right-short"></i>Invoice</a>
-        </li>
-        <li> <a href=""><i class="bi bi-arrow-right-short"></i>Calendar</a>
+        <li class="{{ Request::is('admin/tim/anggota') ? 'mm-active' : '' }}"> <a href="/admin/tim/anggota"><i class="bi bi-arrow-right-short"></i>Data Anggota</a>
         </li>
       </ul>
-    </li>
-    <li class="menu-label">Pages</li>
-    <li>
-      <a href="">
-        <div class="parent-icon"><i class="bi bi-person-check"></i>
-        </div>
-        <div class="menu-title">User Profile</div>
-      </a>
-    </li>
-    <li>
-      <a href="">
-        <div class="parent-icon"><i class="bi bi-collection-play"></i>
-        </div>
-        <div class="menu-title">Timeline</div>
-      </a>
     </li>
   </ul>
   <!--end navigation-->

@@ -8,6 +8,44 @@ $('#confirmcheck').change(function () {
   }
 })
 
+$('#resetpass').on('click', function (e) {
+  e.preventDefault();
+  var form = $(this).parents('form');
+  Swal.fire({
+    title: 'Reset Password?',
+    text: "Perubahan password dapat berdampak pada peserta",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Reset Password!',
+    cancelButtonText: 'Batalkan!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      form.submit();
+    }
+  })
+})
+
+$('#verifyingData').on('click', function (e) {
+  e.preventDefault();
+  var form = $(this).parents('form');
+  Swal.fire({
+    title: 'Validasi Data?',
+    text: "Data yang tervalidasi tidak dapat dibatalkan.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Validasi!',
+    cancelButtonText: 'Batalkan!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      form.submit();
+    }
+  })
+})
+
 if (flashdata) {
   // Login Gagal
   if (flashdata == 'Login Failed') {
@@ -52,6 +90,24 @@ if (flashdata) {
       title: 'Registrasi Gagal!',
       text: 'Silakan unggah kembali kelengkapan berkas kamu!',
       confirmButtonColor: '#c6384d',
+    })
+  }
+  // Verifikasi Berhasil
+  if (flashdata == 'Verified') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Akun Terverifikasi!',
+      text: 'Data peserta telah terverifikasi dengan benar.',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Password Reset
+  if (flashdata == 'Password Reset') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Password telah di reset!',
+      text: 'Jangan lupa untuk konfirmasi kepada peserta!',
+      confirmButtonColor: '#424a63',
     })
   }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminTeamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,4 +41,14 @@ Route::get('/', function () {
 
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
   Route::get('/', [AdminController::class, 'index']);
+  Route::prefix('tim')->group(function () {
+    Route::get('/', [AdminTeamController::class, 'index']);
+    Route::get('/verifikasi', [AdminTeamController::class, 'verifying']);
+    Route::get('/ketua', [AdminTeamController::class, 'leader']);
+    Route::get('/anggota', [AdminTeamController::class, 'member']);
+    Route::get('/{team:team_number}', [AdminTeamController::class, 'detail']);
+
+    Route::post('/verifikasi/{user:id}', [AdminTeamController::class, 'verified']);
+    Route::post('/resetpass/{user:id}', [AdminTeamController::class, 'resetpass']);
+  });
 });

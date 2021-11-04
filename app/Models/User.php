@@ -50,4 +50,24 @@ class User extends Authenticatable
         'created_at',
         'updated_at',
     ];
+
+    public function team()
+    {
+        return $this->hasOne(Team::class);
+    }
+
+    public function leader()
+    {
+        return $this->hasOne(Leader::class);
+    }
+
+    public function member()
+    {
+        return $this->hasOne(Member::class);
+    }
+
+    public function file()
+    {
+        return $this->hasOne(File::class);
+    }
 }

@@ -8,6 +8,8 @@
   <link rel="shortcut icon" href="/img/epw-logo/logo-bg-blue.png" type="image/x-icon">
   <!-- Plugins -->
   <link href="/vendor/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+  {{-- Data Tables --}}
+  <link href="/vendor/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
   <!-- Bootstrap CSS -->
   <link href="/vendor/bootstrap5/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/vendor/bootstrap5/dist/css/bootstrap-extended.css" rel="stylesheet" />
@@ -22,7 +24,7 @@
   <link href="/css/admin/semi-dark.css" rel="stylesheet" />
   <link href="/css/admin/header-colors.css" rel="stylesheet" />
 
-  <title>EPC - EPW 2022 | Title</title>
+  <title>EPC - EPW 2022 | {{ $title }}</title>
 </head>
 
 <body>
@@ -55,9 +57,15 @@
   <!-- Bootstrap bundle JS -->
   <script src="/vendor/bootstrap5/dist/js/bootstrap.bundle.min.js"></script>
   <!--plugins-->
-  <script src="/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="/vendor/jquery/dist/jquery.js"></script>
   <script src="/vendor/metismenu/js/metisMenu.min.js"></script>
+  <script src="/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  {{-- Data Tables --}}
+  <script src="/vendor/datatable/js/jquery.dataTables.min.js"></script>
+  <script src="/vendor/datatable/js/dataTables.bootstrap5.min.js"></script>
+  <script src="/js/table-datatable.js"></script>
   <!--app-->
+  <script src="/js/script.js"></script>
   <script src="/js/app.js"></script>
 
 </body>
