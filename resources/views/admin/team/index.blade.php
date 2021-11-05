@@ -42,12 +42,12 @@
           <tbody>
             @foreach ($users as $user)
             <tr>
-              <td class="text-center">{{ $loop->iteration }}</td>
-              <td class="text-center">{{ $user->team->team_number }}</td>
-              <td>{{ $user->name }}</td>
-              <td>{{ $user->username }}</td>
-              <td>{{ $user->email }}</td>
-              <td>
+              <td class="text-center align-middle">{{ $loop->iteration }}</td>
+              <td class="text-center align-middle">{{ $user->team->team_number }}</td>
+              <td class="align-middle">{{ $user->name }}</td>
+              <td class="align-middle">{{ $user->username }}</td>
+              <td class="align-middle">{{ $user->email }}</td>
+              <td class="align-middle">
                 @if ($user->verified_at)
                   <span class="text-success"><i class="bi bi-patch-check"></i> Telah diverifikasi</span>
                 @else
@@ -57,8 +57,11 @@
               <td>
                 <div class="table-actions d-flex align-items-center gap-3 fs-6">
                   <a href="/admin/tim/{{ $user->team->team_number }}" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detail Data"><i class="bi bi-eye-fill"></i> Detail</a>
-                  {{-- <a href="" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><i class="bi bi-pencil-fill"></i></a>
-                  <a href="" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-trash-fill"></i></a> --}}
+                  {{-- <a href="" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><i class="bi bi-pencil-fill"></i></a> --}}
+                  <form action="/admin/tim/deleteData/{{ $user->id }}" method="POST">
+                    @csrf
+                    <button type="submit" id="deletingData" class="text-danger btn p-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hapus Data"><i class="bi bi-trash-fill"></i> Hapus</button>
+                  </form>
                 </div>
               </td>
             </tr>

@@ -23,7 +23,7 @@ class CreateLeadersTable extends Migration
             $table->text('address');
             $table->string('phone');
             $table->string('email');
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

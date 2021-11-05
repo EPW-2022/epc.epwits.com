@@ -20,7 +20,7 @@ class CreateMembersTable extends Migration
             $table->string('student_number')->nullable();
             $table->string('place_birth')->nullable();
             $table->string('date_birth')->nullable();
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

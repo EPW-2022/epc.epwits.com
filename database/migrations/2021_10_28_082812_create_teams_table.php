@@ -20,7 +20,7 @@ class CreateTeamsTable extends Migration
             $table->string('team_number');
             $table->string('school');
             $table->string('city');
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

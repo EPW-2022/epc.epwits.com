@@ -104,7 +104,8 @@ class AuthController extends Controller
 
             // Uploading Files
             if ($request->hasFile('person_photo') && $request->hasFile('person_scan') && $request->hasFile('payment_slip')) {
-                $teamNumber = 'EPC-' . Team::all()->count() + 1;
+                $teamNumber = 'EPC-' . (Team::latest('id')->first()->id ?? 0) + 1;
+
                 // Uploading Photos
                 $photos = $request->file('person_photo');
                 $photoData = [];
@@ -140,14 +141,13 @@ class AuthController extends Controller
                 ])->id;
 
                 // INSERT DATA TO TEAMS TABLE
-                $teamNumber = 'EPC-' . Team::all()->count() + 1;
-                Team::create([
+                $teamId = Team::create([
                     'user_id'           => $userId,
                     'name'              => $validatedData['name'],
                     'team_number'       => $teamNumber,
                     'school'            => $validatedData['school'],
                     'city'              => $validatedData['city']
-                ]);
+                ])->id;
 
                 // INSERT DATA TO FILES TABLE
                 File::create([

@@ -23,7 +23,7 @@ class CreateFilesTable extends Migration
             $table->string('payment_slip');
             $table->string('member_twibbon')->nullable();
             $table->string('leader_twibbon')->nullable();
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

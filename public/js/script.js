@@ -46,6 +46,25 @@ $('#verifyingData').on('click', function (e) {
   })
 })
 
+$('#deletingData').on('click', function (e) {
+  e.preventDefault();
+  var form = $(this).parents('form');
+  Swal.fire({
+    title: 'Hapus Data?',
+    text: "Data yang dihapus tidak dapat dikembalikan.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Hapus Data!',
+    cancelButtonText: 'Batalkan!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      form.submit();
+    }
+  })
+})
+
 if (flashdata) {
   // Login Gagal
   if (flashdata == 'Login Failed') {

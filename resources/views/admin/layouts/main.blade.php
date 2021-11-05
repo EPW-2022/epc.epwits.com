@@ -65,7 +65,7 @@
   <script src="/vendor/datatable/js/dataTables.bootstrap5.min.js"></script>
   <script src="/js/table-datatable.js"></script>
   <!--app-->
-  <script src="/js/script.js"></script>
+  <script src="/js/script.js?modify={{ date("Ymd")}}"></script>
   <script src="/js/app.js"></script>
 
 </body>

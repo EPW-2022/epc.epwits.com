@@ -50,5 +50,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::post('/verifikasi/{user:id}', [AdminTeamController::class, 'verified']);
     Route::post('/resetpass/{user:id}', [AdminTeamController::class, 'resetpass']);
+    Route::post('/deleteData/{user:id}', [AdminTeamController::class, 'deletingData']);
   });
 });

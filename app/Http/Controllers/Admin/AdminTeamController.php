@@ -66,4 +66,14 @@ class AdminTeamController extends Controller
         $user->update($data);
         return redirect('admin/tim')->with('message', 'Password Reset');
     }
+
+    public function deletingData(User $user)
+    {
+        $team = Team::firstWhere('user_id', $user->id);
+
+        $user->delete();
+        $team->delete();
+
+        return redirect('admin/tim')->with('message', 'Delete Success');
+    }
 }
