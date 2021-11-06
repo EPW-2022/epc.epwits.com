@@ -36,15 +36,30 @@
       </div>
     </div>
     <div class="col">
-      <div class="card radius-10 border-0 border-start border-danger border-3">
+      <div class="card radius-10 border-0 border-start border-warning border-3">
         <div class="card-body">
           <div class="d-flex align-items-center">
             <div class="">
               <p class="mb-1">Belum Diverifikasi</p>
-              <h4 class="mb-0 text-danger">{{ $unverify }}</h4>
+              <h4 class="mb-0 text-warning">{{ $unverify }}</h4>
+            </div>
+            <div class="ms-auto widget-icon bg-warning text-white">
+              <i class="bi bi-patch-check"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card radius-10 border-0 border-start border-danger border-3">
+        <div class="card-body">
+          <div class="d-flex align-items-center">
+            <div class="">
+              <p class="mb-1">Data ditolak</p>
+              <h4 class="mb-0 text-danger">{{ $rejected }}</h4>
             </div>
             <div class="ms-auto widget-icon bg-danger text-white">
-              <i class="bi bi-patch-check"></i>
+              <i class="bi bi-trash"></i>
             </div>
           </div>
         </div>

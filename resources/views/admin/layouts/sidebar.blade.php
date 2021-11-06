@@ -19,6 +19,27 @@
         <div class="menu-title">Dashboard</div>
       </a>
     </li>
+    @if(auth()->user()->roles === 'Superadmin')
+    {{-- Superadmin Menu --}}
+    <li class="menu-label mt-0">Superadmin</li>
+    <li class="{{ Request::is('superadmin') ? 'mm-active' : '' }}">
+      <a href="/superadmin">
+        <div class="parent-icon">
+          <i class="bi bi-gear"></i>
+        </div>
+        <div class="menu-title">Pengaturan</div>
+      </a>
+    </li>
+    <li class="{{ Request::is('superadmin/trashed') ? 'mm-active' : '' }}">
+      <a href="/superadmin/trashed">
+        <div class="parent-icon">
+          <i class="bi bi-trash"></i>
+        </div>
+        <div class="menu-title">Data Dihapus</div>
+      </a>
+    </li>
+    @endif
+    
     {{-- Database Menu --}}
     <li class="menu-label mt-0">Database</li>
     <li class="{{ Request::is('admin/tim') ? 'mm-active' : '' }}">

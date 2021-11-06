@@ -15,7 +15,8 @@ class AdminController extends Controller
         return view('admin.index', [
             'title'         => 'Dashboard Admin',
             'teams'         => Team::all()->count(),
-            'unverify'      => User::where('roles', 'Participant')->where('verified_at', NULL)->count()
+            'unverify'      => User::where('roles', 'Participant')->where('verified_at', NULL)->count(),
+            'rejected'      => Team::onlyTrashed()->count()
         ]);
     }
 }

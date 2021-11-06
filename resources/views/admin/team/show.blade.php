@@ -4,7 +4,7 @@
     
   <!--Header-->
   <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">{{ $team->team_number }}</div>
+    <div class="breadcrumb-title pe-3">Data Tim : <span class="fw-bold">{{ $team->team_number }}</span></div>
     <div class="ps-3 ms-auto">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0 p-0">
@@ -30,6 +30,8 @@
             </div>
             @if ($team->user->verified_at)
               <div class="text-success text-end"><i class="bi bi-patch-check"></i> Telah diverifikasi</div>
+            @else
+              <div class="text-danger text-end">Belum diverifikasi</div>
             @endif
           </div>
           <hr>
@@ -253,14 +255,18 @@
             </div>
           @endif
 
-          @if ($team->user->verified_at == NULL)
           <div class="text-end">
-            <form action="/admin/tim/verifikasi/{{ $team->user->id }}" method="POST">
+            <form action="/admin/tim/deleteData/{{ $team->user->id }}" method="POST" class="d-inline">
               @csrf
-              <button type="submit" id="verifyingData" class="btn btn-danger">Verifikasi Data!</button>
+              <button type="submit" id="deletingData" class="btn btn-outline-danger">Hapus Data</button>
             </form>
+            @if ($team->user->verified_at == NULL)
+            <form action="/admin/tim/verifikasi/{{ $team->user->id }}" method="POST" class="d-inline">
+              @csrf
+              <button type="submit" id="verifyingData" class="btn btn-success">Verifikasi Data!</button>
+            </form>
+            @endif
           </div>
-          @endif
         </div>
       </div>
     </div>

@@ -111,7 +111,7 @@ class AuthController extends Controller
                 $photoData = [];
                 $photoIndex = 1;
                 foreach ($photos as $image) {
-                    $newImageName = $teamNumber . '_' . $validatedData['name'] . '_Pas Foto_' . $photoIndex . '.' . $image->extension();
+                    $newImageName = $teamNumber . '_' . $validatedData['username'] . '_Pas Foto_' . $photoIndex . '.' . $image->extension();
                     $photoIndex++;
                     $image->move(public_path('files/photos'), $newImageName);
                     $photoData[] = $newImageName;
@@ -122,14 +122,14 @@ class AuthController extends Controller
                 $scanData = [];
                 $scanIndex = 1;
                 foreach ($scans as $image) {
-                    $newImageName = $teamNumber . '_' . $validatedData['name'] . '_Kartu Pelajar_' . $scanIndex . '.' . $image->extension();
+                    $newImageName = $teamNumber . '_' . $validatedData['username'] . '_Kartu Pelajar_' . $scanIndex . '.' . $image->extension();
                     $scanIndex++;
                     $image->move(public_path('files/scan'), $newImageName);
                     $scanData[] = $newImageName;
                 }
 
                 // Uploading Slip
-                $paymentFile = $teamNumber . '_' . $validatedData['name'] . '_Bukti Bayar.' . $request->payment_slip->extension();
+                $paymentFile = $teamNumber . '_' . $validatedData['username'] . '_Bukti Bayar.' . $request->payment_slip->extension();
                 $request->payment_slip->move(public_path('files/payment'), $paymentFile);
 
                 // INSERT DATA TO USERS TABLE

@@ -129,4 +129,22 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // Delete Success
+  if (flashdata == 'Delete Success') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Data berhasil dihapus!',
+      text: 'Jangan lupa untuk konfirmasi kepada peserta!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Restore Success
+  if (flashdata == 'Restore Success') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Data berhasil dikembalikan!',
+      text: 'Jangan lupa untuk konfirmasi kepada peserta!',
+      confirmButtonColor: '#424a63',
+    })
+  }
 }

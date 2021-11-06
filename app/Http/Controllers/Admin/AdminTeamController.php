@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\File;
 use App\Models\User;
 use App\Models\Team;
 use Carbon\Carbon;
@@ -19,9 +20,9 @@ class AdminTeamController extends Controller
         ]);
     }
 
-    public function detail(Team $team)
+    public function show(Team $team)
     {
-        return view('admin.team.detail', [
+        return view('admin.team.show', [
             'title'         => $team->team_number,
             'team'          => $team,
         ]);
@@ -70,6 +71,18 @@ class AdminTeamController extends Controller
     public function deletingData(User $user)
     {
         $team = Team::firstWhere('user_id', $user->id);
+        $files = File::firstWhere('user_id', $user->id);
+
+        $photos = explode(';', $files->person_photo);
+        foreach ($photos as $photo) {
+            rename(public_path('files\photos\\' . $photo), public_path('trash\photos\\' . $photo));
+        }
+        $scans = explode(';', $files->person_scan);
+        foreach ($scans as $scan) {
+            rename(public_path('files\scan\\' . $scan), public_path('trash\scan\\' . $scan));
+        }
+        $payment = $files->payment_slip;
+        rename(public_path('files\payment\\' . $payment), public_path('trash\payment\\' . $payment));
 
         $user->delete();
         $team->delete();

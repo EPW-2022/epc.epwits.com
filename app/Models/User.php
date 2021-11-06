@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     public function team()
     {
-        return $this->hasOne(Team::class);
+        return $this->hasOne(Team::class)->withTrashed();
     }
 
     public function leader()

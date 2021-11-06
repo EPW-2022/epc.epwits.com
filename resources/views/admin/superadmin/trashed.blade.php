@@ -56,9 +56,9 @@
               </td>
               <td>
                 <div class="table-actions d-flex align-items-center gap-3 fs-6">
-                  <a href="/admin/tim/{{ $user->team->team_number }}" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detail Data"><i class="bi bi-eye-fill"></i></a>
+                  <a href="/superadmin/trashed/{{ $user->team->team_number }}" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detail Data"><i class="bi bi-eye-fill"></i></a>
                   {{-- <a href="" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><i class="bi bi-pencil-fill"></i></a> --}}
-                  <form action="/admin/tim/deleteData/{{ $user->id }}" method="POST">
+                  <form action="/superadmin/destroy/{{ $user->id }}" method="POST">
                     @csrf
                     <button type="submit" id="deletingData" class="text-danger btn p-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hapus Data"><i class="bi bi-trash-fill"></i></button>
                   </form>
