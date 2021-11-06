@@ -75,14 +75,14 @@ class AdminTeamController extends Controller
 
         $photos = explode(';', $files->person_photo);
         foreach ($photos as $photo) {
-            rename(public_path('files\photos\\' . $photo), public_path('trash\photos\\' . $photo));
+            rename(public_path('files/photos/' . $photo), public_path('trash/photos/' . $photo));
         }
         $scans = explode(';', $files->person_scan);
         foreach ($scans as $scan) {
-            rename(public_path('files\scan\\' . $scan), public_path('trash\scan\\' . $scan));
+            rename(public_path('files/scan/' . $scan), public_path('trash/scan/' . $scan));
         }
         $payment = $files->payment_slip;
-        rename(public_path('files\payment\\' . $payment), public_path('trash\payment\\' . $payment));
+        rename(public_path('files/payment/' . $payment), public_path('trash/payment/' . $payment));
 
         $user->delete();
         $team->delete();

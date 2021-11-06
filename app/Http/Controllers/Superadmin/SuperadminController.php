@@ -41,16 +41,16 @@ class SuperadminController extends Controller
 
         $photos = explode(';', $files->person_photo);
         foreach ($photos as $photo) {
-            unlink(public_path('trash\photos\\' . $photo));
+            unlink(public_path('trash/photos/' . $photo));
         }
 
         $scans = explode(';', $files->person_scan);
         foreach ($scans as $scan) {
-            unlink(public_path('trash\scan\\' . $scan));
+            unlink(public_path('trash/scan/' . $scan));
         }
 
         $payment = $files->payment_slip;
-        unlink(public_path('trash\payment\\' . $payment));
+        unlink(public_path('trash/payment/' . $payment));
 
         File::withTrashed()->firstWhere('user_id', $id)->forceDelete();
         Team::withTrashed()->firstWhere('user_id', $id)->forceDelete();
@@ -70,7 +70,7 @@ class SuperadminController extends Controller
         foreach ($photos as $photo) {
             $newImageName = 'Restore_' . $photo;
 
-            rename(public_path('trash\photos\\' . $photo), public_path('files\photos\\' . $newImageName));
+            rename(public_path('trash/photos/' . $photo), public_path('files/photos/' . $newImageName));
             $photoData[] = $newImageName;
         }
 
@@ -79,13 +79,13 @@ class SuperadminController extends Controller
         foreach ($scans as $scan) {
             $newImageName = 'Restore_' . $scan;
 
-            rename(public_path('trash\scan\\' . $scan), public_path('files\scan\\' . $newImageName));
+            rename(public_path('trash/scan/' . $scan), public_path('files/scan/' . $newImageName));
             $scanData[] = $newImageName;
         }
 
         $payment = $files->payment_slip;
         $paymentFile = 'Restore_' . $payment;
-        rename(public_path('trash\payment\\' . $payment), public_path('files\payment\\' . $paymentFile));
+        rename(public_path('trash/payment/' . $payment), public_path('files/payment/' . $paymentFile));
 
         File::where('user_id', $id)->update([
             'person_photo'      => implode(';', $photoData),
