@@ -1,6 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
+
+@if (session()->has('message'))
+  <div id="flash-data" data-flashdata="{{ session('message') }}"></div>
+@endif
     
 <article id="dashboard">
   <div class="container">
@@ -10,7 +14,7 @@
       <h1 class="profile-name">{{ auth()->user()->name }}</h1>
       <h2 class="profile-school">{{ auth()->user()->team->school }}</h2>
       <h2 class="profile-team">Tim {{ auth()->user()->team->team_number }}</h2>
-      <a href="" class="profile-card text-center mx-auto mt-3">Lihat Kartu Peserta</a>
+      <a href="/profile" class="profile-card text-center mx-auto mt-3">Edit Akun</a>
     </section>
     {{-- End of Profile --}}
 
@@ -55,7 +59,9 @@
     {{-- End of Score --}}
 
     {{-- Video --}}
-    <section id="video">
+    <section id="video" class="d-flex flex-column align-items-center justify-content-center">
+      <h3 class="video-coming">Coming Soon</h3>
+      <h2 class="video-title">[Tutorial Penyisihan]</h2>
     </section>
     {{-- End of Video --}}
   </div>

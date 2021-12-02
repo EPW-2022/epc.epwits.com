@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminTeamController;
 use App\Http\Controllers\Admin\PenyisihanController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Superadmin\SuperadminController;
 use App\Models\Team;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// DASHBOARD ROUTES
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
 Route::get('/daftar', [AuthController::class, 'register'])->middleware('guest');
 
@@ -26,20 +28,14 @@ Route::post('/daftar', [AuthController::class, 'registration']);
 Route::post('/login', [AuthController::class, 'authentication']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::get('/loginepc', function () {
-  return view('main.loginepc', [
-    'title' => 'loginepc'
-  ]);
+Route::middleware(['auth', 'registered', 'participant'])->group(function () {
+  Route::get('/', [PagesController::class, 'index']);
+  Route::get('/profile', [PagesController::class, 'profile']);
+  Route::put('/profile/{user:username}', [PagesController::class, 'update']);
 });
+Route::get('/verifying', [PagesController::class, 'verifying'])->middleware('auth');
 
-Route::get('/verifying', function () {
-  return view('verifying');
-})->middleware('auth');
-
-Route::get('/', function () {
-  return view('dashboard.index');
-})->middleware('auth', 'registered', 'participant');
-
+// ADMIN ROUTES
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
   Route::get('/', [AdminController::class, 'index']);
@@ -64,6 +60,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
   Route::delete('/penyisihan/token/delete_token/{quiz_token:id}', [PenyisihanController::class, 'delete_token']);
 });
 
+// SUPERADMIN ROUTES
 Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function () {
   Route::get('/', [SuperadminController::class, 'index']);
 
