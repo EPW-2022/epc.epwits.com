@@ -459,7 +459,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu a.dropdown-item {
 article#dashboard {
   background-color: #f2f2f2;
   min-height: calc(100vh - 85px);
-  padding-top: 5.5rem;
+  padding-top: 6.5rem;
 }
 
 article#dashboard .container {
@@ -564,5 +564,42 @@ article#dashboard .container #video::after {
   width: 100%;
   height: 1.5rem;
   background-color: #424a63;
+}
+
+article#dashboard .container #video .video-coming {
+  font-family: "Zilla Slab", serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #424a63;
+  text-transform: uppercase;
+}
+
+article#dashboard .container #video .video-title {
+  font-family: "Zilla Slab", serif;
+  font-weight: bold;
+  font-size: 2.25rem;
+  text-align: center;
+  color: #424a63;
+  text-transform: uppercase;
+}
+
+article#dashboard .container #editProfile .profile .form-label {
+  font-family: "Zilla Slab", serif;
+  font-weight: 500;
+  font-size: 1ren;
+  letter-spacing: 0.05em;
+  color: #424a63;
+}
+
+article#dashboard .container #editProfile .profile .form-control {
+  background-color: #f2f2f2;
+}
+
+article#dashboard .container #editProfile .profile-button {
+  background-color: #424a63;
+  font-family: "Zilla Slab", serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #f2f2f2;
 }
 /*# sourceMappingURL=style.css.map */

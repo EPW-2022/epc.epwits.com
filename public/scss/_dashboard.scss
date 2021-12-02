@@ -1,7 +1,7 @@
 article#dashboard {
     background-color: $color-white;
     min-height: calc(100vh - 85px);
-    padding-top: 5.5rem;
+    padding-top: 6.5rem;
     .container {
         background-color: $primary-epc;
         border-radius: 2.5rem;
@@ -92,6 +92,42 @@ article#dashboard {
                 width: 100%;
                 height: 1.5rem;
                 background-color: $darker-blue;
+            }
+            .video-coming {
+                font-family: $font-zilla;
+                font-size: 1.5rem;
+                text-align: center;
+                color: $darker-blue;
+                text-transform: uppercase;
+            }
+            .video-title {
+                font-family: $font-zilla;
+                font-weight: bold;
+                font-size: 2.25rem;
+                text-align: center;
+                color: $darker-blue;
+                text-transform: uppercase;
+            }
+        }
+        #editProfile {
+            .profile {
+                .form-label {
+                    font-family: $font-zilla;
+                    font-weight: 500;
+                    font-size: 1ren;
+                    letter-spacing: 0.05em;
+                    color: $darker-blue;
+                }
+                .form-control {
+                    background-color: $color-white;
+                }
+                &-button {
+                    background-color: $darker-blue;
+                    font-family: $font-zilla;
+                    font-weight: 500;
+                    font-size: 1rem;
+                    color: $color-white;
+                }
             }
         }
     }

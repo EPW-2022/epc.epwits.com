@@ -96,7 +96,7 @@ return [
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
     'numeric' => 'The :attribute must be a number.',
-    'password' => 'The password is incorrect.',
+    'password' => 'Password lama salah!',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
     'required' => ':attribute harus diisi!',
@@ -157,6 +157,7 @@ return [
         // Users
         'name'              => 'Nama',
         'username'          => 'Username',
+        'oldpass'           => 'Password Lama',
         'password'          => 'Password',
         'confirm'           => 'Konfirmasi password',
         // Teams

@@ -147,4 +147,13 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // Profile Updated
+  if (flashdata == 'Profile Updated') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Profile berhasil diubah',
+      text: 'Data profil tim kalian sudah berubah!',
+      confirmButtonColor: '#424a63',
+    })
+  }
 }
