@@ -7,9 +7,9 @@
     {{-- Profile --}}
     <section id="profile" class="text-center">
       <img src="/img/avatar.svg" alt="" class="profile-avatar">
-      <h1 class="profile-name">Tim GASBLAR</h1>
-      <h2 class="profile-school">SMAN 7 Denpasar</h2>
-      <h2 class="profile-team">Tim 2</h2>
+      <h1 class="profile-name">{{ auth()->user()->name }}</h1>
+      <h2 class="profile-school">{{ auth()->user()->team->school }}</h2>
+      <h2 class="profile-team">Tim {{ auth()->user()->team->team_number }}</h2>
       <a href="" class="profile-card text-center mx-auto mt-3">Lihat Kartu Peserta</a>
     </section>
     {{-- End of Profile --}}

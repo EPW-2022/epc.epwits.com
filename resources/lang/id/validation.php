@@ -182,6 +182,19 @@ return [
         'payment_slip'      => 'Bukti pembayaran',
         'leader_twibbon'    => 'Twibbon Ketua',
         'member_twibbon'    => 'Twibbon Anggota',
+        // Soal Penyisihan
+        'question'      => 'Form soal',
+        'answer_a'      => 'Jawaban A',
+        'answer_b'      => 'Jawaban B',
+        'answer_c'      => 'Jawaban C',
+        'answer_d'      => 'Jawaban D',
+        'answer_e'      => 'Jawaban E',
+        'number'        => 'Nomer soal',
+        'score'         => 'Skor soal',
+        'category'      => 'Kategori',
+        'true_answer'   => 'Jawaban benar',
+        'date'          => 'Tanggal',
+        'time'          => 'Jam',
     ],
 
 ];

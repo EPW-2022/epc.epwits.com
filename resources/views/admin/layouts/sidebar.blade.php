@@ -20,24 +20,31 @@
       </a>
     </li>
     @if(auth()->user()->roles === 'Superadmin')
-    {{-- Superadmin Menu --}}
-    <li class="menu-label mt-0">Superadmin</li>
-    <li class="{{ Request::is('superadmin') ? 'mm-active' : '' }}">
-      <a href="/superadmin">
+    
+    {{-- Penyisihan Menu --}}
+    <li class="mt-3 {{ Request::is('superadmin**') ? 'mm-active' : '' }}">
+      <a href="#" class="has-arrow">
         <div class="parent-icon">
           <i class="bi bi-gear"></i>
         </div>
-        <div class="menu-title">Pengaturan</div>
+        <div class="menu-title">Superadmin</div>
       </a>
+      <ul class="mm-collapse">
+        <li class="{{ Request::is('superadmin') ? 'mm-active' : '' }}">
+          <a href="/superadmin">
+            <i class="bi bi-arrow-right-short"></i>
+            Pengaturan
+          </a>
+        </li>
+        <li class="{{ Request::is('superadmin/trashed') ? 'mm-active' : '' }}">
+          <a href="/superadmin/trashed">
+            <i class="bi bi-arrow-right-short"></i>
+            Data Tim Dihapus
+          </a>
+        </li>
+      </ul>
     </li>
-    <li class="{{ Request::is('superadmin/trashed') ? 'mm-active' : '' }}">
-      <a href="/superadmin/trashed">
-        <div class="parent-icon">
-          <i class="bi bi-trash"></i>
-        </div>
-        <div class="menu-title">Data Dihapus</div>
-      </a>
-    </li>
+
     @endif
     
     {{-- Database Menu --}}
@@ -74,25 +81,37 @@
         <div class="menu-title">Data Anggota</div>
       </a>
     </li>
-    
 
-    {{-- <li class="{{ Request::is('admin/tim**') ? 'mm-active' : 'mm-active' }}">
-      <a href="javascript:;" class="has-arrow">
+    {{-- Penyisihan Menu --}}
+    <li class="mt-3 {{ Request::is('admin/penyisihan**') ? 'mm-active' : '' }}">
+      <a href="#" class="has-arrow">
         <div class="parent-icon"><i class="bi bi-grid"></i>
         </div>
-        <div class="menu-title">Peserta</div>
+        <div class="menu-title">Penyisihan</div>
       </a>
       <ul class="mm-collapse">
-        <li class="{{ Request::is('admin/tim') ? 'mm-active' : '' }}"> <a href="/admin/tim"><i class="bi bi-arrow-right-short"></i>Akun Tim</a>
+        <li class="{{ Request::is('admin/penyisihan') ? 'mm-active' : '' }}">
+          <a href="/admin/penyisihan">
+            <i class="bi bi-arrow-right-short"></i>
+            Daftar Soal
+          </a>
         </li>
-        <li class="{{ Request::is('admin/tim/verifikasi') ? 'mm-active' : '' }}"> <a href="/admin/tim/verifikasi"><i class="bi bi-arrow-right-short"></i>Perlu Verifikasi</a>
+        <li class="{{ Request::is('admin/penyisihan/create') ? 'mm-active' : '' }}">
+          <a href="/admin/penyisihan/create">
+            <i class="bi bi-arrow-right-short"></i>
+            Tambah Soal
+          </a>
         </li>
-        <li class="{{ Request::is('admin/tim/ketua') ? 'mm-active' : '' }}"> <a href="/admin/tim/ketua"><i class="bi bi-arrow-right-short"></i>Data Ketua</a>
-        </li>
-        <li class="{{ Request::is('admin/tim/anggota') ? 'mm-active' : '' }}"> <a href="/admin/tim/anggota"><i class="bi bi-arrow-right-short"></i>Data Anggota</a>
+        <li class="{{ Request::is('admin/penyisihan/token') ? 'mm-active' : '' }}">
+          <a href="/admin/penyisihan/token">
+            <i class="bi bi-arrow-right-short"></i>
+            Atur Token
+          </a>
         </li>
       </ul>
-    </li> --}}
+    </li>
+
+
   </ul>
   <!--end navigation-->
 </aside>

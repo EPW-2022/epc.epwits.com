@@ -147,4 +147,140 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // Question Created
+  if (flashdata == 'Question Created') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Soal berhasil dibuat!',
+      text: 'Silakan cek kembali soal yang telah dibuat.',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Question Updated
+  if (flashdata == 'Question Updated') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Soal berhasil diubah!',
+      text: 'Silakan cek kembali soal yang telah diubah.',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Question Deleted
+  if (flashdata == 'Question Deleted') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Soal berhasil dihapus!',
+      text: 'Soal sudah berhasil dihapus dan tidak dapat dikembalikan lagi.',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Token Generated
+  if (flashdata == 'Token Generated') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Token berhasil dibuat!',
+      text: 'Segera berikan token tersebut kepada peserta!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Token Deleted
+  if (flashdata == 'Token Deleted') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Token berhasil dihapus!',
+      text: 'Token sudah dihapus dan tidak dapat dikembalikan.',
+      confirmButtonColor: '#424a63',
+    })
+  }
 }
+
+$(function () {
+  // Datepicker
+  $('#datePicker').bootstrapMaterialDatePicker({
+    time: false
+  });
+  $('#timePicker').bootstrapMaterialDatePicker({
+    date: false,
+    format: 'HH:mm'
+  });
+  // Summernote
+  $('#soalPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+    height: 200,
+  });
+  $('#pilAPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+  $('#pilBPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+  $('#pilCPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+  $('#pilDPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+  $('#pilEPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+})

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminTeamController;
+use App\Http\Controllers\Admin\PenyisihanController;
 use App\Http\Controllers\Superadmin\SuperadminController;
 use App\Models\Team;
 use Illuminate\Support\Facades\Route;
@@ -25,8 +26,6 @@ Route::post('/daftar', [AuthController::class, 'registration']);
 Route::post('/login', [AuthController::class, 'authentication']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::get('/registrasi', [PagesController::class, 'registrasi']);
-Route::get('/prapenyisihan', [PagesController::class, 'prapenyisihan']);
 Route::get('/loginepc', function () {
   return view('main.loginepc', [
     'title' => 'loginepc'
@@ -56,6 +55,13 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::post('/resetpass/{user:id}', [AdminTeamController::class, 'resetpass']);
     Route::post('/deleteData/{user:id}', [AdminTeamController::class, 'deletingData']);
   });
+
+  Route::get('/penyisihan/token', [PenyisihanController::class, 'token']);
+  Route::resource('/penyisihan', PenyisihanController::class)->parameters([
+    'penyisihan' => 'quiz_tryout'
+  ]);
+  Route::post('/penyisihan/token', [PenyisihanController::class, 'generate_token']);
+  Route::delete('/penyisihan/token/delete_token/{quiz_token:id}', [PenyisihanController::class, 'delete_token']);
 });
 
 Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function () {
