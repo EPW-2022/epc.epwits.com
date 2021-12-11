@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuizTokensTable extends Migration
+class CreateQuizAttemptsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateQuizTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('quiz_tokens', function (Blueprint $table) {
+        Schema::create('quiz_attempts', function (Blueprint $table) {
             $table->id();
-            $table->string('date')->nullable();
-            $table->string('time')->nullable();
-            $table->string('token')->nullable();
+            $table->foreignId('user_id');
+            $table->string('name');
+            $table->string('team_number');
+            $table->string('token');
+            $table->timestamp('attempt_at');
+            $table->string('session');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateQuizTokensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quiz_tokens');
+        Schema::dropIfExists('quiz_attempts');
     }
 }

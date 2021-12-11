@@ -497,11 +497,18 @@ article#dashboard .container #profile .profile-card {
   width: 312px;
   max-width: 100%;
   background-color: #424a63;
+  border: 2px solid #424a63;
   border-radius: 0.5rem;
   display: block;
   padding: 0.75rem 0;
   text-decoration: none;
   color: #f2f2f2;
+  transition: ease-in-out 0.3s;
+}
+
+article#dashboard .container #profile .profile-card:hover {
+  background-color: transparent;
+  color: #424a63;
 }
 
 article#dashboard .container #score {
@@ -545,7 +552,7 @@ article#dashboard .container #score .score-box .score-content .score-value {
   color: #424a63;
 }
 
-article#dashboard .container #video {
+article#dashboard .container #announcement {
   margin: 2rem auto;
   width: 850px;
   max-width: 100%;
@@ -556,7 +563,7 @@ article#dashboard .container #video {
   overflow: hidden;
 }
 
-article#dashboard .container #video::after {
+article#dashboard .container #announcement::after {
   position: absolute;
   content: "";
   top: 0;
@@ -566,7 +573,7 @@ article#dashboard .container #video::after {
   background-color: #424a63;
 }
 
-article#dashboard .container #video .video-coming {
+article#dashboard .container #announcement .announcement-coming {
   font-family: "Zilla Slab", serif;
   font-size: 1.5rem;
   text-align: center;
@@ -574,13 +581,56 @@ article#dashboard .container #video .video-coming {
   text-transform: uppercase;
 }
 
-article#dashboard .container #video .video-title {
+article#dashboard .container #announcement .announcement-title {
   font-family: "Zilla Slab", serif;
   font-weight: bold;
   font-size: 2.25rem;
   text-align: center;
   color: #424a63;
   text-transform: uppercase;
+}
+
+article#dashboard .container #announcement .announcement-desc p {
+  font-family: "Zilla Slab", serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: #424a63;
+}
+
+article#dashboard .container #announcement ol.announcement-list {
+  list-style-type: decimal;
+}
+
+article#dashboard .container #announcement ol.announcement-list > li {
+  font-family: "Zilla Slab", serif;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: #424a63;
+  margin: 0.25rem 0;
+}
+
+article#dashboard .container #announcement .announcement-button {
+  display: block;
+  width: 150px;
+  background-color: #424a63;
+  border: 2px solid #424a63;
+  border-radius: 0.5rem;
+  padding: 0.75rem 0;
+  font-family: "Zilla Slab", serif;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #f2f2f2;
+  text-decoration: none;
+  transition: ease-in-out 0.3s;
+}
+
+article#dashboard .container #announcement .announcement-button:hover {
+  background-color: transparent;
+  color: #424a63;
 }
 
 article#dashboard .container #editProfile .profile .form-label {

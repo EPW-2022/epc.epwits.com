@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Quiz_answer;
+use App\Models\User;
 use App\Models\Quiz_token;
 use App\Models\Quiz_tryout;
 use Illuminate\Http\Request;
@@ -33,7 +35,8 @@ class PenyisihanController extends Controller
     public function create()
     {
         return view('admin.penyisihan.create', [
-            'title' => 'Tambah Soal Penyisihan'
+            'title' => 'Tambah Soal Penyisihan',
+            'quiz'  => Quiz_tryout::latest()->first()
         ]);
     }
 
@@ -433,32 +436,19 @@ class PenyisihanController extends Controller
         return redirect('/admin/penyisihan')->with('message', "Question Deleted");
     }
 
-    public function token()
+    public function status()
     {
-        return view('admin.penyisihan.token', [
-            'title' => 'Pengaturan Token Tryout',
-            'token' => Quiz_token::latest('id')->first(),
-            'tokens' => Quiz_token::latest('id')->get()
+        return view('admin.penyisihan.status', [
+            'title'         => 'Status Peserta',
+            'users'         => User::where('roles', 'Participant')->get()
         ]);
     }
 
-    public function generate_token(Request $request)
+    public function ranking()
     {
-        $validated = $request->validate([
-            'date'  => 'required',
-            'time'  => 'required',
+        return view('admin.penyisihan.ranking', [
+            'title'         => 'Ranking Peserta',
+            'users'         => Quiz_answer::all()->sortBy("score")
         ]);
-        $validated['token'] = random_int(100000, 999999);
-
-        Quiz_token::create($validated);
-
-        return redirect('/admin/penyisihan/token')->with('message', 'Token Generated');
-    }
-
-    public function delete_token(Quiz_token $quiz_token)
-    {
-        $quiz_token->delete();
-
-        return redirect('/admin/penyisihan/token')->with('message', 'Token Deleted');
     }
 }

@@ -201,14 +201,84 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // No Token
+  if (flashdata == 'No Token') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Token Kosong!',
+      text: 'Masukkan token yang telah diberikan!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Wrong Token
+  if (flashdata == 'Wrong Token') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Token tidak valid!',
+      text: 'Cek kembali token yang telah kamu masukkan!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Wrong Expired
+  if (flashdata == 'Wrong Expired') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Token telah kadaluarsa!',
+      text: 'Silakan hubungi panitia untuk mendapatkan token baru!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Quiz attempt
+  if (flashdata == 'Quiz attempt') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Akun tidak terdeteksi!',
+      text: 'Silakan hubungi panitia kembali agar dapat mengikuti Quiz!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Timer Set
+  if (flashdata == 'Timer Set') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Timer sudah diatur!',
+      text: 'Terima kasih telah mengatur timer pengerjaan!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Quiz Finished
+  if (flashdata == 'Quiz Finished') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Quiz Selesai!',
+      text: 'Kamu telah selesai menyelesaikan quiz. Tunggu info lebih lanjut!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Already Attempt
+  if (flashdata == 'Already Attempt') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Anda sedang melakukan kuis!',
+      text: 'Anda sudah melakukan attempt quiz. Hubungi panitia jika terdapat error',
+      confirmButtonColor: '#424a63',
+    })
+  }
 }
 
 $(function () {
   // Datepicker
-  $('#datePicker').bootstrapMaterialDatePicker({
+  $('#datePickerToken').bootstrapMaterialDatePicker({
     time: false
   });
-  $('#timePicker').bootstrapMaterialDatePicker({
+  $('#timePickerToken').bootstrapMaterialDatePicker({
+    date: false,
+    format: 'HH:mm'
+  });
+  $('#datePickerTimer').bootstrapMaterialDatePicker({
+    time: false
+  });
+  $('#timePickerTimer').bootstrapMaterialDatePicker({
     date: false,
     format: 'HH:mm'
   });
@@ -218,7 +288,6 @@ $(function () {
       // [groupName, [list of button]]
       ['style', ['bold', 'italic', 'underline', 'clear']],
       ['font', ['strikethrough', 'superscript', 'subscript']],
-      ['fontsize', ['fontsize']],
       ['color', ['color']],
       ['para', ['ul', 'ol', 'paragraph']],
       ['height', ['height']],
@@ -232,7 +301,6 @@ $(function () {
       // [groupName, [list of button]]
       ['style', ['bold', 'italic', 'underline', 'clear']],
       ['font', ['strikethrough', 'superscript', 'subscript']],
-      ['fontsize', ['fontsize']],
       ['color', ['color']],
       ['para', ['ul', 'ol', 'paragraph']],
       ['height', ['height']],
@@ -245,7 +313,6 @@ $(function () {
       // [groupName, [list of button]]
       ['style', ['bold', 'italic', 'underline', 'clear']],
       ['font', ['strikethrough', 'superscript', 'subscript']],
-      ['fontsize', ['fontsize']],
       ['color', ['color']],
       ['para', ['ul', 'ol', 'paragraph']],
       ['height', ['height']],
@@ -258,7 +325,6 @@ $(function () {
       // [groupName, [list of button]]
       ['style', ['bold', 'italic', 'underline', 'clear']],
       ['font', ['strikethrough', 'superscript', 'subscript']],
-      ['fontsize', ['fontsize']],
       ['color', ['color']],
       ['para', ['ul', 'ol', 'paragraph']],
       ['height', ['height']],
@@ -271,7 +337,6 @@ $(function () {
       // [groupName, [list of button]]
       ['style', ['bold', 'italic', 'underline', 'clear']],
       ['font', ['strikethrough', 'superscript', 'subscript']],
-      ['fontsize', ['fontsize']],
       ['color', ['color']],
       ['para', ['ul', 'ol', 'paragraph']],
       ['height', ['height']],
@@ -284,7 +349,6 @@ $(function () {
       // [groupName, [list of button]]
       ['style', ['bold', 'italic', 'underline', 'clear']],
       ['font', ['strikethrough', 'superscript', 'subscript']],
-      ['fontsize', ['fontsize']],
       ['color', ['color']],
       ['para', ['ul', 'ol', 'paragraph']],
       ['height', ['height']],
@@ -293,3 +357,5 @@ $(function () {
     popatmouse: true,
   });
 })
+
+

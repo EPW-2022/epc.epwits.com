@@ -102,10 +102,22 @@
             Tambah Soal
           </a>
         </li>
-        <li class="{{ Request::is('admin/penyisihan/token') ? 'mm-active' : '' }}">
-          <a href="/admin/penyisihan/token">
+        <li class="{{ Request::is('admin/penyisihan/setup') ? 'mm-active' : '' }}">
+          <a href="/admin/penyisihan/setup">
             <i class="bi bi-arrow-right-short"></i>
-            Atur Token
+            Atur Quiz
+          </a>
+        </li>
+        <li class="{{ Request::is('admin/penyisihan/status') ? 'mm-active' : '' }}">
+          <a href="/admin/penyisihan/status">
+            <i class="bi bi-arrow-right-short"></i>
+            Status Peserta
+          </a>
+        </li>
+        <li class="{{ Request::is('admin/penyisihan/ranking') ? 'mm-active' : '' }}">
+          <a href="/admin/penyisihan/ranking">
+            <i class="bi bi-arrow-right-short"></i>
+            Ranking Peserta
           </a>
         </li>
       </ul>

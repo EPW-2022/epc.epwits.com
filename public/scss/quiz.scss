@@ -1,0 +1,138 @@
+@import "variables";
+
+body {
+    font-size: 0.875rem;
+    background-color: $secondary-epc;
+}
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+}
+
+/*
+   * Sidebar
+   */
+
+.sidebar {
+    background-color: $color-white;
+    position: fixed;
+    top: 0;
+    /* rtl:raw:
+    right: 0;
+    */
+    bottom: 0;
+    /* rtl:remove */
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        top: 5rem;
+    }
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+.sidebar .nav-link .feather {
+    margin-right: 4px;
+    color: #727272;
+}
+
+.sidebar .nav-link.active {
+    color: #2470dc;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+    color: inherit;
+}
+
+.sidebar-heading {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.quiz-number {
+    width: 45px;
+    &.flagged {
+        position: relative;
+        overflow: hidden;
+        &::after {
+            position: absolute;
+            content: "";
+            width: 15px;
+            height: 15px;
+            transform: rotate(45deg);
+            background-color: crimson;
+            top: -8px;
+            right: -8px;
+        }
+    }
+}
+
+.question {
+    background-color: $color-white;
+    padding: 2rem 3rem;
+    border-radius: 1.5rem;
+    min-height: 60vh;
+    p,
+    span {
+        font-size: 18px !important;
+    }
+    &-choice {
+        width: 20px;
+    }
+}
+
+/*
+   * Navbar
+   */
+.navbar {
+    background-color: $darker-blue;
+}
+
+.navbar-brand {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 1rem;
+    background-color: $darker-blue;
+}
+
+.navbar .navbar-toggler {
+    top: 0.25rem;
+    right: 1rem;
+}
+
+.navbar .form-control {
+    padding: 0.75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+}
+
+.form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}

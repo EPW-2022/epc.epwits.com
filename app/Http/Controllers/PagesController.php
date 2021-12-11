@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quiz_answer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +11,10 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        $quiz_answer = Quiz_answer::firstWhere('user_id', auth()->user()->id);
+        return view('dashboard.index', [
+            'score' => empty($quiz_answer) ? '-' : $quiz_answer->score
+        ]);
     }
 
     public function verifying()

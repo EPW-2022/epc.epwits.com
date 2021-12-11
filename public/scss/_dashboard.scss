@@ -33,11 +33,17 @@ article#dashboard {
                 width: 312px;
                 max-width: 100%;
                 background-color: $darker-blue;
+                border: 2px solid $darker-blue;
                 border-radius: 0.5rem;
                 display: block;
                 padding: 0.75rem 0;
                 text-decoration: none;
                 color: $color-white;
+                transition: ease-in-out 0.3s;
+                &:hover {
+                    background-color: transparent;
+                    color: $darker-blue;
+                }
             }
         }
         #score {
@@ -75,7 +81,7 @@ article#dashboard {
                 }
             }
         }
-        #video {
+        #announcement {
             margin: 2rem auto;
             width: 850px;
             max-width: 100%;
@@ -93,20 +99,58 @@ article#dashboard {
                 height: 1.5rem;
                 background-color: $darker-blue;
             }
-            .video-coming {
+            .announcement-coming {
                 font-family: $font-zilla;
                 font-size: 1.5rem;
                 text-align: center;
                 color: $darker-blue;
                 text-transform: uppercase;
             }
-            .video-title {
+            .announcement-title {
                 font-family: $font-zilla;
                 font-weight: bold;
                 font-size: 2.25rem;
                 text-align: center;
                 color: $darker-blue;
                 text-transform: uppercase;
+            }
+            .announcement-desc p {
+                font-family: $font-zilla;
+                font-weight: 600;
+                font-size: 1rem;
+                letter-spacing: 0.05em;
+                color: $darker-blue;
+            }
+            ol.announcement-list {
+                list-style-type: decimal;
+                & > li {
+                    font-family: $font-zilla;
+                    font-weight: 500;
+                    font-size: 1rem;
+                    letter-spacing: 0.05em;
+                    color: $darker-blue;
+                    margin: 0.25rem 0;
+                }
+            }
+            .announcement-button {
+                display: block;
+                width: 150px;
+                background-color: $darker-blue;
+                border: 2px solid $darker-blue;
+                border-radius: 0.5rem;
+                padding: 0.75rem 0;
+                font-family: $font-zilla;
+                font-weight: bold;
+                font-size: 1rem;
+                text-align: center;
+                letter-spacing: 0.05em;
+                color: $color-white;
+                text-decoration: none;
+                transition: ease-in-out 0.3s;
+                &:hover {
+                    background-color: transparent;
+                    color: $darker-blue;
+                }
             }
         }
         #editProfile {

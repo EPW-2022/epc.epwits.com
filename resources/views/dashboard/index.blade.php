@@ -5,6 +5,10 @@
 @if (session()->has('message'))
   <div id="flash-data" data-flashdata="{{ session('message') }}"></div>
 @endif
+  
+@error('token')
+  <div id="flash-data" data-flashdata="No Token"></div>
+@enderror
     
 <article id="dashboard">
   <div class="container">
@@ -39,7 +43,7 @@
             </div>
             <div class="score-content">
               <span class="d-block score-name">Skor</span>
-              <span class="d-block score-value">-</span>
+              <span class="d-block score-value">{{ $score ?? '-' }}</span>
             </div>
           </div>
         </div>
@@ -58,13 +62,72 @@
     </section>
     {{-- End of Score --}}
 
-    {{-- Video --}}
-    <section id="video" class="d-flex flex-column align-items-center justify-content-center">
-      <h3 class="video-coming">Coming Soon</h3>
-      <h2 class="video-title">[Tutorial Penyisihan]</h2>
+    {{-- Announcement --}}
+    <section id="announcement" class="d-flex flex-column align-items-center justify-content-center">
+
+      {{-- COMING SOON --}}
+      {{-- <h3 class="announcement-coming">Coming Soon</h3>
+      <h2 class="announcement-title">[Tutorial Penyisihan]</h2> --}}
+      {{-- END OF COMING SOON --}}
+
+      {{-- Penyisihan --}}
+      <h2 class="announcement-title"><span class="d-none d-sm-inline">-</span> Penyisihan EPC 2022 <span class="d-none d-sm-inline">-</span></h2>
+      <div class="announcement-desc">
+        <ol class="announcement-list my-3">
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+        </ol>
+        <div class="d-flex justify-content-center my-2">
+          <div class="d-flex justify-content-between" style="width: 50px">
+            <p>Start</p>
+            <p>:</p>
+          </div>
+          <p class="ms-2">07.30</p>
+        </div>
+        <div class="d-flex justify-content-center my-2">
+          <div class="d-flex justify-content-between" style="width: 50px">
+            <p>End</p>
+            <p>:</p>
+          </div>
+          <p class="ms-2">10.30</p>
+        </div>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#attemptQuiz" class="announcement-button mx-auto mt-3">Attempt</button>
+      </div>
+      {{-- End of Penyisihan --}}
+
     </section>
-    {{-- End of Video --}}
+    {{-- End of Announcement --}}
   </div>
 </article>
+
+<!-- Modal -->
+<div class="modal fade" id="attemptQuiz" tabindex="-1" aria-labelledby="attemptQuizLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="attemptQuizLabel">Attempt Quiz</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/getSession/{{ auth()->user()->team->team_number }}" method="POST">
+        @csrf
+        <div class="modal-body">
+          <p class="mb-3">Masukkan Kode Token untuk mengikuti Quiz!</p>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="token" name="token" value="{{ old('token') }}" placeholder="name@example.com">
+            <label for="token">Token Quiz</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-danger">Attempt Now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 @endsection
