@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Quiz_answer;
+use App\Models\Quiz_attempt;
 use App\Models\User;
 use App\Models\Quiz_token;
 use App\Models\Quiz_tryout;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Path\To\DOMDocument;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -449,6 +451,16 @@ class PenyisihanController extends Controller
         return view('admin.penyisihan.ranking', [
             'title'         => 'Ranking Peserta',
             'users'         => Quiz_answer::all()->sortBy("score")
+        ]);
+    }
+
+    public function answer(Team $team)
+    {
+        return view('admin.penyisihan.answer', [
+            'title'         => 'Jawaban Peserta ' . $team->team_number,
+            'team'          => $team,
+            'tryouts'       => Quiz_tryout::all(),
+            'answers'       => $team->user->quiz_answer
         ]);
     }
 }

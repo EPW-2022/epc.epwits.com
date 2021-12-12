@@ -42,6 +42,12 @@
             Data Tim Dihapus
           </a>
         </li>
+        <li class="{{ Request::is('superadmin/attempt') ? 'mm-active' : '' }}">
+          <a href="/superadmin/attempt">
+            <i class="bi bi-arrow-right-short"></i>
+            Data Attempt
+          </a>
+        </li>
       </ul>
     </li>
 

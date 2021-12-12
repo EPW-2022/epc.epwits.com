@@ -36,17 +36,27 @@
               <th>Skor</th>
               <th>Benar</th>
               <th>Salah</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($users as $user)
             <tr>
               <td class="text-center align-middle">{{ $loop->iteration }}</td>
-              <td class="text-center align-middle">{{ $user->team_number }}</td>
+              <td class="text-center align-middle">
+                <a href="/admin/tim/{{ $user->team_number }}">
+                  {{ $user->team_number }}
+                </a>
+              </td>
               <td class="align-middle">{{ $user->name }}</td>
-              <td class="align-middle">{{ $user->score ?? '-' }}</td>
-              <td class="align-middle">{{ $user->true ?? '-' }}</td>
-              <td class="align-middle">{{ $user->false ?? '-' }}</td>
+              <td class="align-middle text-center">{{ $user->score ?? '-' }}</td>
+              <td class="align-middle text-center">{{ $user->true ?? '-' }}</td>
+              <td class="align-middle text-center">{{ $user->false ?? '-' }}</td>
+              <td class="align-middle">
+                <div class="table-actions d-flex align-items-center gap-3 fs-6">
+                  <a href="/admin/penyisihan/jawaban/{{ $user->team_number }}" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detail Data"><i class="bi bi-eye-fill"></i> Lihat Jawaban</a>
+                </div>
+              </td>
             </tr>
             @endforeach
           </tbody>
@@ -58,6 +68,7 @@
               <th>Skor</th>
               <th>Benar</th>
               <th>Salah</th>
+              <th>Aksi</th>
             </tr>
           </tfoot>
         </table>

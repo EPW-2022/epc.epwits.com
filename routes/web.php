@@ -77,6 +77,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::delete('/token/delete_token/{quiz_token:id}', [SetupController::class, 'delete_token']);
     // TIMER ROUTES
     Route::put('/timer/{quiz_timer:id}', [SetupController::class, 'set_timer']);
+    Route::get('/jawaban/{team:team_number}', [PenyisihanController::class, 'answer']);
   });
   Route::resource('/penyisihan', PenyisihanController::class)->parameters([
     'penyisihan' => 'quiz_tryout'
@@ -91,4 +92,7 @@ Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function 
   Route::get('/trashed/{team:team_number}', [SuperadminController::class, 'show']);
   Route::post('/restore/{user}', [SuperadminController::class, 'restore']);
   Route::post('/destroy/{user}', [SuperadminController::class, 'destroy']);
+
+  Route::get('/attempt', [SuperadminController::class, 'attempt']);
+  Route::delete('/deleteSession/{quiz_attempt}', [SuperadminController::class, 'deleteSession']);
 });

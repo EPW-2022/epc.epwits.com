@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\File;
 use App\Models\Leader;
 use App\Models\Member;
+use App\Models\Quiz_attempt;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class SuperadminController extends Controller
     public function trashed()
     {
         return view('admin.superadmin.trashed', [
-            'title'         => 'Data Dihapus',
+            'title'         => 'Data Tim Dihapus',
             'users'         => User::where('roles', 'Participant')->onlyTrashed()->get()
         ]);
     }
@@ -97,5 +98,20 @@ class SuperadminController extends Controller
         User::withTrashed()->find($id)->restore();
 
         return redirect('admin/tim')->with('message', 'Restore Success');
+    }
+
+    public function attempt()
+    {
+        return view('admin.superadmin.attempt', [
+            'title'         => 'Data Attempt',
+            'attempts'      => Quiz_attempt::all()
+        ]);
+    }
+
+    public function deleteSession(Request $request, Quiz_attempt $quiz_attempt)
+    {
+        $quiz_attempt->delete();
+
+        return redirect('superadmin/attempt')->with('message', 'Delete Session');
     }
 }

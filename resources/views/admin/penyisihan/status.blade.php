@@ -42,7 +42,11 @@
             @foreach ($users as $user)
             <tr>
               <td class="text-center align-middle">{{ $loop->iteration }}</td>
-              <td class="text-center align-middle">{{ $user->team->team_number }}</td>
+              <td class="text-center align-middle">
+                <a href="/admin/tim/{{ $user->team->team_number }}">
+                  {{ $user->team->team_number }}
+                </a>
+              </td>
               <td class="align-middle">{{ $user->name }}</td>
               <td class="align-middle">{{ $user->quiz_attempt->attempt_at ?? '-' }}</td>
               <td class="align-middle">{{ $user->quiz_answer->submitted_at ?? '-' }}</td>

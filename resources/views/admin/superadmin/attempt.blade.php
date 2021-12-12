@@ -14,14 +14,14 @@
         <ol class="breadcrumb mb-0 p-0">
           <li class="breadcrumb-item"><a href="/admin"><i class="bx bx-home-alt"></i> Dashboard</a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">Data Tim Dihapus</li>
+          <li class="breadcrumb-item active" aria-current="page">Data Attempt Tim</li>
         </ol>
       </nav>
     </div>
   </div>
   <!--end of Header-->
 
-  <h6 class="mb-0 text-uppercase">Data Tim Dihapus</h6>
+  <h6 class="mb-0 text-uppercase">Data Attempt Tim</h6>
   <hr>
 
   <div class="card">
@@ -33,33 +33,26 @@
               <th>No</th>
               <th>No. Tim</th>
               <th>Nama Tim</th>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Status</th>
+              <th>Token</th>
+              <th>Session</th>
+              <th>Attempt at</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($users as $user)
+            @foreach ($attempts as $attempt)
             <tr>
               <td class="text-center align-middle">{{ $loop->iteration }}</td>
-              <td class="text-center align-middle">{{ $user->team->team_number }}</td>
-              <td class="align-middle">{{ $user->name }}</td>
-              <td class="align-middle">{{ $user->username }}</td>
-              <td class="align-middle">{{ $user->email }}</td>
-              <td class="align-middle">
-                @if ($user->verified_at)
-                  <span class="text-success"><i class="bi bi-patch-check"></i> Telah diverifikasi</span>
-                @else
-                  <span class="text-danger">Belum diverifikasi</span>
-                @endif  
-              </td>
+              <td class="text-center align-middle">{{ $attempt->team_number }}</td>
+              <td class="align-middle">{{ $attempt->name }}</td>
+              <td class="align-middle">{{ $attempt->token }}</td>
+              <td class="align-middle">{{ $attempt->session }}</td>
+              <td class="align-middle">{{ $attempt->attempt_at }}</td>
               <td>
                 <div class="table-actions d-flex align-items-center gap-3 fs-6">
-                  <a href="/superadmin/trashed/{{ $user->team->team_number }}" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detail Data"><i class="bi bi-eye-fill"></i></a>
-                  {{-- <a href="" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><i class="bi bi-pencil-fill"></i></a> --}}
-                  <form action="/superadmin/destroy/{{ $user->id }}" method="POST">
+                  <form action="/superadmin/deleteSession/{{ $attempt->session }}" method="POST">
                     @csrf
+                    @method('DELETE')
                     <button type="submit" id="deletingData" class="text-danger btn p-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hapus Data"><i class="bi bi-trash-fill"></i></button>
                   </form>
                 </div>
@@ -72,9 +65,9 @@
               <th>No</th>
               <th>No. Tim</th>
               <th>Nama Tim</th>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Status</th>
+              <th>Token</th>
+              <th>Session</th>
+              <th>Attempt at</th>
               <th>Aksi</th>
             </tr>
           </tfoot>

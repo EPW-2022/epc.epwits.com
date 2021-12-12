@@ -259,8 +259,17 @@ if (flashdata) {
   if (flashdata == 'Already Attempt') {
     Swal.fire({
       icon: 'error',
-      title: 'Anda sedang melakukan kuis!',
+      title: 'Anda sudah melakukan kuis!',
       text: 'Anda sudah melakukan attempt quiz. Hubungi panitia jika terdapat error',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Delete Session
+  if (flashdata == 'Delete Session') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Session Dihapus!',
+      text: 'Data session tim telah dihapus dan direset!',
       confirmButtonColor: '#424a63',
     })
   }
