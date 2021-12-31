@@ -90,6 +90,12 @@ class DatabaseSeeder extends Seeder
         $file->leader_twibbon   = NULL;
         $file->save();
 
+        User::factory(50)->create();
+        Team::factory(50)->create();
+        Leader::factory(50)->create();
+        Member::factory(50)->create();
+        File::factory(50)->create();
+
         $token = new Quiz_token;
         $token->date    = NULL;
         $token->time    = Null;
