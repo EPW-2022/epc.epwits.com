@@ -88,7 +88,7 @@
               <div class="row">
                 <div class="col-xl-12 col-md-6 mb-3">
                   <label class="form-label">Nomor Soal</label>
-                  <input type="number" name="number" class="form-control" min="1" value="{{ old('number', $quiz->number + 1) }}">
+                  <input type="number" name="number" class="form-control" min="1" value="{{ old('number', ($quiz->number ?? 0) + 1) }}">
                   @error('number')
                     <p class="text-danger mb-1">{{ $message }}</p>
                   @enderror
