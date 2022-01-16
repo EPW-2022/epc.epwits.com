@@ -13,7 +13,7 @@
       <img src="/img/avatar.svg" alt="" class="profile-avatar">
       <h1 class="profile-name">{{ auth()->user()->name }}</h1>
       <h2 class="profile-school">{{ auth()->user()->team->school }}</h2>
-      <h2 class="profile-team">{{ auth()->user()->team->team_number }}</h2>
+      <h2 class="profile-team">Tim {{ auth()->user()->team->team_number }}</h2>
       <a href="/profile" class="profile-card text-center mx-auto mt-3">Edit Akun</a>
     </section>
     {{-- End of Profile --}}
@@ -39,7 +39,7 @@
             </div>
             <div class="score-content">
               <span class="d-block score-name">Skor</span>
-              <span class="d-block score-value">-</span>
+              <span class="d-block score-value">{{ $score ?? '-' }}</span>
             </div>
           </div>
         </div>
@@ -58,12 +58,15 @@
     </section>
     {{-- End of Score --}}
 
-    {{-- Video --}}
-    <section id="video" class="d-flex flex-column align-items-center justify-content-center">
-      <h3 class="video-coming">Coming Soon</h3>
-      <h2 class="video-title">[Tutorial Penyisihan]</h2>
+    {{-- Announcement --}}
+    <section id="announcement" class="d-flex flex-column align-items-center justify-content-center">
+      {{-- <h3 class="announcement-coming">Coming Soon</h3>
+      <h2 class="announcement-title">[Tutorial Penyisihan]</h2> --}}
+        <div class="ratio ratio-16x9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/7keidZy3gz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </section>
-    {{-- End of Video --}}
+    {{-- End of Announcement --}}
   </div>
 </article>
 

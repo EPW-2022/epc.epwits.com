@@ -147,6 +147,51 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // Question Created
+  if (flashdata == 'Question Created') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Soal berhasil dibuat!',
+      text: 'Silakan cek kembali soal yang telah dibuat.',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Question Updated
+  if (flashdata == 'Question Updated') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Soal berhasil diubah!',
+      text: 'Silakan cek kembali soal yang telah diubah.',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Question Deleted
+  if (flashdata == 'Question Deleted') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Soal berhasil dihapus!',
+      text: 'Soal sudah berhasil dihapus dan tidak dapat dikembalikan lagi.',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Token Generated
+  if (flashdata == 'Token Generated') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Token berhasil dibuat!',
+      text: 'Segera berikan token tersebut kepada peserta!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Token Deleted
+  if (flashdata == 'Token Deleted') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Token berhasil dihapus!',
+      text: 'Token sudah dihapus dan tidak dapat dikembalikan.',
+      confirmButtonColor: '#424a63',
+    })
+  }
   // Profile Updated
   if (flashdata == 'Profile Updated') {
     Swal.fire({
@@ -156,4 +201,176 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // No Token
+  if (flashdata == 'No Token') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Token Kosong!',
+      text: 'Masukkan token yang telah diberikan!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Wrong Token
+  if (flashdata == 'Wrong Token') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Token tidak valid!',
+      text: 'Cek kembali token yang telah kamu masukkan!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Wrong Expired
+  if (flashdata == 'Wrong Expired') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Token telah kadaluarsa!',
+      text: 'Silakan hubungi panitia untuk mendapatkan token baru!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Quiz attempt
+  if (flashdata == 'Quiz attempt') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Akun tidak terdeteksi!',
+      text: 'Silakan hubungi panitia kembali agar dapat mengikuti Quiz!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Timer Set
+  if (flashdata == 'Timer Set') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Timer sudah diatur!',
+      text: 'Terima kasih telah mengatur timer pengerjaan!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Quiz Finished
+  if (flashdata == 'Quiz Finished') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Quiz Selesai!',
+      text: 'Kamu telah selesai menyelesaikan quiz. Tunggu info lebih lanjut!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Already Attempt
+  if (flashdata == 'Already Attempt') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Anda sudah melakukan kuis!',
+      text: 'Anda sudah melakukan attempt quiz. Hubungi panitia jika terdapat error',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Delete Session
+  if (flashdata == 'Delete Session') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Session Dihapus!',
+      text: 'Data session tim telah dihapus dan direset!',
+      confirmButtonColor: '#424a63',
+    })
+  }
 }
+
+$(function () {
+  // Datepicker
+  $('#datePickerToken').bootstrapMaterialDatePicker({
+    time: false
+  });
+  $('#timePickerToken').bootstrapMaterialDatePicker({
+    date: false,
+    format: 'HH:mm'
+  });
+  $('#datePickerTimer').bootstrapMaterialDatePicker({
+    time: false
+  });
+  $('#timePickerTimer').bootstrapMaterialDatePicker({
+    date: false,
+    format: 'HH:mm'
+  });
+  // Summernote
+  $('#soalPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+    height: 200,
+  });
+  $('#pilAPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+  $('#pilBPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+  $('#pilCPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+  $('#pilDPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+  $('#pilEPenyisihan').summernote({
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['insert', ['link', 'picture', 'video']],
+    ],
+    popatmouse: true,
+  });
+})
+
+

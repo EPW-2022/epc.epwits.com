@@ -71,4 +71,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(File::class);
     }
+
+    public function quiz_attempt()
+    {
+        return $this->hasOne(Quiz_attempt::class);
+    }
+
+    public function quiz_answer()
+    {
+        return $this->hasOne(Quiz_answer::class);
+    }
 }

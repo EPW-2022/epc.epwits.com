@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quiz_answer;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -10,7 +12,19 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        $open = Carbon::create(2022, 1, 21, 0, 0, 0);
+        $timenow = Carbon::now();
+        $quiz_answer = Quiz_answer::firstWhere('user_id', auth()->user()->id);
+
+        if ($timenow->greaterThan($open)) {
+            return view('dashboard.penyisihan', [
+                'score' => empty($quiz_answer) ? '-' : $quiz_answer->score
+            ]);
+        } else {
+            return view('dashboard.welcome', [
+                'score' => empty($quiz_answer) ? '-' : $quiz_answer->score
+            ]);
+        }
     }
 
     public function verifying()

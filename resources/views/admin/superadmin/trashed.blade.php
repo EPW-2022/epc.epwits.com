@@ -8,20 +8,20 @@
     
   <!--Header-->
   <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">Akun Tim Peserta</div>
+    <div class="breadcrumb-title pe-3">Data Logger</div>
     <div class="ps-3 ms-auto">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0 p-0">
           <li class="breadcrumb-item"><a href="/admin"><i class="bx bx-home-alt"></i> Dashboard</a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">Akun Tim Peserta</li>
+          <li class="breadcrumb-item active" aria-current="page">Data Tim Dihapus</li>
         </ol>
       </nav>
     </div>
   </div>
   <!--end of Header-->
 
-  <h6 class="mb-0 text-uppercase">Data Akun Tim Peserta</h6>
+  <h6 class="mb-0 text-uppercase">Data Tim Dihapus</h6>
   <hr>
 
   <div class="card">

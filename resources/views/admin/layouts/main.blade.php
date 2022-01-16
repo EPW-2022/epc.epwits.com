@@ -8,8 +8,12 @@
   <link rel="shortcut icon" href="/img/epw-logo/logo-bg-blue.png" type="image/x-icon">
   <!-- Plugins -->
   <link href="/vendor/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   {{-- Data Tables --}}
   <link href="/vendor/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+  {{-- Summernote --}}
+  <link href="/vendor/summernote/summernote.min.css" rel="stylesheet" />
   <!-- Bootstrap CSS -->
   <link href="/vendor/bootstrap5/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/vendor/bootstrap5/dist/css/bootstrap-extended.css" rel="stylesheet" />
@@ -64,6 +68,11 @@
   <script src="/vendor/datatable/js/jquery.dataTables.min.js"></script>
   <script src="/vendor/datatable/js/dataTables.bootstrap5.min.js"></script>
   <script src="/js/table-datatable.js"></script>
+  {{-- Datepicker --}}
+	<script src="/vendor/bootstrap-material-datetimepicker/js/moment.min.js"></script>
+	<script src="/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.min.js"></script>
+  {{-- Summernote --}}
+  <script src="/vendor/summernote/summernote.min.js"></script>
   <!--app-->
   <script src="/js/script.js?modify={{ date("Ymd")}}"></script>
   <script src="/js/app.js"></script>
