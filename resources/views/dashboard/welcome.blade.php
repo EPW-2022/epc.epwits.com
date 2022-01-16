@@ -60,8 +60,11 @@
 
     {{-- Announcement --}}
     <section id="announcement" class="d-flex flex-column align-items-center justify-content-center">
-      <h3 class="announcement-coming">Coming Soon</h3>
-      <h2 class="announcement-title">[Tutorial Penyisihan]</h2>
+      {{-- <h3 class="announcement-coming">Coming Soon</h3>
+      <h2 class="announcement-title">[Tutorial Penyisihan]</h2> --}}
+        <div class="ratio ratio-16x9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/7keidZy3gz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </section>
     {{-- End of Announcement --}}
   </div>

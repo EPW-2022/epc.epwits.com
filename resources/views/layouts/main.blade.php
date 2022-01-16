@@ -10,7 +10,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/vendor/fontawesome-free/css/all.min.css">
     {{-- CSS --}}
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css?modify={{ date("Ymdhis") }}">
 
     <link rel="shortcut icon" href="/img/epw-logo/logo-bg-blue.png" type="image/x-icon">
 
@@ -95,6 +95,6 @@
     <script src="/vendor/jquery/dist/jquery.js"></script>
     <script src="/vendor/bootstrap5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="/js/script.js?modify={{ date("Ymdhis") }}"></script>
   </body>
 </html>
