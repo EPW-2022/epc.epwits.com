@@ -8,13 +8,13 @@
 
   <!--Header-->
   <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">Penyisihan</div>
+    <div class="breadcrumb-title pe-3">Pengaturan Quiz</div>
     <div class="ps-3 ms-auto">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0 p-0">
           <li class="breadcrumb-item"><a href="/admin"><i class="bx bx-home-alt"></i> Dashboard</a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">Pengaturan Token</li>
+          <li class="breadcrumb-item active" aria-current="page">Pengaturan Quiz</li>
         </ol>
       </nav>
     </div>
@@ -28,7 +28,7 @@
       <div class="card">
         <div class="card-body">
           <div class="p-4 border rounded">
-            <form action="/admin/penyisihan/token/{{ $token->id }}" method="POST">
+            <form action="/admin/setup/token/{{ $token->id }}" method="POST">
               @csrf
               @method('PUT')
               <div class="row">
@@ -64,7 +64,7 @@
       <div class="card">
         <div class="card-body">
           <div class="p-4 border rounded">
-            <form action="/admin/penyisihan/timer/{{ $timer->id }}" method="POST">
+            <form action="/admin/setup/timer/{{ $timer->id }}" method="POST">
               @csrf
               @method('PUT')
               <label for="timePickerTimer" class="form-label">Waktu Pengerjaan</label>

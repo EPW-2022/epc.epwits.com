@@ -12,7 +12,7 @@ class SetupController extends Controller
 {
     public function setup()
     {
-        return view('admin.penyisihan.setup', [
+        return view('admin.setup', [
             'title' => 'Pengaturan Quiz',
             'token' => Quiz_token::latest('id')->first(),
             'timer' => Quiz_timer::latest('id')->first()
@@ -33,14 +33,7 @@ class SetupController extends Controller
             'token' => $validated['token']
         ]);
 
-        return redirect('/admin/penyisihan/setup')->with('message', 'Token Generated');
-    }
-
-    public function delete_token(Quiz_token $quiz_token)
-    {
-        $quiz_token->delete();
-
-        return redirect('/admin/penyisihan/setup')->with('message', 'Token Deleted');
+        return redirect('/admin/setup')->with('message', 'Token Generated');
     }
 
     public function set_timer(Request $request, Quiz_timer $quiz_timer)
@@ -52,6 +45,6 @@ class SetupController extends Controller
 
         $quiz_timer->update($validated);
 
-        return redirect('/admin/penyisihan/setup')->with('message', 'Timer Set');
+        return redirect('/admin/setup')->with('message', 'Timer Set');
     }
 }

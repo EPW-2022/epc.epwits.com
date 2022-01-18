@@ -463,4 +463,18 @@ class PenyisihanController extends Controller
             'answers'       => $team->user->quiz_answer
         ]);
     }
+
+    public function changerole(Team $team)
+    {
+        if ($team->user->roles == 'Participant') {
+            User::where('id', $team->user_id)->where('roles', $team->user->roles)->update([
+                'roles' => 'Quarter Finalist'
+            ]);
+        } elseif ($team->user->roles == 'Quarter Finalist') {
+            User::where('id', $team->user_id)->where('roles', $team->user->roles)->update([
+                'roles' => 'Participant'
+            ]);
+        }
+        return redirect('/admin/penyisihan/ranking');
+    }
 }

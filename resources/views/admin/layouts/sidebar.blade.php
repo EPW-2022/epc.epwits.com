@@ -88,8 +88,18 @@
       </a>
     </li>
 
+    {{-- Quiz Menu --}}
+    <li class="menu-label mt-0">Database</li>
+    <li class="{{ Request::is('admin/setup') ? 'mm-active' : '' }}">
+      <a href="/admin/setup">
+        <div class="parent-icon">
+          <i class="bi bi-gear"></i>
+        </div>
+        <div class="menu-title">Pengaturan Quiz</div>
+      </a>
+    </li>
     {{-- Penyisihan Menu --}}
-    <li class="mt-3 {{ Request::is('admin/penyisihan**') ? 'mm-active' : '' }}">
+    <li class="{{ Request::is('admin/penyisihan**') ? 'mm-active' : '' }}">
       <a href="#" class="has-arrow">
         <div class="parent-icon"><i class="bi bi-grid"></i>
         </div>
@@ -108,12 +118,6 @@
             Tambah Soal
           </a>
         </li>
-        <li class="{{ Request::is('admin/penyisihan/setup') ? 'mm-active' : '' }}">
-          <a href="/admin/penyisihan/setup">
-            <i class="bi bi-arrow-right-short"></i>
-            Atur Quiz
-          </a>
-        </li>
         <li class="{{ Request::is('admin/penyisihan/status') ? 'mm-active' : '' }}">
           <a href="/admin/penyisihan/status">
             <i class="bi bi-arrow-right-short"></i>
@@ -129,6 +133,40 @@
       </ul>
     </li>
 
+    {{-- Perempat Final Menu --}}
+    <li class="{{ Request::is('admin/perempat**') ? 'mm-active' : '' }}">
+      <a href="#" class="has-arrow">
+        <div class="parent-icon"><i class="bi bi-grid"></i>
+        </div>
+        <div class="menu-title">Perempat Final</div>
+      </a>
+      <ul class="mm-collapse">
+        <li class="{{ Request::is('admin/perempat') ? 'mm-active' : '' }}">
+          <a href="/admin/perempat">
+            <i class="bi bi-arrow-right-short"></i>
+            Daftar Soal
+          </a>
+        </li>
+        <li class="{{ Request::is('admin/perempat/create') ? 'mm-active' : '' }}">
+          <a href="/admin/perempat/create">
+            <i class="bi bi-arrow-right-short"></i>
+            Tambah Soal
+          </a>
+        </li>
+        <li class="{{ Request::is('admin/perempat/status') ? 'mm-active' : '' }}">
+          <a href="/admin/perempat/status">
+            <i class="bi bi-arrow-right-short"></i>
+            Status Peserta
+          </a>
+        </li>
+        <li class="{{ Request::is('admin/perempat/ranking') ? 'mm-active' : '' }}">
+          <a href="/admin/perempat/ranking">
+            <i class="bi bi-arrow-right-short"></i>
+            Ranking Peserta
+          </a>
+        </li>
+      </ul>
+    </li>
 
   </ul>
   <!--end navigation-->

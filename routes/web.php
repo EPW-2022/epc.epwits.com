@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminTeamController;
 use App\Http\Controllers\Admin\PenyisihanController;
 use App\Http\Controllers\Admin\SetupController;
+use App\Http\Controllers\Admin\PerempatController;
 use App\Models\Team;
 use Hamcrest\Core\Set;
 use Illuminate\Support\Facades\Route;
@@ -68,19 +69,29 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::post('/deleteData/{user:id}', [AdminTeamController::class, 'deletingData']);
   });
 
+  Route::prefix('setup')->group(function () {
+    Route::get('/', [SetupController::class, 'setup']);
+    Route::put('/token/{quiz_token:id}', [SetupController::class, 'generate_token']);
+    Route::put('/timer/{quiz_timer:id}', [SetupController::class, 'set_timer']);
+  });
+  // Penyisihan
   Route::prefix('penyisihan')->group(function () {
     // TOKEN ROUTES
-    Route::get('/setup', [SetupController::class, 'setup']);
     Route::get('/status', [PenyisihanController::class, 'status']);
     Route::get('/ranking', [PenyisihanController::class, 'ranking']);
-    Route::put('/token/{quiz_token:id}', [SetupController::class, 'generate_token']);
-    Route::delete('/token/delete_token/{quiz_token:id}', [SetupController::class, 'delete_token']);
-    // TIMER ROUTES
-    Route::put('/timer/{quiz_timer:id}', [SetupController::class, 'set_timer']);
     Route::get('/jawaban/{team:team_number}', [PenyisihanController::class, 'answer']);
+    Route::put('/changerole/{team:team_number}', [PenyisihanController::class, 'changerole']);
   });
   Route::resource('/penyisihan', PenyisihanController::class)->parameters([
     'penyisihan' => 'quiz_tryout'
+  ]);
+
+  // Perempat Final
+  Route::prefix('perempat')->group(function () {
+    Route::get('/status', [PerempatController::class, 'status']);
+  });
+  Route::resource('/perempat', PerempatController::class)->parameters([
+    'perempat' => 'quarter_tryout'
   ]);
 });
 

@@ -53,8 +53,19 @@
               <td class="align-middle text-center">{{ $user->true ?? '-' }}</td>
               <td class="align-middle text-center">{{ $user->false ?? '-' }}</td>
               <td class="align-middle">
-                <div class="table-actions d-flex align-items-center gap-3 fs-6">
+                <div class="table-actions d-flex align-items-center justify-content-center gap-3 fs-6">
                   <a href="/admin/penyisihan/jawaban/{{ $user->team_number }}" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detail Data"><i class="bi bi-eye-fill"></i> Lihat Jawaban</a>
+                  <form action="/admin/penyisihan/changerole/{{ $user->team_number }}" method="post" class="d-inline">
+                    @method('PUT')
+                    @csrf
+                    <button type="submit" class="p-0 btn">
+                      @if ($user->user->roles == 'Participant')
+                        <span class="text-success">Lanjut Perempat Final</span>
+                      @else
+                        <span class="text-danger">Batalkan Perempat Final</span>
+                      @endif
+                    </button>
+                  </form>
                 </div>
               </td>
             </tr>
