@@ -178,5 +178,40 @@ article#dashboard {
                 }
             }
         }
+        #congrats {
+            margin: 2rem auto;
+            padding: 1.5rem 0;
+            width: 850px;
+            background-color: $primary-event;
+            max-width: 100%;
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+            & > .container-fluid {
+                &.congratulation {
+                    background-color: $darker-blue;
+                }
+                &.failure {
+                    background-color: $color-brown;
+                }
+                .congrats-image {
+                    width: 250px;
+                    max-width: 100%;
+                }
+                .congrats-text {
+                    font-family: $font-zilla;
+                    font-size: 1.25rem;
+                    line-height: 1.5rem;
+                    letter-spacing: 0.08em;
+                    color: $color-white;
+                }
+                .congrats-quotes {
+                    font-family: $font-abril;
+                    font-size: 1.25rem;
+                    letter-spacing: 0.08em;
+                    color: $color-white;
+                }
+            }
+        }
     }
 }

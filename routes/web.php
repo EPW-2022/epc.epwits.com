@@ -53,7 +53,7 @@ Route::middleware(['auth', 'registered', 'participant', 'startQuiz'])->group(fun
 });
 
 // ADMIN ROUTES
-Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin', 'superadmin'])->group(function () {
 
   Route::get('/', [AdminController::class, 'index']);
 

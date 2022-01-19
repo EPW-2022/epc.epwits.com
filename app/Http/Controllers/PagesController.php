@@ -12,14 +12,20 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $open = Carbon::create(2022, 1, 21, 0, 0, 0);
+        $open = Carbon::create(2022, 1, 18, 0, 0, 0);
         $timenow = Carbon::now();
         $quiz_answer = Quiz_answer::firstWhere('user_id', auth()->user()->id);
 
         if ($timenow->greaterThan($open)) {
-            return view('dashboard.penyisihan', [
-                'score' => empty($quiz_answer) ? '-' : $quiz_answer->score
-            ]);
+            if (auth()->user()->roles == 'Quarter Finalist') {
+                return view('dashboard.congrats.penyisihan', [
+                    'score' => empty($quiz_answer) ? '-' : $quiz_answer->score
+                ]);
+            } else {
+                return view('dashboard.failure.penyisihan', [
+                    'score' => empty($quiz_answer) ? '-' : $quiz_answer->score
+                ]);
+            }
         } else {
             return view('dashboard.welcome', [
                 'score' => empty($quiz_answer) ? '-' : $quiz_answer->score

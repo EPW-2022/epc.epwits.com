@@ -658,4 +658,43 @@ article#dashboard .container #editProfile .profile-button {
   font-size: 1rem;
   color: #f2f2f2;
 }
+
+article#dashboard .container #congrats {
+  margin: 2rem auto;
+  padding: 1.5rem 0;
+  width: 850px;
+  background-color: #fde7b6;
+  max-width: 100%;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+article#dashboard .container #congrats > .container-fluid.congratulation {
+  background-color: #424a63;
+}
+
+article#dashboard .container #congrats > .container-fluid.failure {
+  background-color: #e56848;
+}
+
+article#dashboard .container #congrats > .container-fluid .congrats-image {
+  width: 250px;
+  max-width: 100%;
+}
+
+article#dashboard .container #congrats > .container-fluid .congrats-text {
+  font-family: "Zilla Slab", serif;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.08em;
+  color: #f2f2f2;
+}
+
+article#dashboard .container #congrats > .container-fluid .congrats-quotes {
+  font-family: "Abril Fatface", cursive;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  color: #f2f2f2;
+}
 /*# sourceMappingURL=style.css.map */

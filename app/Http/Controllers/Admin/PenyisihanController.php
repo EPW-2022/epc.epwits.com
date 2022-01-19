@@ -442,7 +442,7 @@ class PenyisihanController extends Controller
     {
         return view('admin.penyisihan.status', [
             'title'         => 'Status Peserta',
-            'users'         => User::where('roles', 'Participant')->get()
+            'users'         => User::where('roles', '!=', 'Admin')->where('roles', '!=', 'Superadmin')->get()
         ]);
     }
 
