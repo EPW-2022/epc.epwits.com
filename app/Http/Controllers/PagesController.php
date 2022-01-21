@@ -14,8 +14,8 @@ class PagesController extends Controller
     public function index()
     {
         $startPenyisihan = Carbon::create(2022, 1, 21, 0, 0, 0);
-        $announcPenyisihan = Carbon::create(2022, 1, 21, 12, 0, 0);
-        $startPerempat = Carbon::create(2022, 1, 21, 20, 0, 0);
+        $announcPenyisihan = Carbon::create(2022, 1, 22, 12, 0, 0);
+        $startPerempat = Carbon::create(2022, 2, 4, 0, 0, 0);
         $timenow = Carbon::now();
         $quiz_answer = Quiz_answer::firstWhere('user_id', auth()->user()->id);
         $quarter_answer = Quarter_answer::firstWhere('user_id', auth()->user()->id);
