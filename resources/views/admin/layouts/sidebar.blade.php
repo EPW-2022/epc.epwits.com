@@ -20,37 +20,37 @@
       </a>
     </li>
     @if(auth()->user()->roles === 'Superadmin')
-    
-    {{-- Penyisihan Menu --}}
-    <li class="mt-3 {{ Request::is('superadmin**') ? 'mm-active' : '' }}">
-      <a href="#" class="has-arrow">
-        <div class="parent-icon">
-          <i class="bi bi-gear"></i>
-        </div>
-        <div class="menu-title">Superadmin</div>
-      </a>
-      <ul class="mm-collapse">
-        <li class="{{ Request::is('superadmin') ? 'mm-active' : '' }}">
-          <a href="/superadmin">
-            <i class="bi bi-arrow-right-short"></i>
-            Pengaturan
-          </a>
-        </li>
-        <li class="{{ Request::is('superadmin/trashed') ? 'mm-active' : '' }}">
-          <a href="/superadmin/trashed">
-            <i class="bi bi-arrow-right-short"></i>
-            Data Tim Dihapus
-          </a>
-        </li>
-        <li class="{{ Request::is('superadmin/attempt') ? 'mm-active' : '' }}">
-          <a href="/superadmin/attempt">
-            <i class="bi bi-arrow-right-short"></i>
-            Data Attempt
-          </a>
-        </li>
-      </ul>
-    </li>
-
+      <li class="menu-label mt-0">Superadmin</li>
+      <li class="{{ Request::is('superadmin/trashed') ? 'mm-active' : '' }}">
+        <a href="/superadmin/trashed">
+          <div class="parent-icon">
+            <i class="bi bi-person-x-fill"></i>
+          </div>
+          <div class="menu-title">Data Tim Dihapus</div>
+        </a>
+      </li>
+      <li class="{{ Request::is('superadmin/attempt/**') ? 'mm-active' : '' }}">
+        <a href="#" class="has-arrow">
+          <div class="parent-icon">
+            <i class="bi bi-box-arrow-right"></i>
+          </div>
+          <div class="menu-title">Data Attempt</div>
+        </a>
+        <ul class="mm-collapse">
+          <li class="{{ Request::is('superadmin/attempt/penyisihan') ? 'mm-active' : '' }}">
+            <a href="/superadmin/attempt/penyisihan">
+              <i class="bi bi-arrow-right-short"></i>
+              Penyisihan
+            </a>
+          </li>
+          <li class="{{ Request::is('superadmin/attempt/perempat') ? 'mm-active' : '' }}">
+            <a href="/superadmin/attempt/perempat">
+              <i class="bi bi-arrow-right-short"></i>
+              Perempat Final
+            </a>
+          </li>
+        </ul>
+      </li>
     @endif
     
     {{-- Database Menu --}}
@@ -157,6 +157,12 @@
           <a href="/admin/perempat/status">
             <i class="bi bi-arrow-right-short"></i>
             Status Peserta
+          </a>
+        </li>
+        <li class="{{ Request::is('admin/perempat/jawaban') ? 'mm-active' : '' }}">
+          <a href="/admin/perempat/jawaban">
+            <i class="bi bi-arrow-right-short"></i>
+            Jawaban Peserta
           </a>
         </li>
         <li class="{{ Request::is('admin/perempat/ranking') ? 'mm-active' : '' }}">

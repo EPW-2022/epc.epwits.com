@@ -110,7 +110,7 @@ $('.endSession').on('click', function (e) {
     cancelButtonText: 'Batalkan!'
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = endSession;
+      window.location.href = $(this).attr('href');
     }
   })
 })

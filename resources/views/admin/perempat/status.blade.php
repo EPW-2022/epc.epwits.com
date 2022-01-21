@@ -49,13 +49,13 @@
               </td>
               <td class="align-middle">{{ $user->name }}</td>
               <td class="align-middle">{{ $user->quarter_attempt->attempt_at ?? '-' }}</td>
-              <td class="align-middle">{{ $user->quarter_answer->submitted_at ?? '-' }}</td>
+              <td class="align-middle">{{ $user->quarter_attempt->finished_at ?? '-' }}</td>
               <td class="align-middle">
-                @if (empty($user->quarter_attempt->attempt_at) && empty($user->quarter_answer->submitted_at))
+                @if (empty($user->quarter_attempt->attempt_at) && empty($user->quarter_attempt->finished_at))
                   <span class="text-danger"><i class="bi bi-x-circle"></i> Belum mengerjakan</span>
-                @elseif ($user->quarter_attempt->attempt_at && empty($user->quarter_answer->submitted_at))
+                @elseif ($user->quarter_attempt->attempt_at && empty($user->quarter_attempt->finished_at))
                   <span class="text-warning">Sedang Mengerjakan</span>
-                @elseif ($user->quarter_attempt->attempt_at && $user->quarter_answer->submitted_at)
+                @elseif ($user->quarter_attempt->attempt_at && $user->quarter_attempt->finished_at)
                   <span class="text-success"><i class="bi bi-check-circle"></i> Sudah selesai</span>
                 @endif  
               </td>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Quarter_answer;
 use App\Models\Quarter_tryout;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -176,5 +177,22 @@ class PerempatController extends Controller
             'title'         => 'Status Peserta',
             'users'         => User::where('roles', 'Quarter Finalist')->get()
         ]);
+    }
+
+    public function jawaban()
+    {
+        return view('admin.perempat.jawaban', [
+            'title'         => 'Jawaban Peserta',
+            'answers'       => Quarter_answer::orderBy('team_number', 'ASC')->orderBy('number', 'ASC')->get()
+        ]);
+    }
+
+    public function submitScore(Request $request, Quarter_answer $quarter_answer)
+    {
+        $quarter_answer->update([
+            'score' => $request->score
+        ]);
+
+        return response()->json(['score' => $request->score]);
     }
 }

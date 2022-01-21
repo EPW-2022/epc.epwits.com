@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminTeamController;
 use App\Http\Controllers\Admin\PenyisihanController;
 use App\Http\Controllers\Admin\SetupController;
 use App\Http\Controllers\Admin\PerempatController;
+use App\Http\Controllers\Admin\QuarterController;
 use App\Models\Team;
 use Hamcrest\Core\Set;
 use Illuminate\Support\Facades\Route;
@@ -38,17 +39,29 @@ Route::middleware(['auth', 'registered', 'participant'])->group(function () {
   Route::put('/profile/{user:username}', [PagesController::class, 'update']);
 
   Route::post('/getSession/{team:team_number}', [QuizController::class, 'getSession']);
+  Route::post('/quarterSession/{team:team_number}', [QuarterController::class, 'quarterSession']);
 });
 Route::get('/verifying', [PagesController::class, 'verifying'])->middleware('auth');
 
 // PENYISIHAN ROUTES
 Route::middleware(['auth', 'registered', 'participant', 'startQuiz'])->group(function () {
+  // Penyisihan
   Route::get('/quiz/{quiz_attempt}/submission', [QuizController::class, 'submission']);
   Route::get('/quiz/{quiz_attempt}/{quiz_tryout}', [QuizController::class, 'startQuiz']);
+  // Saving Answer
   Route::post('/saveAnswer/{quiz_tryout}', [QuizController::class, 'saveAnswer']);
   Route::post('/removeAnswer/{quiz_tryout}', [QuizController::class, 'removeAnswer']);
+  // Perempat Final
+  Route::get('/quarter/{quarter_attempt}/submission', [QuarterController::class, 'submission']);
+  Route::get('/quarter/{quarter_attempt}/endQuiz', [QuarterController::class, 'endSession']);
+  Route::get('/quarter/{quarter_attempt}/{quarter_tryout}', [QuarterController::class, 'startQuiz']);
+  // Upload Answer
+  Route::post('/uploadAnswer/{quarter_tryout}', [QuarterController::class, 'uploadAnswer']);
+  Route::delete('/deleteAnswer/{quarter_answer:answer_file}/{quarter_tryout}', [QuarterController::class, 'deleteAnswer']);
+  // Flagged Question
   Route::post('/addflagged/{quiz_tryout}', [QuizController::class, 'addflagged']);
   Route::post('/removeflagged/{quiz_tryout}', [QuizController::class, 'removeflagged']);
+  // Submission
   Route::get('/endQuiz/{quiz_attempt}', [QuizController::class, 'endSession']);
 });
 
@@ -89,6 +102,8 @@ Route::prefix('admin')->middleware(['auth', 'admin', 'superadmin'])->group(funct
   // Perempat Final
   Route::prefix('perempat')->group(function () {
     Route::get('/status', [PerempatController::class, 'status']);
+    Route::get('/jawaban', [PerempatController::class, 'jawaban']);
+    Route::post('/submitScore/{quarter_answer}', [PerempatController::class, 'submitScore']);
   });
   Route::resource('/perempat', PerempatController::class)->parameters([
     'perempat' => 'quarter_tryout'
@@ -104,6 +119,10 @@ Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function 
   Route::post('/restore/{user}', [SuperadminController::class, 'restore']);
   Route::post('/destroy/{user}', [SuperadminController::class, 'destroy']);
 
-  Route::get('/attempt', [SuperadminController::class, 'attempt']);
-  Route::delete('/deleteSession/{quiz_attempt}', [SuperadminController::class, 'deleteSession']);
+  Route::prefix('attempt')->group(function () {
+    Route::get('/penyisihan', [SuperadminController::class, 'penyisihan']);
+    Route::get('/perempat', [SuperadminController::class, 'perempat']);
+  });
+  Route::delete('/deleteQuiz/{quiz_attempt}', [SuperadminController::class, 'deleteQuiz']);
+  Route::delete('/deleteQuarter/{quarter_attempt}', [SuperadminController::class, 'deleteQuarter']);
 });

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\File;
 use App\Models\Leader;
 use App\Models\Member;
+use App\Models\Quarter_attempt;
 use App\Models\Quiz_attempt;
 use App\Models\Team;
 use App\Models\User;
@@ -100,18 +101,33 @@ class SuperadminController extends Controller
         return redirect('admin/tim')->with('message', 'Restore Success');
     }
 
-    public function attempt()
+    public function penyisihan()
     {
-        return view('admin.superadmin.attempt', [
-            'title'         => 'Data Attempt',
+        return view('admin.superadmin.penyisihan', [
+            'title'         => 'Data Attempt Penyisihan',
             'attempts'      => Quiz_attempt::all()
         ]);
     }
 
-    public function deleteSession(Request $request, Quiz_attempt $quiz_attempt)
+    public function deleteQuiz(Request $request, Quiz_attempt $quiz_attempt)
     {
         $quiz_attempt->delete();
 
-        return redirect('superadmin/attempt')->with('message', 'Delete Session');
+        return redirect('superadmin/attempt/penyisihan')->with('message', 'Delete Session');
+    }
+
+    public function perempat()
+    {
+        return view('admin.superadmin.perempat', [
+            'title'         => 'Data Attempt Perempat Final',
+            'attempts'      => Quarter_attempt::all()
+        ]);
+    }
+
+    public function deleteQuarter(Request $request, Quarter_attempt $quarter_attempt)
+    {
+        $quarter_attempt->delete();
+
+        return redirect('superadmin/attempt/perempat')->with('message', 'Delete Session');
     }
 }

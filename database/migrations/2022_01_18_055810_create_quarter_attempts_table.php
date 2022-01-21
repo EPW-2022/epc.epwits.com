@@ -19,7 +19,8 @@ class CreateQuarterAttemptsTable extends Migration
             $table->string('name');
             $table->string('team_number');
             $table->string('token');
-            $table->timestamp('attempt_at');
+            $table->dateTime('attempt_at');
+            $table->dateTime('finished_at')->nullable();
             $table->string('session');
             $table->timestamps();
         });

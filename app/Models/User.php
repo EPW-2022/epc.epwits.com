@@ -81,4 +81,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Quiz_answer::class);
     }
+
+    public function quarter_attempt()
+    {
+        return $this->hasOne(Quarter_attempt::class);
+    }
+
+    public function quarter_answer()
+    {
+        return $this->hasMany(Quarter_answer::class);
+    }
 }

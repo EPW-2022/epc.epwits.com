@@ -31,8 +31,8 @@
               <img src="/img/calendar.svg" alt="">
             </div>
             <div class="score-content">
-              <span class="d-block score-name">Penyisihan</span>
-              <span class="d-block score-value">22 Januari 2021</span>
+              <span class="d-block score-name">Perempat Final</span>
+              <span class="d-block score-value">5 Februari 2021</span>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@
             </div>
             <div class="score-content">
               <span class="d-block score-name">Skor</span>
-              <span class="d-block score-value">-</span>
+              <span class="d-block score-value">{{ $result->score }}</span>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
             </div>
             <div class="score-content">
               <span class="d-block score-name">Ranking</span>
-              <span class="d-block score-value">-</span>
+              <span class="d-block score-value">{{ $result->id }}</span>
             </div>
           </div>
         </div>

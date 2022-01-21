@@ -190,6 +190,7 @@ return [
         'answer_c'      => 'Jawaban C',
         'answer_d'      => 'Jawaban D',
         'answer_e'      => 'Jawaban E',
+        'answer'        => 'Jawaban',
         'number'        => 'Nomer soal',
         'score'         => 'Skor soal',
         'category'      => 'Kategori',

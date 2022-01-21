@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quarter_answer;
 use App\Models\Quiz_answer;
 use App\Models\User;
 use Carbon\Carbon;
@@ -12,24 +13,38 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $open = Carbon::create(2022, 1, 18, 0, 0, 0);
+        $startPenyisihan = Carbon::create(2022, 1, 21, 0, 0, 0);
+        $announcPenyisihan = Carbon::create(2022, 1, 21, 12, 0, 0);
+        $startPerempat = Carbon::create(2022, 1, 21, 20, 0, 0);
         $timenow = Carbon::now();
         $quiz_answer = Quiz_answer::firstWhere('user_id', auth()->user()->id);
+        $quarter_answer = Quarter_answer::firstWhere('user_id', auth()->user()->id);
 
-        if ($timenow->greaterThan($open)) {
-            if (auth()->user()->roles == 'Quarter Finalist') {
-                return view('dashboard.congrats.penyisihan', [
-                    'score' => empty($quiz_answer) ? '-' : $quiz_answer->score
-                ]);
+        if ($timenow->greaterThan($startPenyisihan)) {
+            if ($timenow->greaterThan($announcPenyisihan)) {
+                if (auth()->user()->roles == 'Quarter Finalist') {
+                    if ($timenow->greaterThan($startPerempat)) {
+                        // announcePerempat
+                        return view('dashboard.perempat', [
+                            'result'    => $quarter_answer,
+                        ]);
+                    }
+                    // return view('dashboard.welcome'); // Kalau Video Tutorial Perempat Final sudah ada
+                    return view('dashboard.congrats.penyisihan', [
+                        'result'    => $quiz_answer,
+                    ]);
+                } else {
+                    return view('dashboard.failure.penyisihan', [
+                        'result'    => $quiz_answer,
+                    ]);
+                }
             } else {
-                return view('dashboard.failure.penyisihan', [
-                    'score' => empty($quiz_answer) ? '-' : $quiz_answer->score
+                return view('dashboard.penyisihan', [
+                    'result'    => $quiz_answer
                 ]);
             }
         } else {
-            return view('dashboard.welcome', [
-                'score' => empty($quiz_answer) ? '-' : $quiz_answer->score
-            ]);
+            return view('dashboard.welcome');
         }
     }
 

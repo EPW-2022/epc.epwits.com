@@ -11,7 +11,7 @@
   {{-- Bootstrap Icons --}}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
   <!-- Custom styles for this template -->
-  <link rel="stylesheet" href="/css/quiz.css">
+  <link rel="stylesheet" href="/css/quiz.css?modify={{ date("Ymdhis") }}">
 </head>
 
 <body>
@@ -36,7 +36,8 @@
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script src="/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
-  <script src="/js/quiz.js"></script>
+  <script src="/js/script.js?modify={{ date("Ymdhis") }}"></script>
+  <script src="/js/quiz.js?modify={{ date("Ymdhis") }}"></script>
 </body>
 
 </html>

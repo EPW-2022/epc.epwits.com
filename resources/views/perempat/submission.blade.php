@@ -18,14 +18,14 @@
           @foreach ($questions as $question)
             @if ($answer[$question->number] != NULL)
             <li class="nav-item">
-              <a class="nav-link text-center btn {{ Request::segment(3) == $question->number ? 'btn-warning active' : 'btn-success' }} mx-1 my-2 px-0 quiz-number {{ $flagged[$question->number] == TRUE ? 'flagged' : '' }}" aria-current="page" href="/quiz/{{ session()->get('getSession') }}/{{ $question->number }}">
+              <a class="nav-link text-center btn {{ Request::segment(3) == $question->number ? 'btn-warning active' : 'btn-success' }} mx-1 my-2 px-0 quiz-number {{ $flagged[$question->number] == TRUE ? 'flagged' : '' }}" aria-current="page" href="/quarter/{{ session()->get('getSession') }}/{{ $question->number }}">
                 <span data-feather="home"></span>
                 {{ $question->number }}
               </a>
             </li>
             @else
             <li class="nav-item">
-              <a class="nav-link text-center btn {{ Request::segment(3) == $question->number ? 'btn-warning active' : 'btn-outline-success' }} mx-1 my-2 px-0 quiz-number {{ $flagged[$question->number] == TRUE ? 'flagged' : '' }}" aria-current="page" href="/quiz/{{ session()->get('getSession') }}/{{ $question->number }}">
+              <a class="nav-link text-center btn {{ Request::segment(3) == $question->number ? 'btn-warning active' : 'btn-outline-success' }} mx-1 my-2 px-0 quiz-number {{ $flagged[$question->number] == TRUE ? 'flagged' : '' }}" aria-current="page" href="/quarter/{{ session()->get('getSession') }}/{{ $question->number }}">
                 <span data-feather="home"></span>
                 {{ $question->number }}
               </a>
@@ -35,20 +35,20 @@
         </ul>
 
         <div class="text-center mt-4">
-          <a href="/endQuiz/{{ session()->get('getSession') }}" class="endSession btn btn-warning">Akhiri Quiz</a>
+          <a href="/quarter/{{ session()->get('getSession') }}/endQuiz" class="endSession btn btn-warning">Akhiri Quiz</a>
         </div>
       </div>
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       
-      <div class="container-fluid question mt-4 mb-5">
+      <div class="container-fluid question mt-4">
         <div class="table-responsive col-lg-11 mx-auto">
           <h1 class="h3">Review Jawaban</h1>
           <table class="table table-hover text-center">
             <thead>
               <tr>
-                <th scope="col" class="px-4">No Soal</th>
+                <th scope="col" class="px-4">No</th>
                 <th scope="col" class="px-4">Jawaban</th>
                 <th scope="col" class="px-4">Ditandai</th>
               </tr>
@@ -57,14 +57,20 @@
               @foreach ($questions as $question)
               <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $answer[$loop->iteration] ?? '-' }}</td>
+                <td>
+                  @if ($answer[$loop->iteration])
+                    <a href="/files/perempat/{{ $answer[$loop->iteration] }}" target="_blank">Lihat Jawaban</a>
+                  @else
+                    Belum ada jawaban
+                  @endif  
+                </td>
                 <td>{{ $flagged[$loop->iteration] ? 'Ditandai' : 'Tidak ditandai' }}</td>
               </tr>
               @endforeach
             </tbody>
           </table>
           <div class="text-center mt-4">
-            <a href="/endQuiz/{{ session()->get('getSession') }}" class="endSession btn btn-warning">Akhiri Quiz</a>
+            <a href="/quarter/{{ session()->get('getSession') }}/endQuiz" class="endSession btn btn-warning">Akhiri Quiz</a>
           </div>
         </div>
       </div>

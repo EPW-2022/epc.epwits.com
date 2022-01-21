@@ -115,7 +115,7 @@
           </form>
         @endif
       </div>
-      <div class="mt-3">
+      <div class="mt-3 mb-5">
         @if ($quiz->number - 1 > 0)
           <a href="/quiz/{{ session()->get('getSession') }}/{{ $quiz->number - 1 }}" class="btn btn-warning mx-2">Sebelumnya</a>
         @endif

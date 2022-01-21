@@ -13,6 +13,19 @@ body {
   vertical-align: text-bottom;
 }
 
+::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0.3rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #424a63;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fde7b6;
+}
+
 /*
    * Sidebar
    */
@@ -28,9 +41,10 @@ body {
   left: 0;
   z-index: 100;
   /* Behind the navbar */
-  padding: 48px 0 0;
+  padding: 48px 0;
   /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 @media (max-width: 767.98px) {

@@ -18,8 +18,9 @@ class CreateQuarterAnswersTable extends Migration
             $table->foreignId('user_id');
             $table->string('name');
             $table->string('team_number');
+            $table->integer('number');
             $table->string('answer_file');
-            $table->timestamp('submitted_at');
+            $table->integer('score')->nullable()->default(0);
             $table->timestamps();
         });
     }

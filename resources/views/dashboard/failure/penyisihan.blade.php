@@ -43,7 +43,7 @@
             </div>
             <div class="score-content">
               <span class="d-block score-name">Skor</span>
-              <span class="d-block score-value">-</span>
+              <span class="d-block score-value">{{ $result->score }}</span>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
             </div>
             <div class="score-content">
               <span class="d-block score-name">Ranking</span>
-              <span class="d-block score-value">-</span>
+              <span class="d-block score-value">{{ $result->id }}</span>
             </div>
           </div>
         </div>

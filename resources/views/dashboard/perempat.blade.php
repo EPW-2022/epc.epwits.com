@@ -31,8 +31,8 @@
               <img src="/img/calendar.svg" alt="">
             </div>
             <div class="score-content">
-              <span class="d-block score-name">Penyisihan</span>
-              <span class="d-block score-value">22 Januari 2021</span>
+              <span class="d-block score-name">Perempat Final</span>
+              <span class="d-block score-value">5 Februari 2021</span>
             </div>
           </div>
         </div>
@@ -70,30 +70,30 @@
       <h2 class="announcement-title">[Tutorial Penyisihan]</h2> --}}
       {{-- END OF COMING SOON --}}
 
-      {{-- Penyisihan --}}
-      <h2 class="announcement-title"><span class="d-none d-sm-inline">-</span> Penyisihan EPC 2022 <span class="d-none d-sm-inline">-</span></h2>
-      <div class="announcement-desc px-4 px-md-5">
+      {{-- Perempat Final --}}
+      <h2 class="announcement-title"><span class="d-none d-sm-inline">-</span> Perempat Final EPC 2022 <span class="d-none d-sm-inline">-</span></h2>
+      <div class="announcement-desc">
         <ol class="announcement-list my-3">
-          <li class="mb-2">Peserta diwajibkan memiliki koneksi internet yang stabil untuk kelancaran pengerjaan.</li>
-          <li class="mb-2">Peserta disarankan menggunakan laptop.</li>
-          <li class="mb-2">Skor yang didapat:<br>Benar   : +2 hingga +4 (tergantung tingkat kesulitan)<br>Salah    : 0<br>Kosong : 0</li>
-          <li class="mb-2">Peserta akan disajikan sejumlah 75 soal pilihan ganda (65 soal Fisika SMA dan 10 soal bidang minat di Teknik Fisika)</li>
-          <li class="mb-2">Waktu pengerjaannya adalah 150 menit.</li>
-          <li class="mb-2">Peserta dihimbau agar mencatat jawaban secara manual untuk menghindari error system.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Lorem ipsum dolor sit amet consectetur.</li>
         </ol>
         <div class="d-flex justify-content-center my-2">
           <div class="d-flex justify-content-between" style="width: 50px">
             <p>Start</p>
             <p>:</p>
           </div>
-          <p class="ms-2">08.30</p>
+          <p class="ms-2">07.30</p>
         </div>
         <div class="d-flex justify-content-center my-2">
           <div class="d-flex justify-content-between" style="width: 50px">
             <p>End</p>
             <p>:</p>
           </div>
-          <p class="ms-2">11.00</p>
+          <p class="ms-2">10.30</p>
         </div>
         @if ($result)
           <button disabled class="announcement-button mx-auto mt-3">Attempted</button>
@@ -101,7 +101,7 @@
           <button type="button" data-bs-toggle="modal" data-bs-target="#attemptQuiz" class="announcement-button mx-auto mt-3">Attempt</button>
         @endif
       </div>
-      {{-- End of Penyisihan --}}
+      {{-- End of Perempat Final --}}
 
     </section>
     {{-- End of Announcement --}}
@@ -116,7 +116,7 @@
         <h5 class="modal-title" id="attemptQuizLabel">Attempt Quiz</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="/getSession/{{ auth()->user()->team->team_number }}" method="POST">
+      <form action="/quarterSession/{{ auth()->user()->team->team_number }}" method="POST">
         @csrf
         <div class="modal-body">
           <p class="mb-3">Masukkan Kode Token untuk mengikuti Quiz!</p>

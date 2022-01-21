@@ -273,6 +273,24 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // Answer Uploaded
+  if (flashdata == 'Answer Uploaded') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Jawaban Diupload!',
+      text: 'Jawaban kamu berhasil di upload. Lanjut ke soal selanjutnya!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Answer Deleted
+  if (flashdata == 'Answer Deleted') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Jawaban Dihapus!',
+      text: 'Jawaban kamu berhasil di hapus. Jangan lupa dikerjakan lagi!',
+      confirmButtonColor: '#424a63',
+    })
+  }
 }
 
 $(function () {
@@ -371,6 +389,32 @@ $(function () {
     ],
     popatmouse: true,
   });
-})
+});
+
+$(function () {
+  $('.submitScore').on('click', function (e) {
+    let action = $(this).parents('form[method=post]').attr('action');
+    let token = $('input[name=_token]').val();
+    let score = $(this).prev().val();
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: action,
+      data: {
+        score: score,
+        _token: token
+      },
+      success: function (e) {
+        $(this).prev().val(e.score);
+        Swal.fire({
+          icon: 'success',
+          title: 'Skor diubah!',
+          text: 'Jawaban berhasil diberi nilai dan skor berubah!',
+          confirmButtonColor: '#424a63',
+        })
+      }
+    });
+  });
+});
 
 

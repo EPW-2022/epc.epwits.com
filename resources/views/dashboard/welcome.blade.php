@@ -39,7 +39,7 @@
             </div>
             <div class="score-content">
               <span class="d-block score-name">Skor</span>
-              <span class="d-block score-value">{{ $score ?? '-' }}</span>
+              <span class="d-block score-value">-</span>
             </div>
           </div>
         </div>
