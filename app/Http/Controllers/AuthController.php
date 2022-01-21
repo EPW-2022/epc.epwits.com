@@ -54,11 +54,13 @@ class AuthController extends Controller
 
     public function register()
     {
-        return view('register');
+        // return view('register');
+        return view('errors.closed');
     }
 
     public function registration(Request $request)
     {
+        return view('errors.closed');
         if ($request->confirmcheck) {
             // Validating Data
             $validatedData = $request->validate([

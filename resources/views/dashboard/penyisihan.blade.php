@@ -72,28 +72,28 @@
 
       {{-- Penyisihan --}}
       <h2 class="announcement-title"><span class="d-none d-sm-inline">-</span> Penyisihan EPC 2022 <span class="d-none d-sm-inline">-</span></h2>
-      <div class="announcement-desc">
+      <div class="announcement-desc px-4 px-md-5">
         <ol class="announcement-list my-3">
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li class="mb-2">Peserta diwajibkan memiliki koneksi internet yang stabil untuk kelancaran pengerjaan.</li>
+          <li class="mb-2">Peserta disarankan menggunakan laptop.</li>
+          <li class="mb-2">Skor yang didapat:<br>Benar   : +2 hingga +4 (tergantung tingkat kesulitan)<br>Salah    : 0<br>Kosong : 0</li>
+          <li class="mb-2">Peserta akan disajikan sejumlah 75 soal pilihan ganda (65 soal Fisika SMA dan 10 soal bidang minat di Teknik Fisika)</li>
+          <li class="mb-2">Waktu pengerjaannya adalah 150 menit.</li>
+          <li class="mb-2">Peserta dihimbau agar mencatat jawaban secara manual untuk menghindari error system.</li>
         </ol>
         <div class="d-flex justify-content-center my-2">
           <div class="d-flex justify-content-between" style="width: 50px">
             <p>Start</p>
             <p>:</p>
           </div>
-          <p class="ms-2">07.30</p>
+          <p class="ms-2">08.30</p>
         </div>
         <div class="d-flex justify-content-center my-2">
           <div class="d-flex justify-content-between" style="width: 50px">
             <p>End</p>
             <p>:</p>
           </div>
-          <p class="ms-2">10.30</p>
+          <p class="ms-2">11.00</p>
         </div>
         <button type="button" data-bs-toggle="modal" data-bs-target="#attemptQuiz" class="announcement-button mx-auto mt-3">Attempt</button>
       </div>
