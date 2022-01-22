@@ -60,9 +60,9 @@
                     @csrf
                     <button type="submit" class="p-0 btn">
                       @if ($user->user->roles == 'Participant')
-                        <span class="text-success">Lanjut Perempat Final</span>
+                        <span class="text-success">Loloskan!</span>
                       @else
-                        <span class="text-danger">Batalkan Perempat Final</span>
+                        <span class="text-danger">Batalkan!</span>
                       @endif
                     </button>
                   </form>
