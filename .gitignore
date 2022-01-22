@@ -14,3 +14,6 @@ yarn-error.log
 /.idea
 /.vscode
 /node_modules
+/backup
+/public/files
+/public/img/penyisihan
