@@ -16,7 +16,7 @@ class Superadmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->roles != "Superadmin") {
+        if (auth()->user()->roles !== "Superadmin") {
             return redirect('/');
         } else {
             return $next($request);
