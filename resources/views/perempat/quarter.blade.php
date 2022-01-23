@@ -11,7 +11,7 @@
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
       <div class="position-sticky pt-3">
         <h1 class="text-center h4 mt-4">Quiz Navigation</h1>
-        <div class="d-flex justify-content-center my-2" id="getTimer" data-timer="{{ $timer->date }} {{ $timer->time }}">
+        <div class="d-flex justify-content-center my-2" id="getTimer" data-timer="{{ $timer }}">
           <span id="hour" class="h5 mx-1">00</span>
           <span class="h5 mx-1">:</span>
           <span id="min" class="h5 mx-1">00</span>
@@ -66,8 +66,8 @@
         </div>
         @if ($answered)
         <div class="d-flex align-items-center">
-          <a href="/files/perempat/{{ $answered->answer_file }}" class="btn text-success p-0 d-inline-block me-3">Lihat Jawaban</a>
-          <form action="/deleteAnswer/{{ $answered->answer_file }}/{{ $quiz->number }}" method="post">
+          <a href="/files/perempat/{{ $answer_file->answer_file }}" class="btn text-success p-0 d-inline-block me-3" target="_blank">Lihat Jawaban</a>
+          <form action="/deleteAnswer/{{ $answer_file->answer_file }}/{{ $quiz->number }}" method="post">
             @method('DELETE')
             @csrf
             <button type="submit" class="btn p-0 text-danger" onclick="return confirm('Jawaban ingin dihapus?')">Hapus Jawaban</button>

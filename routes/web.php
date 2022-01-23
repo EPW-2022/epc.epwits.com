@@ -103,6 +103,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
   Route::prefix('perempat')->group(function () {
     Route::get('/status', [PerempatController::class, 'status']);
     Route::get('/jawaban', [PerempatController::class, 'jawaban']);
+    Route::get('/ranking', [PerempatController::class, 'ranking']);
     Route::post('/submitScore/{quarter_answer}', [PerempatController::class, 'submitScore']);
   });
   Route::resource('/perempat', PerempatController::class)->parameters([

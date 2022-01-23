@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Quarter_answer;
+use App\Models\Quarter_rank;
 use App\Models\Quarter_tryout;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -189,10 +190,24 @@ class PerempatController extends Controller
 
     public function submitScore(Request $request, Quarter_answer $quarter_answer)
     {
+        $quarter_rank = Quarter_rank::firstWhere('user_id', $quarter_answer->user_id);
+
         $quarter_answer->update([
             'score' => $request->score
         ]);
 
+        $quarter_rank->update([
+            'score' => $quarter_rank->score + $request->score
+        ]);
+
         return response()->json(['score' => $request->score]);
+    }
+
+    public function ranking()
+    {
+        return view('admin.perempat.ranking', [
+            'title'         => 'Ranking Peserta',
+            'users'         => Quarter_rank::orderBy("score", 'DESC')->get()
+        ]);
     }
 }

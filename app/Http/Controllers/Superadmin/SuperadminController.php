@@ -126,7 +126,9 @@ class SuperadminController extends Controller
 
     public function deleteQuarter(Request $request, Quarter_attempt $quarter_attempt)
     {
-        $quarter_attempt->delete();
+        $quarter_attempt->update([
+            'session'   => NULL
+        ]);
 
         return redirect('superadmin/attempt/perempat')->with('message', 'Delete Session');
     }

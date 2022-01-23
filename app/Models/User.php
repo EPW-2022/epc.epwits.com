@@ -91,4 +91,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Quarter_answer::class);
     }
+
+    public function quarter_rank()
+    {
+        return $this->hasOne(Quarter_rank::class);
+    }
 }

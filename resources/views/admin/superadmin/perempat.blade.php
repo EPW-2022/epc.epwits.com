@@ -37,6 +37,7 @@
               <th>Token</th>
               <th>Session</th>
               <th>Attempt at</th>
+              <th>Ended at</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -49,6 +50,7 @@
               <td class="align-middle">{{ $attempt->token }}</td>
               <td class="align-middle">{{ $attempt->session }}</td>
               <td class="align-middle">{{ $attempt->attempt_at }}</td>
+              <td class="align-middle">{{ $attempt->ended_at }}</td>
               <td>
                 <div class="table-actions d-flex align-items-center gap-3 fs-6">
                   <form action="/superadmin/deleteQuarter/{{ $attempt->session }}" method="POST">
@@ -69,6 +71,7 @@
               <th>Token</th>
               <th>Session</th>
               <th>Attempt at</th>
+              <th>Ended at</th>
               <th>Aksi</th>
             </tr>
           </tfoot>

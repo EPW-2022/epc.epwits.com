@@ -67,16 +67,20 @@
             <form action="/admin/setup/timer/{{ $timer->id }}" method="POST">
               @csrf
               @method('PUT')
-              <label for="timePickerTimer" class="form-label">Waktu Pengerjaan</label>
               <div class="row">
                 <div class="col-md-4">
+                  <label for="timePickerTimer" class="form-label">Tanggal Pengerjaan</label>
                   <input type="text" id="datePickerTimer" name="date" value="{{ $timer ? $timer->date : '' }}" class="form-control @error('date') is-invalid @enderror" />
                   @error('date')
-                    <p class="text-danger mb-1">{{ $message }}</p>
+                  <p class="text-danger mb-1">{{ $message }}</p>
                   @enderror
                 </div>
                 <div class="col-md-4">
-                  <input type="text" id="timePickerTimer" name="time" value="{{ $timer ? $timer->time : '' }}" class="form-control @error('time') is-invalid @enderror" />
+                  <label for="timePickerTimer" class="form-label">Lama Pengerjaan</label>
+                  <div class="input-group mb-3">
+                    <input type="number" name="time" min="0" value="{{ $timer ? $timer->time : '' }}" class="form-control @error('time') is-invalid @enderror" />
+                    <span class="input-group-text" id="basic-addon2">menit</span>
+                  </div>
                   @error('time')
                     <p class="text-danger mb-1">{{ $message }}</p>
                   @enderror

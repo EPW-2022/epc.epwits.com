@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuarterAttemptsTable extends Migration
+class CreateQuarterRanksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateQuarterAttemptsTable extends Migration
      */
     public function up()
     {
-        Schema::create('quarter_attempts', function (Blueprint $table) {
+        Schema::create('quarter_ranks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->string('name');
             $table->string('team_number');
-            $table->string('token');
-            $table->dateTime('attempt_at');
-            $table->dateTime('finished_at')->nullable();
-            $table->string('session')->nullable();
+            $table->integer('score')->default(0);
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateQuarterAttemptsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quarter_attempts');
+        Schema::dropIfExists('quarter_ranks');
     }
 }

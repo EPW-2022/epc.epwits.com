@@ -33,7 +33,6 @@
               <th>No</th>
               <th>Kategori</th>
               <th>Soal</th>
-              <th>Skor</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -43,7 +42,6 @@
               <td class="text-center align-middle">{{ $question->number }}</td>
               <td class="text-center align-middle">{{ $question->category }}</td>
               <td class="align-middle text-wrap">{!! $question->question !!}</td>
-              <td class="text-center align-middle">{{ $question->score }}</td>
               <td class="align-middle">
                 <div class="table-actions d-flex align-items-center gap-3 fs-6">
                   <form action="/admin/perempat/{{ $question->number }}" method="POST">
@@ -63,7 +61,6 @@
               <th>No</th>
               <th>Kategori</th>
               <th>Soal</th>
-              <th>Skor</th>
               <th>Aksi</th>
             </tr>
           </tfoot>

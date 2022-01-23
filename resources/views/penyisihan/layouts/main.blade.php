@@ -25,7 +25,7 @@
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a href="/endQuiz/{{ session()->get('getSession') }}" class="endSession btn text-white">
+    <a href="/quarter/{{ session()->get('getSession') }}/endQuiz" class="endSession btn text-white">
       Akhiri Quiz
     </a>
   </header>

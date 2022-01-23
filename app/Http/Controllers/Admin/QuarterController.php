@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Quarter_answer;
 use App\Models\Quarter_attempt;
+use App\Models\Quarter_rank;
 use App\Models\Quarter_tryout;
 use App\Models\Quiz_timer;
 use App\Models\Quiz_token;
@@ -25,31 +26,46 @@ class QuarterController extends Controller
         $active_timer = Quiz_timer::latest()->first();
 
         $valid_token = Carbon::parse($active_token->date . ' ' . $active_token->time);
-        $valid_timer = Carbon::parse($active_timer->date . ' ' . $active_timer->time);
 
         $expired = $valid_token->timestamp - Carbon::now()->timestamp;
-        $notime = $valid_timer->timestamp - Carbon::now()->timestamp;
+        $ended = Carbon::now()->addMinutes($active_timer->time);
 
-        if (Quarter_attempt::firstWhere('user_id', auth()->user()->id)) {
+        $data_attempt = Quarter_attempt::firstWhere('user_id', auth()->user()->id);
+
+        if ($data_attempt && $data_attempt->session) {
             return back()->with('message', 'Already Attempt');
         } else {
-            if ($expired > 0 && $notime > 0) {
+            if ($expired > 0) {
                 if ($active_token['token'] == $validated['token']) {
+                    // Token Session
                     $token = Str::random(60);
                     $request->session()->put('getSession', $token);
-                    $saveAnswer = array_fill(1, Quarter_tryout::all()->count(), NULL);
-                    $request->session()->put('saveAnswer', $saveAnswer);
-                    $flagged = array_fill(1, Quarter_tryout::all()->count(), NULL);
-                    $request->session()->put('flagged', $flagged);
+                    // Answer Session
+                    if (!session('saveAnswer')) {
+                        $saveAnswer = array_fill(1, Quarter_tryout::all()->count(), NULL);
+                        $request->session()->put('saveAnswer', $saveAnswer);
+                    }
+                    // Flagged Session
+                    if (!session('flagged')) {
+                        $flagged = array_fill(1, Quarter_tryout::all()->count(), NULL);
+                        $request->session()->put('flagged', $flagged);
+                    }
 
-                    Quarter_attempt::create([
-                        'user_id'       => auth()->user()->id,
-                        'name'          => auth()->user()->name,
-                        'team_number'   => auth()->user()->team->team_number,
-                        'token'         => $validated['token'],
-                        'attempt_at'    => Carbon::now(),
-                        'session'       => $token
-                    ]);
+                    if ($data_attempt) {
+                        $data_attempt->update([
+                            'session'   => $token
+                        ]);
+                    } else {
+                        Quarter_attempt::create([
+                            'user_id'       => auth()->user()->id,
+                            'name'          => auth()->user()->name,
+                            'team_number'   => auth()->user()->team->team_number,
+                            'token'         => $validated['token'],
+                            'attempt_at'    => Carbon::now(),
+                            'ended_at'      => $ended,
+                            'session'       => $token
+                        ]);
+                    }
                     return redirect("quarter/$token/1");
                 } else {
                     return back()->with('message', 'Wrong Token');
@@ -68,9 +84,10 @@ class QuarterController extends Controller
                 'questions' => Quarter_tryout::all(),
                 'quiz'      => $quarter_tryout,
                 'answer'    => $request->session()->get('saveAnswer'),
-                'answered'  => Quarter_answer::where('user_id', auth()->user()->id)->firstWhere('number', $quarter_tryout->number),
+                'answered'  => $request->session()->get('saveAnswer')[$quarter_tryout->number],
+                'answer_file'  => Quarter_answer::where('user_id', auth()->user()->id)->firstWhere('number', $quarter_tryout->number),
                 'flagged'   => $request->session()->get('flagged'),
-                'timer'     => Quiz_timer::latest()->first()
+                'timer'     => $quarter_attempt->ended_at
             ]);
         } else {
             Auth::logout();
@@ -155,12 +172,19 @@ class QuarterController extends Controller
         $quarter_attempt->update([
             'finished_at'   => Carbon::now()
         ]);
+        Quarter_rank::create([
+            'user_id'       => auth()->user()->id,
+            'name'          => auth()->user()->name,
+            'team_number'   => auth()->user()->team->team_number,
+        ]);
 
         $request->session()->remove('getSession');
 
         $request->session()->remove('saveAnswer');
 
         $request->session()->remove('flagged');
+
+        $request->session()->remove('timer');
 
         $request->session()->regenerate();
 

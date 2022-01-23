@@ -5,18 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Quarter_attempt extends Model
+class Quarter_rank extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'name', 'team_number', 'token', 'attempt_at', 'ended_at', 'finished_at', 'session'
+        'user_id', 'name', 'team_number', 'score'
     ];
-
-    public function getRouteKeyName()
-    {
-        return 'session';
-    }
 
     public function user()
     {
