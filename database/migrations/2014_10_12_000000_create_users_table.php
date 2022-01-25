@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('roles', ['Participant', 'Admin', 'Superadmin'])->default('Participant');
+            $table->enum('roles', ['Participant', 'Admin', 'Superadmin', 'Quarter Finalist'])->default('Participant');
             $table->timestamp('verified_at')->nullable();
             $table->softDeletes();
             $table->timestamps();

@@ -450,7 +450,7 @@ class PenyisihanController extends Controller
     {
         return view('admin.penyisihan.ranking', [
             'title'         => 'Ranking Peserta',
-            'users'         => Quiz_answer::all()->sortBy("id")
+            'users'         => Quiz_answer::orderBy('score', 'DESC')->get()
         ]);
     }
 
