@@ -16,7 +16,7 @@ class AdminTeamController extends Controller
     {
         return view('admin.team.index', [
             'title'         => 'Akun Tim Peserta',
-            'users'         => User::where('roles', 'Participant')->get()
+            'users'         => User::where('roles', '!=', 'Admin')->where('roles', '!=', 'Superadmin')->get()
         ]);
     }
 
@@ -40,7 +40,7 @@ class AdminTeamController extends Controller
     {
         return view('admin.team.leader', [
             'title'         => 'Daftar Ketua Tim',
-            'users'         => User::where('roles', 'Participant')->get()
+            'users'         => User::where('roles', '!=', 'Admin')->where('roles', '!=', 'Superadmin')->get()
         ]);
     }
 
@@ -48,7 +48,7 @@ class AdminTeamController extends Controller
     {
         return view('admin.team.member', [
             'title'         => 'Daftar Ketua Anggota',
-            'users'         => User::where('roles', 'Participant')->get()
+            'users'         => User::where('roles', '!=', 'Admin')->where('roles', '!=', 'Superadmin')->get()
         ]);
     }
 
