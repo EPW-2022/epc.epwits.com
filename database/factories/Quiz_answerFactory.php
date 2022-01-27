@@ -23,7 +23,7 @@ class Quiz_answerFactory extends Factory
      */
     public function definition()
     {
-        static $id = 4;
+        static $id = 3;
 
         $answer_array = [];
         $answer_value = ['A', 'B', 'C', 'D', 'E'];

@@ -22,11 +22,11 @@ class Quiz_attemptFactory extends Factory
      */
     public function definition()
     {
-        static $id = 4;
+        static $id = 3;
 
         return [
             'user_id'       => $id,
-            'name'          => $this->faker->unique()->domainWord(),
+            'name'          => $this->faker->domainWord(),
             'team_number'   => 'EPC-' . $id++,
             'token'         => random_int(100000, 999999),
             'attempt_at'    => $this->faker->date('Y-m-d') . ' ' . $this->faker->time('H:i:s'),

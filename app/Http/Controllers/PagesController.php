@@ -27,7 +27,7 @@ class PagesController extends Controller
                     if ($timenow->greaterThan($startPerempat)) {
                         // announcePerempat
                         return view('dashboard.perempat', [
-                            'result'    => $quarter_attempt->finished_at,
+                            'result'    => $quarter_attempt->finished_at ?? NULL,
                         ]);
                     }
                     // return view('dashboard.welcome'); // Kalau Video Tutorial Perempat Final sudah ada
