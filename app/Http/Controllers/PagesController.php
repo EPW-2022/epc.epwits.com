@@ -16,7 +16,7 @@ class PagesController extends Controller
     {
         $startPenyisihan = Carbon::create(2022, 1, 21, 0, 0, 0);
         $announcPenyisihan = Carbon::create(2022, 1, 22, 18, 0, 0);
-        $startPerempat = Carbon::create(2022, 1, 4, 0, 0, 0);
+        $startPerempat = Carbon::create(2022, 1, 4, 18, 0, 0);
         $timenow = Carbon::now();
         $quiz_answer = Quiz_answer::firstWhere('user_id', auth()->user()->id);
         $quarter_attempt = Quarter_attempt::firstWhere('user_id', auth()->user()->id);
@@ -30,7 +30,7 @@ class PagesController extends Controller
                             'result'    => $quarter_attempt->finished_at ?? NULL,
                         ]);
                     }
-                    // return view('dashboard.welcome'); // Kalau Video Tutorial Perempat Final sudah ada
+                    return view('dashboard.welcome'); // Kalau Video Tutorial Perempat Final sudah ada
                     return view('dashboard.congrats.penyisihan', [
                         'result'    => $quiz_answer,
                     ]);
