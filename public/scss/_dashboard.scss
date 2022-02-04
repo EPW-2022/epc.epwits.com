@@ -134,6 +134,13 @@ article#dashboard {
                     letter-spacing: 0.05em;
                     color: $darker-blue;
                     margin: 0.25rem 0;
+                    ul li {
+                        margin: 0.25rem 0;
+                    }
+                    ul li::before {
+                        content: "-";
+                        margin-right: 0.5rem;
+                    }
                 }
             }
             .announcement-button {

@@ -72,7 +72,7 @@
 
       {{-- Perempat Final --}}
       <h2 class="announcement-title"><span class="d-none d-sm-inline">-</span> Perempat Final EPC 2022 <span class="d-none d-sm-inline">-</span></h2>
-      <div class="announcement-desc">
+      <div class="announcement-desc px-4 px-md-5">
         <ol class="announcement-list my-3">
           <li>Peserta diwajibkan memiliki koneksi internet yang stabil untuk kelancaran pengerjaan.</li>
           <li>Peserta disarankan menggunakan laptop.</li>
@@ -95,14 +95,14 @@
             <p>Start</p>
             <p>:</p>
           </div>
-          <p class="ms-2">07.30</p>
+          <p class="ms-2">09.00</p>
         </div>
         <div class="d-flex justify-content-center my-2">
           <div class="d-flex justify-content-between" style="width: 50px">
             <p>End</p>
             <p>:</p>
           </div>
-          <p class="ms-2">10.30</p>
+          <p class="ms-2">12.00</p>
         </div>
         @if ($result)
           <button disabled class="announcement-button mx-auto mt-3">Attempted</button>

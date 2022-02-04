@@ -617,6 +617,15 @@ article#dashboard .container #announcement ol.announcement-list > li {
   margin: 0.25rem 0;
 }
 
+article#dashboard .container #announcement ol.announcement-list > li ul li {
+  margin: 0.25rem 0;
+}
+
+article#dashboard .container #announcement ol.announcement-list > li ul li::before {
+  content: "-";
+  margin-right: 0.5rem;
+}
+
 article#dashboard .container #announcement .announcement-button {
   display: block;
   width: 150px;
