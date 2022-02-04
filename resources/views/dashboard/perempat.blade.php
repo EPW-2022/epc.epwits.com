@@ -74,12 +74,21 @@
       <h2 class="announcement-title"><span class="d-none d-sm-inline">-</span> Perempat Final EPC 2022 <span class="d-none d-sm-inline">-</span></h2>
       <div class="announcement-desc">
         <ol class="announcement-list my-3">
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <li>Peserta diwajibkan memiliki koneksi internet yang stabil untuk kelancaran pengerjaan.</li>
+          <li>Peserta disarankan menggunakan laptop.</li>
+          <li>Peserta akan disajikan sejumlah 15 soal essay.</li>
+          <li>Waktu pengerjaannya adalah 180 menit.</li>
+          <li>Untuk upload jawaban, jawaban di-scan kemudian diwajibkan mengganti nama file menjadi (Nomor Soal_Nama Tim). Ukuran file tidak lebih dari 1 MB.</li>
+          <li>Kertas yang digunakan adalah kertas HVS berwarna putih.</li>
+          <li>
+            Pada lembar jawaban tulis di kanan atas kertas:
+            <ul>
+              <li>Nomor Soal</li>
+              <li>Nama Tim</li>
+              <li>Nama Sekolah</li>
+              <li>TTD Ketua Tim</li>
+            </ul>
+          </li>
         </ol>
         <div class="d-flex justify-content-center my-2">
           <div class="d-flex justify-content-between" style="width: 50px">
