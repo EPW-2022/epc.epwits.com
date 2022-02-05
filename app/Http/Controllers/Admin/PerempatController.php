@@ -190,14 +190,19 @@ class PerempatController extends Controller
 
     public function submitScore(Request $request, Quarter_answer $quarter_answer)
     {
-        $quarter_rank = Quarter_rank::firstWhere('user_id', $quarter_answer->user_id);
-
         $quarter_answer->update([
             'score' => $request->score
         ]);
 
+        $scores = 0;
+        $quarter_rank = Quarter_rank::firstWhere('user_id', $quarter_answer->user_id);
+        $answers = Quarter_answer::where('user_id', $quarter_answer->user_id)->get();
+        foreach ($answers as $answer) {
+            $scores = $scores + $answer->score;
+        }
+
         $quarter_rank->update([
-            'score' => $quarter_rank->score + $request->score
+            'score' => $scores
         ]);
 
         return response()->json(['score' => $request->score]);
@@ -207,7 +212,7 @@ class PerempatController extends Controller
     {
         return view('admin.perempat.ranking', [
             'title'         => 'Ranking Peserta',
-            'users'         => Quarter_rank::orderBy("score", 'DESC')->get()
+            'users'         => Quarter_rank::orderBy("team_number")->orderBy("score", 'DESC')->get()
         ]);
     }
 }
