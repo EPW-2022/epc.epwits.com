@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="/img/epw-logo/logo-bg-blue.png" type="image/x-icon">
   <!-- Plugins -->
+  <link href="/vendor/simplebar/css/simplebar.css" rel="stylesheet" />
   <link href="/vendor/metismenu/css/metisMenu.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -20,7 +21,7 @@
   <link href="/css/admin/style.css" rel="stylesheet" />
   <link href="/css/admin/icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
   <!--Theme Styles-->
   <link href="/css/admin/dark-theme.css" rel="stylesheet" />
@@ -48,6 +49,10 @@
     </main>
     <!--end page main-->
 
+    <!--start overlay-->
+    <div class="overlay nav-toggle-icon"></div>
+    <!--end overlay-->
+
     <!--Start Back To Top Button-->
     <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
     <!--End Back To Top Button-->
@@ -62,6 +67,7 @@
   <script src="/vendor/bootstrap5/dist/js/bootstrap.bundle.min.js"></script>
   <!--plugins-->
   <script src="/vendor/jquery/dist/jquery.js"></script>
+  <script src="/vendor/simplebar/js/simplebar.min.js"></script>
   <script src="/vendor/metismenu/js/metisMenu.min.js"></script>
   <script src="/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
   {{-- Data Tables --}}
