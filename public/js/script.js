@@ -291,6 +291,15 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // Reset Question
+  if (flashdata == 'Reset Question') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Soal Direset!',
+      text: 'Hubungi panitia kembali!',
+      confirmButtonColor: '#424a63',
+    })
+  }
 }
 
 $(function () {
@@ -416,5 +425,4 @@ $(function () {
     });
   });
 });
-
 

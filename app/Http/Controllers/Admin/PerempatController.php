@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Quarter_answer;
 use App\Models\Quarter_rank;
 use App\Models\Quarter_tryout;
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Path\To\DOMDocument;
@@ -214,5 +215,19 @@ class PerempatController extends Controller
             'title'         => 'Ranking Peserta',
             'users'         => Quarter_rank::orderBy("team_number")->orderBy("score", 'DESC')->get()
         ]);
+    }
+
+    public function changerole(Team $team)
+    {
+        if ($team->user->roles == 'Quarter Finalist') {
+            User::where('id', $team->user_id)->where('roles', $team->user->roles)->update([
+                'roles' => 'Semifinalist'
+            ]);
+        } elseif ($team->user->roles == 'Semifinalist') {
+            User::where('id', $team->user_id)->where('roles', $team->user->roles)->update([
+                'roles' => 'Quarter Finalist'
+            ]);
+        }
+        return redirect('/admin/perempat/ranking');
     }
 }

@@ -19,6 +19,14 @@
         <div class="menu-title">Dashboard</div>
       </a>
     </li>
+    <li class="{{ Request::is('admin/semifinal/platform') ? 'mm-active' : '' }}">
+      <a href="/admin/semifinal/platform">
+        <div class="parent-icon"><i class="bi bi-cast"></i>
+        </div>
+        <div class="menu-title">Semifinal Platform</div>
+      </a>
+    </li>
+
     @if(auth()->user()->roles === 'Superadmin')
       <li class="menu-label mt-0">Superadmin</li>
       <li class="{{ Request::is('superadmin/trashed') ? 'mm-active' : '' }}">
@@ -50,6 +58,14 @@
             </a>
           </li>
         </ul>
+      </li>
+      <li class="{{ Request::is('superadmin/semifinal') ? 'mm-active' : '' }}">
+        <a href="/superadmin/semifinal">
+          <div class="parent-icon">
+            <i class="bi bi-cast"></i>
+          </div>
+          <div class="menu-title">Semifinal Reset</div>
+        </a>
       </li>
     @endif
     
@@ -89,7 +105,7 @@
     </li>
 
     {{-- Quiz Menu --}}
-    <li class="menu-label mt-0">Database</li>
+    <li class="menu-label mt-0">EVENT</li>
     <li class="{{ Request::is('admin/setup') ? 'mm-active' : '' }}">
       <a href="/admin/setup">
         <div class="parent-icon">
@@ -169,6 +185,29 @@
           <a href="/admin/perempat/ranking">
             <i class="bi bi-arrow-right-short"></i>
             Ranking Peserta
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    {{-- Semifinal Menu --}}
+    <li class="{{ Request::is('admin/semifinal**') ? 'mm-active' : '' }}">
+      <a href="#" class="has-arrow">
+        <div class="parent-icon"><i class="bi bi-grid"></i>
+        </div>
+        <div class="menu-title">Semifinal</div>
+      </a>
+      <ul class="mm-collapse">
+        <li class="{{ Request::is('admin/semifinal') ? 'mm-active' : '' }}">
+          <a href="/admin/semifinal">
+            <i class="bi bi-arrow-right-short"></i>
+            Daftar Soal
+          </a>
+        </li>
+        <li class="{{ Request::is('admin/semifinal/status') ? 'mm-active' : '' }}">
+          <a href="/admin/semifinal/status">
+            <i class="bi bi-arrow-right-short"></i>
+            Status Peserta
           </a>
         </li>
       </ul>

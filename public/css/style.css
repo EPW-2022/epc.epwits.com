@@ -706,4 +706,212 @@ article#dashboard .container #congrats > .container-fluid .congrats-quotes {
   letter-spacing: 0.08em;
   color: #f2f2f2;
 }
+
+article#dashboard .container #platform {
+  margin: 2rem auto;
+  padding: 3rem 2rem 2rem;
+  width: 1000px;
+  max-width: 100%;
+  background-color: #fde7b6;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 576px) {
+  article#dashboard .container #platform {
+    padding: 2rem 1rem 1rem;
+  }
+}
+
+article#dashboard .container #platform::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5rem;
+  background-color: #424a63;
+}
+
+article#dashboard .container #platform .platform-title {
+  font: bold 1.5rem/1.75rem "Zilla Slab", serif;
+  width: fit-content;
+  color: #424a63;
+  position: relative;
+  letter-spacing: 0.05em;
+}
+
+article#dashboard .container #platform .platform-title::before {
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  content: "-";
+  transform: translateY(-15%);
+  font-size: 2.5rem;
+}
+
+article#dashboard .container #platform .platform-title::after {
+  position: absolute;
+  top: 0;
+  right: -1.5rem;
+  content: "-";
+  transform: translateY(-15%);
+  font-size: 2.5rem;
+}
+
+article#dashboard .container #platform .platform-status {
+  width: fit-content;
+}
+
+article#dashboard .container #platform .platform-status .status-available {
+  font: 600 0.95rem/1rem "Zilla Slab", serif;
+  letter-spacing: 0.05em;
+  color: #424a63;
+  display: block;
+  position: relative;
+  margin-left: 1.5rem;
+}
+
+article#dashboard .container #platform .platform-status .status-available::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 15px;
+  left: -1.5rem;
+  background-color: #424a63;
+  border-radius: 50%;
+}
+
+article#dashboard .container #platform .platform-status .status-notavailable {
+  font: 600 0.95rem/1rem "Zilla Slab", serif;
+  letter-spacing: 0.05em;
+  color: #424a63;
+  display: block;
+  position: relative;
+  margin-left: 1.5rem;
+}
+
+article#dashboard .container #platform .platform-status .status-notavailable::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 15px;
+  left: -1.5rem;
+  background-color: #a32c38;
+  border-radius: 50%;
+}
+
+article#dashboard .container #platform .platform-questions .table thead {
+  border-bottom: 1px solid #333333;
+}
+
+article#dashboard .container #platform .platform-questions .table thead th {
+  font: 600 1rem/1.25rem "Zilla Slab", serif;
+  letter-spacing: 0.05em;
+  color: #333333;
+  border-left: 1px solid #333333;
+}
+
+article#dashboard .container #platform .platform-questions .table thead th:first-of-type {
+  border-left: none;
+}
+
+article#dashboard .container #platform .platform-questions .table tbody {
+  border-top: none;
+}
+
+article#dashboard .container #platform .platform-questions .table tbody td {
+  font: 600 1rem/1.25rem "Zilla Slab", serif;
+  letter-spacing: 0.05em;
+  color: #333333;
+  border-left: 1px solid #333333;
+}
+
+article#dashboard .container #platform .platform-questions .table tbody td:first-of-type {
+  border-left: none;
+}
+
+article#dashboard .container #platform .platform-questions .table tbody td .question-number {
+  width: 40px;
+  height: 40px;
+  background-color: #424a63;
+  font: 600 1rem/1.25rem "Zilla Slab", serif;
+  color: #f2f2f2;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+
+article#dashboard .container #platform .platform-questions .table tbody td .question-number.active {
+  background-color: #a32c38;
+}
+
+article#dashboard .container #platform .leaderboard-container {
+  width: 600px;
+  max-width: 100%;
+}
+
+article#dashboard .container #platform .leaderboard-container .leaderboard-item {
+  box-sizing: border-box;
+  border: 2px solid #424a63;
+  border-radius: 2rem;
+}
+
+article#dashboard .container #platform .leaderboard-container .leaderboard-item span {
+  font: bold 1rem/1.25rem "Zilla Slab", serif;
+  color: #424a63;
+  padding: calc(0.5rem - 3px) 1rem;
+}
+
+article#dashboard .container #platform .leaderboard-container .leaderboard-item span:last-of-type {
+  border-left: 3px solid #424a63;
+}
+
+article#dashboard .container #platform .leaderboard-container .leaderboard-item.active {
+  box-sizing: border-box;
+  border: none;
+  background-color: #424a63;
+}
+
+article#dashboard .container #platform .leaderboard-container .leaderboard-item.active span {
+  font: bold 1rem/1.25rem "Zilla Slab", serif;
+  color: #f2f2f2;
+  padding: 0.5rem 1rem;
+  height: 100%;
+}
+
+article#dashboard .container #platform .leaderboard-container .leaderboard-item.active span:first-of-type {
+  border-right: 3px solid #fde7b6;
+  flex-grow: 1;
+}
+
+#questionModal.modal .modal-content {
+  background-color: #fde7b6;
+}
+
+#questionModal.modal .modal-content .modal-header {
+  border-color: #030314;
+}
+
+#questionModal.modal .modal-content .modal-header .modal-title {
+  font: 600 1rem/1.25rem "Zilla Slab", serif;
+  letter-spacing: 0.05em;
+  color: #333333;
+}
+
+#questionModal.modal .modal-content .modal-footer {
+  border-color: #030314;
+}
+
+#questionModal.modal .modal-content .btn-secondary {
+  background-color: #a32c38;
+  border-color: #a32c38;
+}
+
+#questionModal.modal .modal-content .btn-primary {
+  background-color: #424a63;
+  border-color: #424a63;
+}
 /*# sourceMappingURL=style.css.map */

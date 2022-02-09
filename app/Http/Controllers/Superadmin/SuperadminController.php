@@ -8,6 +8,7 @@ use App\Models\Leader;
 use App\Models\Member;
 use App\Models\Quarter_attempt;
 use App\Models\Quiz_attempt;
+use App\Models\Semifinal_tryout;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -131,5 +132,22 @@ class SuperadminController extends Controller
         ]);
 
         return redirect('superadmin/attempt/perempat')->with('message', 'Delete Session');
+    }
+
+    public function semifinal()
+    {
+        return view('admin.superadmin.semifinal', [
+            'title' => 'Semifinal Question Reset',
+            'questions' => Semifinal_tryout::all()
+        ]);
+    }
+
+    public function resetQuestion(Semifinal_tryout $semifinal_tryout)
+    {
+        $semifinal_tryout->update([
+            'availabled'    => 0,
+            'user_id'       => NULL
+        ]);
+        return redirect('superadmin/semifinal')->with('message', 'Reset Question');
     }
 }

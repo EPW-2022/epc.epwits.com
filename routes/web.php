@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\PenyisihanController;
 use App\Http\Controllers\Admin\SetupController;
 use App\Http\Controllers\Admin\PerempatController;
 use App\Http\Controllers\Admin\QuarterController;
+use App\Http\Controllers\Admin\SemifinalController;
+use App\Http\Middleware\Superadmin;
 use App\Models\Team;
 use Hamcrest\Core\Set;
 use Illuminate\Support\Facades\Route;
@@ -105,10 +107,24 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/jawaban', [PerempatController::class, 'jawaban']);
     Route::get('/ranking', [PerempatController::class, 'ranking']);
     Route::post('/submitScore/{quarter_answer}', [PerempatController::class, 'submitScore']);
+    Route::put('/changerole/{team:team_number}', [PerempatController::class, 'changerole']);
   });
   Route::resource('/perempat', PerempatController::class)->parameters([
     'perempat' => 'quarter_tryout'
   ]);
+
+  // Semifinal
+  Route::prefix('semifinal')->group(function () {
+    Route::get('/platform', [SemifinalController::class, 'platform']);
+    Route::get('/status', [SemifinalController::class, 'status']);
+    Route::get('/requestQuestion/{semifinal_tryout}', [SemifinalController::class, 'requestQuestion']);
+    Route::post('/questionAssign/{semifinal_tryout}', [SemifinalController::class, 'questionAssign']);
+    Route::get('/questionFinished/{semifinal_tryout}', [SemifinalController::class, 'questionFinished']);
+    Route::get('/dataPlatform', [SemifinalController::class, 'dataPlatform']);
+  });
+  Route::resource('/semifinal', SemifinalController::class)->parameters([
+    'semifinal' => 'semifinal_tryout'
+  ])->except(['create', 'store', 'delete']);
 });
 
 // SUPERADMIN ROUTES
@@ -126,4 +142,7 @@ Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function 
   });
   Route::delete('/deleteQuiz/{quiz_attempt}', [SuperadminController::class, 'deleteQuiz']);
   Route::delete('/deleteQuarter/{quarter_attempt}', [SuperadminController::class, 'deleteQuarter']);
+
+  Route::get('/semifinal', [SuperadminController::class, 'semifinal']);
+  Route::put('/semifinal/{semifinal_tryout}', [SuperadminController::class, 'resetQuestion']);
 });

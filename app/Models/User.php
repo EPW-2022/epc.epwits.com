@@ -96,4 +96,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Quarter_rank::class);
     }
+
+    public function semifinal_tryout()
+    {
+        return $this->hasOne(Semifinal_tryout::class);
+    }
 }

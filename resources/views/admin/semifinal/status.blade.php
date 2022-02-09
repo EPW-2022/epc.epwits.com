@@ -8,20 +8,20 @@
 
   <!--Header-->
   <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">Perempat Final</div>
+    <div class="breadcrumb-title pe-3">Semifinal</div>
     <div class="ps-3 ms-auto">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0 p-0">
           <li class="breadcrumb-item"><a href="/admin"><i class="bx bx-home-alt"></i> Dashboard</a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">Ranking Peserta</li>
+          <li class="breadcrumb-item active" aria-current="page">Status Peserta</li>
         </ol>
       </nav>
     </div>
   </div>
   <!--end of Header-->
 
-  <h6 class="mb-0 text-uppercase">Daftar Ranking Peserta</h6>
+  <h6 class="mb-0 text-uppercase">Daftar Status Peserta</h6>
   <hr>
 
   <div class="card">
@@ -33,8 +33,9 @@
               <th>No</th>
               <th>No. Tim</th>
               <th>Nama Tim</th>
-              <th>Skor</th>
-              <th>Aksi</th>
+              <th>Start Attempt</th>
+              <th>Finish Attempt</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -42,26 +43,21 @@
             <tr>
               <td class="text-center align-middle">{{ $loop->iteration }}</td>
               <td class="text-center align-middle">
-                <a href="/admin/tim/{{ $user->team_number }}">
-                  {{ $user->team_number }}
+                <a href="/admin/tim/{{ $user->team->team_number }}">
+                  {{ $user->team->team_number }}
                 </a>
               </td>
               <td class="align-middle">{{ $user->name }}</td>
-              <td class="align-middle text-center">{{ $user->score ?? '-' }}</td>
+              <td class="align-middle">{{ $user->quarter_attempt->attempt_at ?? '-' }}</td>
+              <td class="align-middle">{{ $user->quarter_attempt->finished_at ?? '-' }}</td>
               <td class="align-middle">
-                <div class="table-actions d-flex align-items-center justify-content-center gap-3 fs-6">
-                  <form action="/admin/perempat/changerole/{{ $user->team_number }}" method="post" class="d-inline">
-                    @method('PUT')
-                    @csrf
-                    <button type="submit" class="p-0 btn">
-                      @if ($user->user->roles == 'Quarter Finalist')
-                        <span class="text-success">Loloskan!</span>
-                      @else
-                        <span class="text-danger">Batalkan!</span>
-                      @endif
-                    </button>
-                  </form>
-                </div>
+                @if (empty($user->quarter_attempt->attempt_at) && empty($user->quarter_attempt->finished_at))
+                  <span class="text-danger"><i class="bi bi-x-circle"></i> Belum mengerjakan</span>
+                @elseif ($user->quarter_attempt->attempt_at && empty($user->quarter_attempt->finished_at))
+                  <span class="text-warning">Sedang Mengerjakan</span>
+                @elseif ($user->quarter_attempt->attempt_at && $user->quarter_attempt->finished_at)
+                  <span class="text-success"><i class="bi bi-check-circle"></i> Sudah selesai</span>
+                @endif  
               </td>
             </tr>
             @endforeach
@@ -71,8 +67,9 @@
               <th>No</th>
               <th>No. Tim</th>
               <th>Nama Tim</th>
-              <th>Skor</th>
-              <th>Aksi</th>
+              <th>Start Attempt</th>
+              <th>Finish Attempt</th>
+              <th>Status</th>
             </tr>
           </tfoot>
         </table>

@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/vendor/bootstrap5/dist/css/bootstrap.min.css">
@@ -96,5 +97,8 @@
     <script src="/vendor/bootstrap5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="/js/script.js?modify={{ date("Ymdhis") }}"></script>
+
+    @yield('platform')
+    
   </body>
 </html>
