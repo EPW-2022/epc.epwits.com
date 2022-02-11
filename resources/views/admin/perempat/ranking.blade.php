@@ -50,7 +50,7 @@
               <td class="align-middle text-center">{{ $user->score ?? '-' }}</td>
               <td class="align-middle">
                 <div class="table-actions d-flex align-items-center justify-content-center gap-3 fs-6">
-                  <form action="/admin/penyisihan/changerole/{{ $user->team_number }}" method="post" class="d-inline">
+                  <form action="/admin/perempat/changerole/{{ $user->team_number }}" method="post" class="d-inline">
                     @method('PUT')
                     @csrf
                     <button type="submit" class="p-0 btn">

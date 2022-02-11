@@ -105,6 +105,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/jawaban', [PerempatController::class, 'jawaban']);
     Route::get('/ranking', [PerempatController::class, 'ranking']);
     Route::post('/submitScore/{quarter_answer}', [PerempatController::class, 'submitScore']);
+    Route::put('/changerole/{team:team_number}', [PerempatController::class, 'changerole']);
   });
   Route::resource('/perempat', PerempatController::class)->parameters([
     'perempat' => 'quarter_tryout'
