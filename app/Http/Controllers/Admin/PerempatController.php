@@ -213,7 +213,7 @@ class PerempatController extends Controller
     {
         return view('admin.perempat.ranking', [
             'title'         => 'Ranking Peserta',
-            'users'         => Quarter_rank::orderBy("team_number")->orderBy("score", 'DESC')->get()
+            'users'         => Quarter_rank::orderBy("score", 'DESC')->get()
         ]);
     }
 

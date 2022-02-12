@@ -16,7 +16,7 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->roles === "Participant" || auth()->user()->roles === 'Quarter Finalist') {
+        if (auth()->user()->roles === "Participant" || auth()->user()->roles === 'Quarter Finalist' || auth()->user()->roles === 'Semifinalist') {
             return redirect('/');
         } else {
             return $next($request);
