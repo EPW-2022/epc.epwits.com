@@ -184,16 +184,20 @@ class SemifinalController extends Controller
 
         if ($request->hasFile('answer')) {
             $answer = Semifinal_answer::where('number', $validated['number'])->firstWhere('user_id', auth()->user()->id);
-            if ($answer->answer_file || $answer->open_submission == 0) {
-                return back()->with('message', 'Already answered');
-            } else {
-                $fileName = auth()->user()->team->team_number . '_Answer_' . $validated['number'] . '_' . Carbon::now()->format('Y-m-d H.i.s') . '.' . $validated['answer']->extension();
-                $request->answer->move(public_path('files/semifinal'), $fileName);
+            if ($answer) {
+                if ($answer->answer_file || $answer->open_submission == 0) {
+                    return back()->with('message', 'Already answered');
+                } else {
+                    $fileName = auth()->user()->team->team_number . '_Answer_' . $validated['number'] . '_' . Carbon::now()->format('Y-m-d H.i.s') . '.' . $validated['answer']->extension();
+                    $request->answer->move(public_path('files/semifinal'), $fileName);
 
-                $answer->update([
-                    'answer_file'   => $fileName
-                ]);
-                return back()->with('message', 'Answer Uploaded');
+                    $answer->update([
+                        'answer_file'   => $fileName
+                    ]);
+                    return back()->with('message', 'Answer Uploaded');
+                }
+            } else {
+                return back()->with('message', 'Wrong Question');
             }
         }
     }

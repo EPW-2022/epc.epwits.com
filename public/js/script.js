@@ -337,6 +337,15 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // Wrong Question
+  if (flashdata == 'Wrong Question') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Salah memilih soal!',
+      text: 'Cek lagi pilihan soalmu dan ulangi upload jawaban!',
+      confirmButtonColor: '#424a63',
+    })
+  }
 }
 
 $(function () {
