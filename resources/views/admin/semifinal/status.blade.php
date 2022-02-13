@@ -34,7 +34,6 @@
               <th>No. Tim</th>
               <th>Nama Tim</th>
               <th>Start Attempt</th>
-              <th>Finish Attempt</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -48,15 +47,12 @@
                 </a>
               </td>
               <td class="align-middle">{{ $user->name }}</td>
-              <td class="align-middle">{{ $user->quarter_attempt->attempt_at ?? '-' }}</td>
-              <td class="align-middle">{{ $user->quarter_attempt->finished_at ?? '-' }}</td>
+              <td class="align-middle">{{ $user->semifinal_attend->attempt_at ?? '-' }}</td>
               <td class="align-middle">
-                @if (empty($user->quarter_attempt->attempt_at) && empty($user->quarter_attempt->finished_at))
+                @if (empty($user->semifinal_attend->attempt_at))
                   <span class="text-danger"><i class="bi bi-x-circle"></i> Belum mengerjakan</span>
-                @elseif ($user->quarter_attempt->attempt_at && empty($user->quarter_attempt->finished_at))
+                @elseif ($user->semifinal_attend->attempt_at)
                   <span class="text-warning">Sedang Mengerjakan</span>
-                @elseif ($user->quarter_attempt->attempt_at && $user->quarter_attempt->finished_at)
-                  <span class="text-success"><i class="bi bi-check-circle"></i> Sudah selesai</span>
                 @endif  
               </td>
             </tr>
@@ -68,7 +64,6 @@
               <th>No. Tim</th>
               <th>Nama Tim</th>
               <th>Start Attempt</th>
-              <th>Finish Attempt</th>
               <th>Status</th>
             </tr>
           </tfoot>

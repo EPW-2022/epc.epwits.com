@@ -65,6 +65,25 @@ $('#deletingData').on('click', function (e) {
   })
 })
 
+$('#answerSubmission').on('click', function (e) {
+  e.preventDefault();
+  var form = $(this).parents('form');
+  Swal.fire({
+    title: 'Upload Jawaban?',
+    text: "Jawaban yang terupload tidak dapat dihapus atau diubah lagi!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Upload!',
+    cancelButtonText: 'Batalkan!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      form.submit();
+    }
+  })
+})
+
 if (flashdata) {
   // Login Gagal
   if (flashdata == 'Login Failed') {
@@ -297,6 +316,24 @@ if (flashdata) {
       icon: 'success',
       title: 'Soal Direset!',
       text: 'Hubungi panitia kembali!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Semifinal Attended
+  if (flashdata == 'Semifinal Attended') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Hadir Semifinal!',
+      text: 'Kamu sudah berhasil menghadiri semifinal. Selamat mengerjakan!',
+      confirmButtonColor: '#424a63',
+    })
+  }
+  // Already answered
+  if (flashdata == 'Already answered') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Sudah terjawab!',
+      text: 'Kamu sudah berhasil menjawab dan tidak dapat diubah lagi!',
       confirmButtonColor: '#424a63',
     })
   }

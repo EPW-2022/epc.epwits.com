@@ -6,6 +6,10 @@ use App\Models\Quarter_answer;
 use App\Models\Quarter_attempt;
 use App\Models\Quarter_rank;
 use App\Models\Quiz_answer;
+use App\Models\Semifinal_answer;
+use App\Models\Semifinal_attend;
+use App\Models\Semifinal_rank;
+use App\Models\Semifinal_tryout;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -17,10 +21,22 @@ class PagesController extends Controller
     {
         $timenow = Carbon::now();
         $quiz_answer = Quiz_answer::firstWhere('user_id', auth()->user()->id);
-        $quarter_attempt = Quarter_attempt::firstWhere('user_id', auth()->user()->id);
         $quarter_rank = Quarter_rank::firstWhere('user_id', auth()->user()->id);
 
+        $semifinal_attend = Semifinal_attend::firstWhere('user_id', auth()->user()->id);
+        $semifinal_assign = Semifinal_answer::where('user_id', auth()->user()->id)->where('answer_file', NULL)->where('open_submission', 1)->first();
+
         if (auth()->user()->roles == 'Semifinalist') {
+            if ($semifinal_attend) {
+                return view('dashboard.semifinal.submission', [
+                    'score'     => Semifinal_rank::firstWhere('user_id', auth()->user()->id)->score,
+                    'ranks'     => Semifinal_rank::orderBy('score', 'DESC')->get(),
+                    'question'  => $semifinal_assign
+                ]);
+            }
+            return view('dashboard.semifinal.index', [
+                'result'    => NULL
+            ]);
             return view('dashboard.congrats.perempat', [
                 'result'    => $quarter_rank
             ]);

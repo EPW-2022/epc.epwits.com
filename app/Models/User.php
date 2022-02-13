@@ -101,4 +101,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Semifinal_tryout::class);
     }
+
+    public function Semifinal_attend()
+    {
+        return $this->hasOne(Semifinal_attend::class);
+    }
 }

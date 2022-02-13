@@ -20,7 +20,7 @@
       </a>
     </li>
     <li class="{{ Request::is('admin/semifinal/platform') ? 'mm-active' : '' }}">
-      <a href="/admin/semifinal/platform">
+      <a href="/admin/semifinal/platform" target="_blank">
         <div class="parent-icon"><i class="bi bi-cast"></i>
         </div>
         <div class="menu-title">Semifinal Platform</div>
@@ -207,7 +207,13 @@
         <li class="{{ Request::is('admin/semifinal/status') ? 'mm-active' : '' }}">
           <a href="/admin/semifinal/status">
             <i class="bi bi-arrow-right-short"></i>
-            Status Peserta
+            Kehadiran Peserta
+          </a>
+        </li>
+        <li class="{{ Request::is('admin/semifinal/jawaban') ? 'mm-active' : '' }}">
+          <a href="/admin/semifinal/jawaban">
+            <i class="bi bi-arrow-right-short"></i>
+            Jawaban Peserta
           </a>
         </li>
       </ul>

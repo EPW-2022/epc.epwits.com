@@ -186,7 +186,7 @@
           <div class="col-sm-6 my-2">
             <div class="d-flex leaderboard-item {{ $loop->iteration <= 5 ? 'active' : '' }} justify-content-between align-items-center">
               <span class="d-block">{{ $user->name }}</span>
-              <span class="d-block h-100">2000</span>
+              <span class="d-block h-100 text-end" style="width: 75px">{{ $user->score }}</span>
             </div>
           </div>
           @endforeach
@@ -210,22 +210,24 @@
         </div>
         <div class="row">
           <div class="col-lg-6">
-            <div class="input-group my-3">
-              <label class="input-group-text" for="questionAssign">Assign for</label>
-              <select class="form-select" id="questionAssign">
-                <option selected disabled>--Choose Team--</option>
-                @foreach ($users as $user)
-                <option value="{{ $user->id }}">{{ $user->team->name }}</option>
-                @endforeach
-              </select>
-              <button class="btn btn-secondary" type="button" id="assignButton" data-number="">Assign</button>
+            <div id="assignForm">
+              <div class="input-group my-3">
+                <label class="input-group-text" for="questionAssign">Assign for</label>
+                <select class="form-select" id="questionAssign">
+                  <option selected disabled>--Choose Team--</option>
+                  @foreach ($users as $user)
+                  <option value="{{ $user->user_id }}">{{ $user->name }}</option>
+                  @endforeach
+                </select>
+                <button class="btn btn-secondary" type="button" id="assignButton" data-number="">Assign</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button> --}}
-        <button type="button" class="btn btn-primary" id="submitButton" data-number="">Selesai</button>
+        <button type="button" class="btn btn-primary" id="submitButton" data-number="" data-user="">Selesai</button>
       </div>
     </div>
   </div>
@@ -268,29 +270,6 @@
     });
 
     $(function() {
-      $('#submitButton').on('click', function () {
-        var number = $(this).attr('data-number');
-        $.ajax({
-          url: window.location.origin + '/admin/semifinal/questionFinished/' + number,
-          type: 'GET',
-          dataType: 'json',
-          success: function (data) {
-            Swal.fire({
-              icon: 'success',
-              title: 'Soal selesai dikerjakan!',
-              text: 'Ayo lanjut mengerjakan soal yang lainnya!',
-              confirmButtonColor: '#424a63',
-            }).then((result) => {
-              if (result.isConfirmed) {
-                window.location.reload();
-              }
-            })
-          }
-        });
-      });
-    });
-
-    $(function() {
       $('#assignButton').on('click', function() {
         var value = $('#questionAssign').val();
         var _token = $('meta[name=csrf-token]').attr('content');
@@ -305,10 +284,12 @@
             number: number
           },
           success: function (data) {
+            $('#submitButton').attr('data-user', data.id);
+            $('#assignForm').css('display', 'none');
             Swal.fire({
               icon: 'success',
               title: 'Soal telah diberikan!',
-              text: 'Jangan lupa dikerjain yaa! Semangat, ' + data + '!',
+              text: 'Jangan lupa dikerjain yaa! Semangat, ' + data.name + '!',
               confirmButtonColor: '#424a63',
             })
           }, 
@@ -318,6 +299,36 @@
         });
       })
     })
+
+    $(function() {
+      $('#submitButton').on('click', function () {
+        var number = $(this).attr('data-number');
+        var user = $(this).attr('data-user');
+        $.ajax({
+          url: window.location.origin + '/admin/semifinal/questionFinished/' + number,
+          type: 'GET',
+          data: {
+            user_id: user
+          },
+          dataType: 'json',
+          success: function (data) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Soal selesai dikerjakan!',
+              text: 'Ayo lanjut mengerjakan soal yang lainnya!',
+              confirmButtonColor: '#424a63',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload();
+              }
+            })
+          }, 
+          error: function (data) {
+            console.log(data)
+          }
+        });
+      });
+    });
 
     var updatePlatform = function () {
       $.ajax({

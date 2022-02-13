@@ -42,6 +42,8 @@ Route::middleware(['auth', 'registered', 'participant'])->group(function () {
 
   Route::post('/getSession/{team:team_number}', [QuizController::class, 'getSession']);
   Route::post('/quarterSession/{team:team_number}', [QuarterController::class, 'quarterSession']);
+  Route::post('/semifinalAttend/{team:team_number}', [SemifinalController::class, 'semifinalAttend']);
+  Route::post('/answerSubmit', [SemifinalController::class, 'answerSubmit']);
 });
 Route::get('/verifying', [PagesController::class, 'verifying'])->middleware('auth');
 
@@ -117,6 +119,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
   Route::prefix('semifinal')->group(function () {
     Route::get('/platform', [SemifinalController::class, 'platform']);
     Route::get('/status', [SemifinalController::class, 'status']);
+    Route::get('/jawaban', [SemifinalController::class, 'jawaban']);
+    Route::post('/submitScore/{semifinal_answer}', [SemifinalController::class, 'submitScore']);
     Route::get('/requestQuestion/{semifinal_tryout}', [SemifinalController::class, 'requestQuestion']);
     Route::post('/questionAssign/{semifinal_tryout}', [SemifinalController::class, 'questionAssign']);
     Route::get('/questionFinished/{semifinal_tryout}', [SemifinalController::class, 'questionFinished']);
