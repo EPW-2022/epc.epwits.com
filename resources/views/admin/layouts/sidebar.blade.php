@@ -216,6 +216,12 @@
             Jawaban Peserta
           </a>
         </li>
+        <li class="{{ Request::is('admin/semifinal/ranking') ? 'mm-active' : '' }}">
+          <a href="/admin/semifinal/ranking">
+            <i class="bi bi-arrow-right-short"></i>
+            Ranking Peserta
+          </a>
+        </li>
       </ul>
     </li>
 

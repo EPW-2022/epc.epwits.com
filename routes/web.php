@@ -121,6 +121,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/status', [SemifinalController::class, 'status']);
     Route::get('/jawaban', [SemifinalController::class, 'jawaban']);
     Route::post('/submitScore/{semifinal_answer}', [SemifinalController::class, 'submitScore']);
+    Route::get('/ranking', [SemifinalController::class, 'ranking']);
     Route::get('/requestQuestion/{semifinal_tryout}', [SemifinalController::class, 'requestQuestion']);
     Route::post('/questionAssign/{semifinal_tryout}', [SemifinalController::class, 'questionAssign']);
     Route::get('/questionFinished/{semifinal_tryout}', [SemifinalController::class, 'questionFinished']);

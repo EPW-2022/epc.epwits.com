@@ -252,4 +252,12 @@ class SemifinalController extends Controller
 
         return response()->json(['score' => $request->score]);
     }
+
+    public function ranking()
+    {
+        return view('admin.semifinal.ranking', [
+            'title'         => 'Ranking Peserta',
+            'users'         => Semifinal_rank::orderBy("score", 'DESC')->get()
+        ]);
+    }
 }

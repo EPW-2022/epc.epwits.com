@@ -29,7 +29,7 @@ class UserFactory extends Factory
             'username'      => $this->faker->unique()->userName(),
             'email'         => $this->faker->unique()->safeEmail(),
             'password'      => Hash::make('epcbetatest'),
-            'roles'         => 'Quarter Finalist',
+            'roles'         => 'Semifinalist',
             'verified_at'   => Carbon::now()
         ];
     }

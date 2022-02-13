@@ -185,7 +185,8 @@
           @foreach ($users as $user)
           <div class="col-sm-6 my-2">
             <div class="d-flex leaderboard-item {{ $loop->iteration <= 5 ? 'active' : '' }} justify-content-between align-items-center">
-              <span class="d-block">{{ $user->name }}</span>
+              <span class="d-block flex-grow-0 text-center mx-auto" style="width: 45px">{{ $loop->iteration }}</span>
+              <span class="d-block flex-grow-1">{{ $user->name }}</span>
               <span class="d-block h-100 text-end" style="width: 75px">{{ $user->score }}</span>
             </div>
           </div>
