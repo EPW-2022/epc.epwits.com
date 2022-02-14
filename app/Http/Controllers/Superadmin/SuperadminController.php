@@ -8,6 +8,7 @@ use App\Models\Leader;
 use App\Models\Member;
 use App\Models\Quarter_attempt;
 use App\Models\Quiz_attempt;
+use App\Models\Semifinal_answer;
 use App\Models\Semifinal_tryout;
 use App\Models\Team;
 use App\Models\User;
@@ -149,5 +150,12 @@ class SuperadminController extends Controller
             'user_id'       => NULL
         ]);
         return redirect('superadmin/semifinal')->with('message', 'Reset Question');
+    }
+
+    public function deleteAnswer(Request $request, Semifinal_answer $semifinal_answer)
+    {
+        $semifinal_answer->delete();
+
+        return back()->with('message', 'Delete Semifinal Answer');
     }
 }

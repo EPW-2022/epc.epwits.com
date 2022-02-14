@@ -346,6 +346,15 @@ if (flashdata) {
       confirmButtonColor: '#424a63',
     })
   }
+  // Delete Semifinal Answer
+  if (flashdata == 'Delete Semifinal Answer') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Jawaban Dihapus!',
+      text: 'Jawaban peserta sudah berhasil dihapus dan tidak dapat dikembalikan lagi!',
+      confirmButtonColor: '#424a63',
+    })
+  }
 }
 
 $(function () {

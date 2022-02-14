@@ -150,4 +150,5 @@ Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function 
 
   Route::get('/semifinal', [SuperadminController::class, 'semifinal']);
   Route::put('/semifinal/{semifinal_tryout}', [SuperadminController::class, 'resetQuestion']);
+  Route::delete('/semifinal/deleteAnswer/{semifinal_answer}', [SuperadminController::class, 'deleteAnswer']);
 });

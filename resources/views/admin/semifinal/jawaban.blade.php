@@ -51,7 +51,7 @@
               <td class="align-middle text-center">{{ $answer->number }}</td>
               <td class="align-middle text-wrap">
                 @if ($answer->answer_file)
-                  <a href="/files/perempat/{{ $answer->answer_file }}" target="_blank">
+                  <a href="/files/semifinal/{{ $answer->answer_file }}" target="_blank">
                     {{ $answer->answer_file }}
                   </a>
                 @else
@@ -59,17 +59,27 @@
                 @endif
               </td>
               <td class="align-middle text-nowrap">
-                @if ($answer->answer_file)
-                  <form action="/admin/semifinal/submitScore/{{ $answer->id }}" method="post">
+                <div class="d-flex justify-content-center align-items-center">
+                  @if ($answer->answer_file)
+                    <form action="/admin/semifinal/submitScore/{{ $answer->id }}" method="post">
+                      @csrf
+                      <div class="input-group input-group-sm" style="min-width: 150px">
+                        <input type="number" class="form-control" name="score" min="0" value="{{ $answer->score }}">
+                        <button class="btn btn-success submitScore" type="submit" id="button-addon2"><i class="bi bi-check"></i></button>
+                      </div>
+                    </form>
+                  @else
+                    <em class="d-block text-center text-warning">Belum dijawab</em> 
+                  @endif
+                   
+                  @if (auth()->user()->roles == 'Superadmin')
+                  <form action="/superadmin/semifinal/deleteAnswer/{{ $answer->id }}" method="POST">
                     @csrf
-                    <div class="input-group input-group-sm" style="min-width: 150px">
-                      <input type="number" class="form-control" name="score" min="0" value="{{ $answer->score }}">
-                      <button class="btn btn-success submitScore" type="submit" id="button-addon2"><i class="bi bi-check"></i></button>
-                    </div>
+                    @method('DELETE')
+                    <button type="submit" id="deletingData" class="text-danger mx-2 btn p-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hapus Soal"><i class="bi bi-trash-fill"></i></button>
                   </form>
-                @else
-                  <em class="d-block text-center text-warning">Belum dijawab</em> 
-                @endif 
+                  @endif
+                </div>
               </td>
             </tr>
             @endforeach

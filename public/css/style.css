@@ -863,10 +863,11 @@ article#dashboard .container #platform .leaderboard-container .leaderboard-item 
   font: bold 1rem/1.25rem "Zilla Slab", serif;
   color: #424a63;
   padding: calc(0.5rem - 3px) 1rem;
+  border-right: 3px solid #424a63;
 }
 
 article#dashboard .container #platform .leaderboard-container .leaderboard-item span:last-of-type {
-  border-left: 3px solid #424a63;
+  border-right: none;
 }
 
 article#dashboard .container #platform .leaderboard-container .leaderboard-item.active {
@@ -880,10 +881,11 @@ article#dashboard .container #platform .leaderboard-container .leaderboard-item.
   color: #f2f2f2;
   padding: 0.5rem 1rem;
   height: 100%;
+  border-right: 3px solid #fde7b6;
 }
 
-article#dashboard .container #platform .leaderboard-container .leaderboard-item.active span:first-of-type {
-  border-right: 3px solid #fde7b6;
+article#dashboard .container #platform .leaderboard-container .leaderboard-item.active span:last-of-type {
+  border-right: none;
   flex-grow: 1;
 }
 

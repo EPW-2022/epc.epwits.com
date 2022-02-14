@@ -358,8 +358,9 @@ article#dashboard {
                         font: bold 1rem/1.25rem $font-zilla;
                         color: $darker-blue;
                         padding: calc(0.5rem - 3px) 1rem;
+                        border-right: 3px solid $darker-blue;
                         &:last-of-type {
-                            border-left: 3px solid $darker-blue;
+                            border-right: none;
                         }
                     }
                     &.active {
@@ -371,8 +372,9 @@ article#dashboard {
                             color: $color-white;
                             padding: 0.5rem 1rem;
                             height: 100%;
-                            &:first-of-type {
-                                border-right: 3px solid $primary-event;
+                            border-right: 3px solid $primary-event;
+                            &:last-of-type {
+                                border-right: none;
                                 flex-grow: 1;
                             }
                         }
