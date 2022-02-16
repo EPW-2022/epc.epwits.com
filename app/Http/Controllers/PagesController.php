@@ -19,7 +19,8 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $open = Carbon::create(2022, 2, 18, 12, 0, 0);
+        $semifinal_open = Carbon::create(2022, 2, 18, 18, 0, 0);
+        $semifinal_closed = Carbon::create(2022, 2, 19, 13, 0, 0);
         $timenow = Carbon::now();
         $quiz_answer = Quiz_answer::firstWhere('user_id', auth()->user()->id);
         $quarter_rank = Quarter_rank::firstWhere('user_id', auth()->user()->id);
@@ -28,16 +29,24 @@ class PagesController extends Controller
         $semifinal_assign = Semifinal_answer::where('user_id', auth()->user()->id)->where('answer_file', NULL)->where('open_submission', 1)->first();
 
         if (auth()->user()->roles == 'Semifinalist') {
-            if ($semifinal_attend) {
+            if ($semifinal_attend && $timenow->lessThan($semifinal_closed)) {
                 return view('dashboard.semifinal.submission', [
                     'score'     => Semifinal_rank::firstWhere('user_id', auth()->user()->id)->score,
                     'ranks'     => Semifinal_rank::orderBy('score', 'DESC')->get(),
                     'question'  => $semifinal_assign
                 ]);
-            }
-            if ($timenow->greaterThan($open)) {
+            } elseif ($timenow->greaterThan($semifinal_closed)) {
                 return view('dashboard.semifinal.index', [
-                    'result'    => NULL
+                    'score'     => Semifinal_rank::firstWhere('user_id', auth()->user()->id)->score,
+                    'ranks'     => Semifinal_rank::orderBy('score', 'DESC')->get(),
+                    'result'    => $semifinal_attend ?? NULL
+                ]);
+            }
+            if ($timenow->greaterThan($semifinal_open)) {
+                return view('dashboard.semifinal.index', [
+                    'score'     => '-',
+                    'ranks'     => NULL,
+                    'result'    => $semifinal_attend ?? NULL
                 ]);
             } else {
                 return view('dashboard.congrats.perempat', [
