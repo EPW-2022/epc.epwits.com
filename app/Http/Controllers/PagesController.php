@@ -19,6 +19,7 @@ class PagesController extends Controller
 {
     public function index()
     {
+        $open = Carbon::create(2022, 2, 18, 12, 0, 0);
         $timenow = Carbon::now();
         $quiz_answer = Quiz_answer::firstWhere('user_id', auth()->user()->id);
         $quarter_rank = Quarter_rank::firstWhere('user_id', auth()->user()->id);
@@ -34,12 +35,15 @@ class PagesController extends Controller
                     'question'  => $semifinal_assign
                 ]);
             }
-            return view('dashboard.semifinal.index', [
-                'result'    => NULL
-            ]);
-            return view('dashboard.congrats.perempat', [
-                'result'    => $quarter_rank
-            ]);
+            if ($timenow->greaterThan($open)) {
+                return view('dashboard.semifinal.index', [
+                    'result'    => NULL
+                ]);
+            } else {
+                return view('dashboard.congrats.perempat', [
+                    'result'    => $quarter_rank
+                ]);
+            }
         } elseif (auth()->user()->roles == 'Quarter Finalist') {
             return view('dashboard.failure.perempat', [
                 'result'    => $quarter_rank

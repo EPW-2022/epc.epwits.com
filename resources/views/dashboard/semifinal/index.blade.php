@@ -105,7 +105,7 @@
           <p class="ms-2">11.00</p>
         </div>
         @if ($result)
-          <button disabled class="announcement-button mx-auto mt-3">Attempted</button>
+          <button disabled class="announcement-button mx-auto mt-3">Attended</button>
         @else
           <button type="button" data-bs-toggle="modal" data-bs-target="#attemptQuiz" class="announcement-button mx-auto mt-3">Attend</button>
         @endif
