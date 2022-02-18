@@ -9,6 +9,7 @@ use App\Models\Member;
 use App\Models\Quarter_attempt;
 use App\Models\Quiz_attempt;
 use App\Models\Semifinal_answer;
+use App\Models\Semifinal_rank;
 use App\Models\Semifinal_tryout;
 use App\Models\Team;
 use App\Models\User;
@@ -138,9 +139,15 @@ class SuperadminController extends Controller
     public function semifinal()
     {
         return view('admin.superadmin.semifinal', [
-            'title' => 'Semifinal Question Reset',
-            'questions' => Semifinal_tryout::all()
+            'title'     => 'Semifinal Question Reset',
+            'questions' => Semifinal_tryout::all(),
+            'users'     => Semifinal_rank::orderBy('score', 'DESC')->get()
         ]);
+    }
+
+    public function requestQuestion(Request $request, Semifinal_tryout $semifinal_tryout)
+    {
+        return response()->json($semifinal_tryout);
     }
 
     public function resetQuestion(Semifinal_tryout $semifinal_tryout)
@@ -149,7 +156,7 @@ class SuperadminController extends Controller
             'availabled'    => 0,
             'user_id'       => NULL
         ]);
-        return redirect('superadmin/semifinal')->with('message', 'Reset Question');
+        return response()->json('Reset Question');
     }
 
     public function deleteAnswer(Request $request, Semifinal_answer $semifinal_answer)

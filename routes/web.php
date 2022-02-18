@@ -149,6 +149,7 @@ Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function 
   Route::delete('/deleteQuarter/{quarter_attempt}', [SuperadminController::class, 'deleteQuarter']);
 
   Route::get('/semifinal', [SuperadminController::class, 'semifinal']);
-  Route::put('/semifinal/{semifinal_tryout}', [SuperadminController::class, 'resetQuestion']);
+  Route::get('/requestQuestion/{semifinal_tryout}', [SuperadminController::class, 'requestQuestion']);
+  Route::get('/semifinal/{semifinal_tryout}', [SuperadminController::class, 'resetQuestion']);
   Route::delete('/semifinal/deleteAnswer/{semifinal_answer}', [SuperadminController::class, 'deleteAnswer']);
 });

@@ -82,6 +82,8 @@
   <!--app-->
   <script src="/js/script.js?modify={{ date("Ymd")}}"></script>
   <script src="/js/app.js"></script>
+  
+  @yield('platform')
 
 </body>
 

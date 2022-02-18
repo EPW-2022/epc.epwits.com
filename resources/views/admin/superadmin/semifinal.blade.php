@@ -26,68 +26,264 @@
 
   <div class="card">
     <div class="card-body">
-      <div class="table-responsive">
-        <table id="example2" class="table table-striped table-bordered py-3">
+      <div class="table-responsive my-3">
+        <table class="table">
           <thead>
             <tr>
-              <th>No</th>
-              <th>Kategori</th>
-              <th>Laboratorium</th>
-              <th>Soal</th>
-              <th>Status</th>
-              <th>Assigned</th>
-              <th>Aksi</th>
+              <th class="text-center">Kategori</th>
+              <th class="text-center">Easy</th>
+              <th class="text-center">Medium</th>
+              <th class="text-center">Hard</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($questions as $question)
             <tr>
-              <td class="text-center align-middle">{{ $question->number }}</td>
-              <td class="text-center align-middle">{{ $question->category }}</td>
-              <td class="text-center align-middle">{{ $question->laboratory }}</td>
-              <td class="align-middle text-wrap">{!! $question->question ?: '<em class="text-center d-block">Belum ada soal</em>' !!}</td>
-              <td class="text-center align-middle">
-                @if ($question->availabled)
-                  <span class="text-danger"><em>On progress</em></span>
-                @else
-                  <span class="text-success"><em>Available</em></span>
-                @endif
-              </td>
-              <td class="text-center align-middle">
-                @if ($question->user_id != NULL)
-                  <span class="text-warning">{{ $question->user->name }}</span>
-                @else
-                  <span class="text-success"><em>Not Assigned</em></span>
-                @endif
-              </td>
-              <td class="align-middle">
-                <div class="table-actions d-flex justify-content-center align-items-center gap-3 fs-6">
-                  @if ($question->availabled)
-                  <form action="/superadmin/semifinal/{{ $question->number }}" method="post">
-                    @csrf
-                    @method('PUT')
-                    <button type="submit" class="btn btn-sm text-danger mx-2">Reset</button>
-                  </form>
+              <td class="align-middle">Energi</td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Energi' && $question->category == 'Easy')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Energi' && $question->category == 'Medium')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Energi' && $question->category == 'Hard')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
                 </div>
               </td>
             </tr>
-            @endforeach
-          </tbody>
-          <tfoot>
             <tr>
-              <th>No</th>
-              <th>Kategori</th>
-              <th>Laboratorium</th>
-              <th>Soal</th>
-              <th>Status</th>
-              <th>Assigned</th>
-              <th>Aksi</th>
+              <td class="align-middle">Fotonika</td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Fotonika' && $question->category == 'Easy')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Fotonika' && $question->category == 'Medium')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Fotonika' && $question->category == 'Hard')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
             </tr>
-          </tfoot>
+            <tr>
+              <td class="align-middle">Vibrastik</td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Vibrastik' && $question->category == 'Easy')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Vibrastik' && $question->category == 'Medium')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Vibrastik' && $question->category == 'Hard')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="align-middle">Instrumentasi</td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Instrumentasi' && $question->category == 'Easy')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Instrumentasi' && $question->category == 'Medium')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Instrumentasi' && $question->category == 'Hard')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="align-middle">Bahan</td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Bahan' && $question->category == 'Easy')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Bahan' && $question->category == 'Medium')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+              <td>
+                <div class="d-flex justify-content-center my-2">
+                  @foreach ($questions as $key => $question)
+                  @if ($question->laboratory == 'Bahan' && $question->category == 'Hard')
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  @endif
+                  @endforeach
+                </div>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="questionModalLabel">Processing..</h5>
+      </div>
+      <div class="modal-body">
+        <div class="question-body">
+          Processing..
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="resetButton" data-number="" data-user="">Reset</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
   
+@endsection
+
+@section('platform')
+  <script>
+    $(function () {
+      $('.question-number').on('click', function (e) {
+        $(this).addClass('active');
+        var number = $(this).attr('data-question');
+        var actionForm = $('.modal-form').attr('action')
+        $.ajax({
+          type: "GET",
+          url: window.location.origin + '/superadmin/requestQuestion/' + number,
+          dataType: 'JSON',
+          success: function (data) {
+            if (data.availabled == 1){
+              $('#resetButton').css('display', 'block').attr('data-number', data.number)
+            } else {
+              $('#resetButton').css('display', 'none').attr('data-number', '')
+            }
+            $('#questionModalLabel').html(data.laboratory + ' ' + data.category + ' No. ' + data.number);
+            $('.question-body').html(data.question);
+            var questionModal = new bootstrap.Modal(document.getElementById('questionModal'));
+            questionModal.show()
+          }
+        });
+        // }
+      });
+    });
+
+    $(function () {
+      $('#resetButton').on('click', function() {
+        var number= $(this).attr('data-number')
+        $.ajax({
+          type: "GET",
+          url: window.location.origin + '/superadmin/semifinal/' + number,
+          success: function (data) {
+            $(this).css('display', 'none').attr('data-number', '')
+            Swal.fire({
+              icon: 'success',
+              title: 'Soal Direset!',
+              text: 'Hubungi panitia kembali!',
+              confirmButtonColor: '#424a63',
+            })
+          }
+        })
+      })
+    })
+
+    var updatePlatform = function () {
+      $.ajax({
+        url: window.location.origin + '/admin/semifinal/dataPlatform',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          data.forEach(data => {
+            if (data.availabled == 0 && $('#question' + data.number).hasClass('btn-danger')) {
+              $('#question' + data.number).removeClass('btn-danger')
+              $('#question' + data.number).addClass('btn-success')
+            }
+            if (data.availabled == 1) {
+              $('#question' + data.number).removeClass('btn-success')
+              $('#question' + data.number).addClass('btn-danger')
+            }
+          });
+        }
+      })
+    }
+
+    updatePlatform();
+    setInterval(() => {
+      updatePlatform();
+    }, 500);
+  </script>
 @endsection
