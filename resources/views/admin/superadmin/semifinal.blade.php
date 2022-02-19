@@ -228,7 +228,7 @@
           url: window.location.origin + '/superadmin/requestQuestion/' + number,
           dataType: 'JSON',
           success: function (data) {
-            if (data.question.availabled == 1 && data.question.user_id){
+            if (data.question.availabled == 1){
               $('#resetButton').css('display', 'block').attr('data-number', data.question.number)
               $('#questionAssigned').html(data.user_name)
             } else {
