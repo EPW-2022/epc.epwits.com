@@ -147,7 +147,7 @@ class SuperadminController extends Controller
 
     public function requestQuestion(Request $request, Semifinal_tryout $semifinal_tryout)
     {
-        return response()->json($semifinal_tryout);
+        return response()->json(['question' => $semifinal_tryout, 'user_name' => $semifinal_tryout->user->name ?? NULL]);
     }
 
     public function resetQuestion(Semifinal_tryout $semifinal_tryout)

@@ -204,6 +204,7 @@
         <div class="question-body">
           Processing..
         </div>
+        <p>Assigned for : <span id="questionAssigned"></span></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="resetButton" data-number="" data-user="">Reset</button>
@@ -227,15 +228,20 @@
           url: window.location.origin + '/superadmin/requestQuestion/' + number,
           dataType: 'JSON',
           success: function (data) {
-            if (data.availabled == 1){
-              $('#resetButton').css('display', 'block').attr('data-number', data.number)
+            if (data.question.availabled == 1){
+              $('#resetButton').css('display', 'block').attr('data-number', data.question.number)
+              $('#questionAssigned').html(data.user_name)
             } else {
               $('#resetButton').css('display', 'none').attr('data-number', '')
+              $('#questionAssigned').html("Not assigned")
             }
-            $('#questionModalLabel').html(data.laboratory + ' ' + data.category + ' No. ' + data.number);
-            $('.question-body').html(data.question);
+            $('#questionModalLabel').html(data.question.laboratory + ' ' + data.question.category + ' No. ' + data.question.number);
+            $('.question-body').html(data.question.question);
             var questionModal = new bootstrap.Modal(document.getElementById('questionModal'));
             questionModal.show()
+          },
+          error: function (data) {
+            console.log(data)
           }
         });
         // }
