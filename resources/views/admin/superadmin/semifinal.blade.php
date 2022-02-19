@@ -43,7 +43,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Energi' && $question->category == 'Easy')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -52,7 +52,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Energi' && $question->category == 'Medium')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -61,7 +61,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Energi' && $question->category == 'Hard')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -73,7 +73,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Fotonika' && $question->category == 'Easy')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -82,7 +82,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Fotonika' && $question->category == 'Medium')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -91,7 +91,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Fotonika' && $question->category == 'Hard')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -103,7 +103,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Vibrastik' && $question->category == 'Easy')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -112,7 +112,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Vibrastik' && $question->category == 'Medium')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -121,7 +121,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Vibrastik' && $question->category == 'Hard')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -133,7 +133,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Instrumentasi' && $question->category == 'Easy')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -142,7 +142,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Instrumentasi' && $question->category == 'Medium')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -151,7 +151,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Instrumentasi' && $question->category == 'Hard')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -163,7 +163,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Bahan' && $question->category == 'Easy')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -172,7 +172,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Bahan' && $question->category == 'Medium')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -181,7 +181,7 @@
                 <div class="d-flex justify-content-center my-2">
                   @foreach ($questions as $key => $question)
                   @if ($question->laboratory == 'Bahan' && $question->category == 'Hard')
-                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn {{ $question->availabled ? 'btn-danger' : 'btn-success' }} mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
+                  <button type="button" id="question{{ $question->number }}" style="width: 50px;" class="question-number d-block btn btn-success mx-1" data-question="{{ $question->number }}">{{ $question->number }}</button>
                   @endif
                   @endforeach
                 </div>
@@ -228,7 +228,7 @@
           url: window.location.origin + '/superadmin/requestQuestion/' + number,
           dataType: 'JSON',
           success: function (data) {
-            if (data.question.availabled == 1){
+            if (data.question.availabled == 1 && data.question.user_id){
               $('#resetButton').css('display', 'block').attr('data-number', data.question.number)
               $('#questionAssigned').html(data.user_name)
             } else {
@@ -274,13 +274,20 @@
         dataType: 'json',
         success: function (data) {
           data.forEach(data => {
-            if (data.availabled == 0 && $('#question' + data.number).hasClass('btn-danger')) {
-              $('#question' + data.number).removeClass('btn-danger')
-              $('#question' + data.number).addClass('btn-success')
+            if (data.availabled == 0) {
+              if ($('#question' + data.number).hasClass('btn-danger') || $('#question' + data.number).hasClass('btn-warning')) {
+                $('#question' + data.number).removeClass('btn-danger')
+                $('#question' + data.number).addClass('btn-success')
+              }
             }
             if (data.availabled == 1) {
-              $('#question' + data.number).removeClass('btn-success')
-              $('#question' + data.number).addClass('btn-danger')
+              if (data.user_id) {
+                $('#question' + data.number).removeClass('btn-success')
+                $('#question' + data.number).addClass('btn-danger')
+              } else {
+                $('#question' + data.number).removeClass('btn-success')
+                $('#question' + data.number).addClass('btn-warning')
+              }
             }
           });
         }
